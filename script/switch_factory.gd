@@ -11,4 +11,4 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("roration"):
 		var rotations = Global.TileTransform.values()
 		var index = rotations.find(Global.currentrotation)
-		Global.currentrotation = rotations[(index + 1) % rotations.size()]
+		Global.currentrotation = rotations[(index + 1) % (rotations.size()-1)]

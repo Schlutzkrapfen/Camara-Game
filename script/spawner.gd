@@ -27,8 +27,9 @@ func output_items(factory):
 		var current_size:int = factory.last_output% factory.output_tile.size()
 		var item = item_resource.item_scene.instantiate()
 		var keys = factory.output_tile.keys()
+		
 		item.global_position = tilemap.to_global(
-	tilemap.map_to_local(factory.position + keys[current_size])
+		tilemap.map_to_local(factory.position + Global.get_rotation_out_of_size(keys[current_size].x,keys[current_size].y,factory.build_rotation))
 )
 		print(tilemap.to_global(map_to_local(factory.position)))
 		add_child(item)
@@ -59,5 +60,7 @@ func spawn(mouse_position):
 			var tiles =tile+ Global.get_rotation_out_of_size(x ,y)
 			tilemap.set_cell(tiles,Global.factory_list[Global.current_house].tilemap_id,Global.factory_list[Global.current_house].position_tilemap+local_tile,Global.currentrotation)
 	Global.factory_list[Global.current_house].position = tile
+	Global.factory_list[Global.current_house].build_rotation = Global.currentrotation
 	current_builds.append(Global.factory_list[Global.current_house])
+	
 	
