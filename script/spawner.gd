@@ -19,8 +19,8 @@ func _process(delta: float) -> void:
 		if factoy.input == factoy.cur_input:
 			factoy.cur_time +=delta
 			if factoy.cur_time > factoy.craft_time: 
-				output_items()
-func output_items():
+				output_items(factoy)
+func output_items(BuildingResource):
 	pass
 
 
