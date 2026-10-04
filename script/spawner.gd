@@ -5,7 +5,13 @@ extends TileMapLayer
 signal new_flowmaptile_saved(postion,transform)  
 signal item_spawned(Node2d)  
 var is_okay_to_build:bool = true
-var current_builds:Array[BuildingResource]
+class BuildData:
+	var outputs: Array[Vector2i] = []
+	var transform: Global.TileTransform
+	var cut_time: float
+
+
+var current_builds: Dictionary[Vector2i, BuildData]
 
 
 
@@ -18,23 +24,23 @@ func check_building(is_okay:bool):
 	is_okay_to_build = is_okay
 
 func _process(delta: float) -> void:
-	for factoy in current_builds:
-		if factoy.input == factoy.cur_input:
-			factoy.cur_time +=delta
-			if factoy.cur_time > factoy.craft_time: 
-				output_items(factoy)
-				factoy.cur_time = 0
+	for key in current_builds: # or current_builds.items()
+		var factory = current_builds[key]
+		if factory.input == factory.cur_input:
+			factory.cur_time +=delta
+			if factory.cur_time > factory.craft_time: 
+				output_items(factory,key)
+				factory.cur_time = 0
 				
 
-
-func output_items(factory):
+func output_items(factory,positon):
 	for item_resource in factory.output:
 		var current_size:int = factory.last_output% factory.output_tile.size()
 		var item = item_resource.item_scene.instantiate()
 		var keys = factory.output_tile.keys()
 		
 		item.global_position = tilemap.to_global(
-		tilemap.map_to_local(factory.position + Global.get_rotation_out_of_size(keys[current_size].x,keys[current_size].y,factory.build_rotation))
+		tilemap.map_to_local(positon + Global.get_rotation_out_of_size(keys[current_size].x,keys[current_size].y,factory.build_rotation))
 )
 		add_child(item)
 		emit_signal("item_spawned",item)
@@ -58,7 +64,6 @@ func delete(mouse_position):
 func spawn(mouse_position):
 	var local_position = tilemap.to_local(mouse_position)
 	var tile = tilemap.local_to_map(local_position)
-	print(tile,Global.factory_list[Global.current_house].tilemap_id,Global.factory_list[Global.current_house].position_tilemap)
 	for x in Global.factory_list[Global.current_house].size.x:
 		for y in Global.factory_list[Global.current_house].size.y:
 			var local_tile =  Vector2i(x,y)
@@ -67,7 +72,9 @@ func spawn(mouse_position):
 			tilemap.set_cell(tiles,Global.factory_list[Global.current_house].tilemap_id,Global.factory_list[Global.current_house].position_tilemap+local_tile,Global.currentrotation)
 	Global.factory_list[Global.current_house].position = tile
 	Global.factory_list[Global.current_house].build_rotation = Global.currentrotation
-	current_builds.append(Global.factory_list[Global.current_house])
+	#current_builds[tile] = Global.factory_list[Global.current_house]
+	print(current_builds)
+
 
 	
 	

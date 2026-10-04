@@ -24,8 +24,6 @@ func _process(delta: float) -> void:
 func move_item(node:Sprite2D,delta:float,transform_data:Global.TileTransform,flowfield_global_pos:Vector2):
 	match transform_data:
 		Global.TileTransform.ROTATE_0:
-			print(flowfield_global_pos)
-			print(node.global_position)
 			
 			var target_y := flowfield_global_pos.y 
 
