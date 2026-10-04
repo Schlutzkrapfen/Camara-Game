@@ -2,9 +2,12 @@ extends TileMapLayer
 
 
 @onready var tilemap:TileMapLayer =  self
-
+signal new_flowmaptile_saved(postion,transform)  
+signal item_spawned(Node2d)  
 var is_okay_to_build:bool = true
 var current_builds:Array[BuildingResource]
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,6 +24,8 @@ func _process(delta: float) -> void:
 			if factoy.cur_time > factoy.craft_time: 
 				output_items(factoy)
 				factoy.cur_time = 0
+				
+
 
 func output_items(factory):
 	for item_resource in factory.output:
@@ -31,8 +36,8 @@ func output_items(factory):
 		item.global_position = tilemap.to_global(
 		tilemap.map_to_local(factory.position + Global.get_rotation_out_of_size(keys[current_size].x,keys[current_size].y,factory.build_rotation))
 )
-		print(tilemap.to_global(map_to_local(factory.position)))
 		add_child(item)
+		emit_signal("item_spawned",item)
 
 
 func _input(event: InputEvent) -> void:
@@ -57,10 +62,12 @@ func spawn(mouse_position):
 	for x in Global.factory_list[Global.current_house].size.x:
 		for y in Global.factory_list[Global.current_house].size.y:
 			var local_tile =  Vector2i(x,y)
-			var tiles =tile+ Global.get_rotation_out_of_size(x ,y)
+			var tiles = tile + Global.get_rotation_out_of_size(x ,y)
+			emit_signal("new_flowmaptile_saved",tiles,Global.currentrotation)
 			tilemap.set_cell(tiles,Global.factory_list[Global.current_house].tilemap_id,Global.factory_list[Global.current_house].position_tilemap+local_tile,Global.currentrotation)
 	Global.factory_list[Global.current_house].position = tile
 	Global.factory_list[Global.current_house].build_rotation = Global.currentrotation
 	current_builds.append(Global.factory_list[Global.current_house])
+
 	
 	

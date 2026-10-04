@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b5w0sxaixnlhk" path="res://assets/Protype Factory/splitter.png" id="3_wr0fo"]
 [ext_resource type="Texture2D" uid="uid://cjxdymamhuqj0" path="res://assets/Protype Factory/goofactory.png" id="4_mc1i1"]
 [ext_resource type="Script" uid="uid://b7r4n585kvy5" path="res://script/spawner.gd" id="4_p8lrm"]
+[ext_resource type="Script" uid="uid://bko1gb6s0qt05" path="res://Levels/flow_field.gd" id="6_8rkvs"]
 [ext_resource type="Script" uid="uid://bi4ewvw0hvmxg" path="res://script/switch_factory.gd" id="8_wjs4o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mne4e"]
@@ -66,13 +67,19 @@ position = Vector2(576, 327)
 tile_set = SubResource("TileSet_nacyp")
 script = ExtResource("4_p8lrm")
 
+[node name="FlowField" type="Node" parent="MainTailMap" unique_id=20738206 node_paths=PackedStringArray("main_tile_map")]
+script = ExtResource("6_8rkvs")
+main_tile_map = NodePath("..")
+
 [node name="CheckIfBuild" type="TileMapLayer" parent="." unique_id=1360988074 node_paths=PackedStringArray("main_tileset")]
 tile_set = SubResource("TileSet_mne4e")
 physics_quadrant_size = 100
 script = ExtResource("1_72q2g")
 main_tileset = NodePath("../MainTailMap")
 
-[node name="Node" type="Node" parent="." unique_id=1143980631]
+[node name="SwitchBuilding" type="Node" parent="." unique_id=1143980631]
 script = ExtResource("8_wjs4o")
 
+[connection signal="item_spawned" from="MainTailMap" to="MainTailMap/FlowField" method="append_list_items"]
+[connection signal="new_flowmaptile_saved" from="MainTailMap" to="MainTailMap/FlowField" method="append_flowfield"]
 [connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]
