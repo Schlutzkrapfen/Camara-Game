@@ -9,6 +9,13 @@ var directionInxed: int = 0
 	set(value):
 		direction = value
 		queue_redraw()
+@export var attachmentScale: float = 1 ## Uniscale
+@export var attachmentRotation: float = 0:
+	
+	set(value):
+		attachmentRotation = value
+		queue_redraw()
+
 
 ## Set to false to disable this socket without removing it.
 @export var enabled: bool = true
@@ -39,6 +46,8 @@ static func _opposite(dir: Direction) -> Direction:
 		Direction.LEFT: return Direction.RIGHT
 		_: return Direction.LEFT
 
+func rotate_around_point(point: Vector2, pivot: Vector2, angle_rad: float) -> Vector2:
+	return pivot + (point - pivot).rotated(angle_rad)
 
 # Editor visualisation: a dot plus an arrow showing which way the socket faces.
 func _draw() -> void:
@@ -60,3 +69,5 @@ func _draw() -> void:
 	var tip := get_direction_vector() * 100.0
 	draw_circle(Vector2.ZERO, 7.0, color)
 	draw_line(Vector2.ZERO, tip, color, 2.0)
+	
+	draw_line(Vector2.ZERO, tip.rotated(deg_to_rad(attachmentRotation)), color, 1.0)

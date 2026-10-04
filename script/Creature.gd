@@ -3,6 +3,8 @@ extends Node2D
 
 var is_alive: bool = false
 @export var stitch_priority: int = 0
+@export var randomAttachmentRotationOffset: float = 5
+@export var randomAttachmentScaleOffset: float = 0.05
 var attached_parts: Array[Creature] = []
 
 ## True once this part has been stitched onto another creature.
@@ -44,21 +46,22 @@ func StitchBodyPart(part: Creature, myExtraPriority: int, otherExtraPriority: in
 	var pair := _find_matching_points(part)
 	if pair.is_empty():
 		return false
-	
-	
+
 	var mine: ConnectionPoint = pair[0]
 	var theirs: ConnectionPoint = pair[1]
-	
+
 	mine.connected_part = part
 	theirs.connected_part = self
-	attached_parts.append(part)
-	
-	# Reparent and snap so the two sockets sit on top of each other.
+
 	if part.get_parent():
 		part.get_parent().remove_child(part)
 	add_child(part)
-	part.position = mine.position - theirs.position
-
+	
+	var newScale = mine.attachmentScale + randf_range(-randomAttachmentScaleOffset, randomAttachmentScaleOffset)
+	part.scale = Vector2(newScale, newScale)
+	part.rotation = deg_to_rad(mine.attachmentRotation + randf_range(-randomAttachmentRotationOffset, randomAttachmentRotationOffset))
+	part.position = mine.position - part.transform.basis_xform(theirs.position)
+	
 	part._on_stitched()
 	print("Stitched %s(%s) onto %s(%s)" % [part.name, part.stitch_priority, self.name, self.stitch_priority])
 	return true

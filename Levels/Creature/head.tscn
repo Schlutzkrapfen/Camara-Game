@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="5_xq6yg"]
 
 [node name="Head" unique_id=351333405 instance=ExtResource("1_3vdm1")]
-stitch_priority = 20
 
 [node name="BodyPart" parent="." index="0" unique_id=685628172]
 texture = ExtResource("2_5377a")
@@ -24,14 +23,19 @@ texture = ExtResource("4_lvnpa")
 
 [node name="ConnectionPoint" parent="." index="1" unique_id=1485094818]
 position = Vector2(-1, -122)
+attachmentScale = 0.7
 
 [node name="ConnectionPoint2" type="Marker2D" parent="." index="2" unique_id=2131286686]
 position = Vector2(68, -98)
 script = ExtResource("5_xq6yg")
+attachmentScale = 0.5
+attachmentRotation = 23.625
 
 [node name="ConnectionPoint3" type="Marker2D" parent="." index="3" unique_id=969426924]
 position = Vector2(-83, -88)
 script = ExtResource("5_xq6yg")
+attachmentScale = 0.5
+attachmentRotation = -25.875
 
 [node name="ConnectionPoint4" type="Marker2D" parent="." index="4" unique_id=1515140862]
 position = Vector2(0, 127)
@@ -42,11 +46,13 @@ direction = 1
 position = Vector2(22, 122)
 script = ExtResource("5_xq6yg")
 direction = 1
+attachmentRotation = -28.985
 
 [node name="ConnectionPoint6" type="Marker2D" parent="." index="6" unique_id=1848258738]
 position = Vector2(-21, 123)
 script = ExtResource("5_xq6yg")
 direction = 1
+attachmentRotation = 26.695
 
 [node name="ConnectionPoint7" type="Marker2D" parent="." index="7" unique_id=1367141123]
 position = Vector2(125, 1)
