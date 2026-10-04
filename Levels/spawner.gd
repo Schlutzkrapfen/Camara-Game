@@ -23,8 +23,14 @@ func _input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and is_okay_to_build:
 			spawn(event.position)
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			pass
+			delete(event.position)
 
+func delete(mouse_position):
+	var local_position = tilemap.to_local(mouse_position)
+	var tile = tilemap.local_to_map(local_position)
+	print(tile,factory_list[0].tilemap_id,factory_list[0].position_tilemap)
+	tilemap.set_cell(tile)
+	
 func spawn(mouse_position):
 	var local_position = tilemap.to_local(mouse_position)
 	var tile = tilemap.local_to_map(local_position)
