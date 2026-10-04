@@ -1,4 +1,3 @@
 class_name itemResouce
 extends Resource
-
-@export var name:String = "item"
+@export var item_scene: PackedScene
