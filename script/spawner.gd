@@ -1,10 +1,9 @@
 extends TileMapLayer
 
 
-@export var factory_list:Array[BuildingResource]
 @onready var tilemap:TileMapLayer =  self
 
-var is_okay_to_build:bool = false
+var is_okay_to_build:bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,13 +27,16 @@ func _input(event: InputEvent) -> void:
 func delete(mouse_position):
 	var local_position = tilemap.to_local(mouse_position)
 	var tile = tilemap.local_to_map(local_position)
-	print(tile,factory_list[0].tilemap_id,factory_list[0].position_tilemap)
+	print(tile)
 	tilemap.set_cell(tile)
 	
 func spawn(mouse_position):
 	var local_position = tilemap.to_local(mouse_position)
 	var tile = tilemap.local_to_map(local_position)
-	print(tile,factory_list[0].tilemap_id,factory_list[0].position_tilemap)
-	tilemap.set_cell(tile,factory_list[0].tilemap_id,factory_list[0].position_tilemap)
+	print(tile,Global.factory_list[Global.current_house].tilemap_id,Global.factory_list[Global.current_house].position_tilemap)
+	for x in Global.factory_list[Global.current_house].size.x:
+		for y in Global.factory_list[Global.current_house].size.y:
+			var tiles = Vector2i(x ,y)
+			tilemap.set_cell(tile+tiles,Global.factory_list[Global.current_house].tilemap_id,Global.factory_list[Global.current_house].position_tilemap+tiles)
 	
 	
