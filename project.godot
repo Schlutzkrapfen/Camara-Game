@@ -8,6 +8,10 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Camera_factory"
@@ -23,6 +27,19 @@ Global="*uid://6vdnw2npjxx3"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[dotnet]
+
+project/assembly_name="Camera_factory"
+
+[file_customization]
+
+folder_colors={
+"res://Levels/": "yellow",
+"res://Resourcen/": "green",
+"res://assets/": "orange",
+"res://script/": "blue"
+}
 
 [input]
 
