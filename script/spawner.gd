@@ -20,8 +20,18 @@ func _process(delta: float) -> void:
 			factoy.cur_time +=delta
 			if factoy.cur_time > factoy.craft_time: 
 				output_items(factoy)
-func output_items(BuildingResource):
-	pass
+				factoy.cur_time = 0
+
+func output_items(factory):
+	for item_resource in factory.output:
+		var current_size:int = factory.last_output% factory.output_tile.size()
+		var item = item_resource.item_scene.instantiate()
+		var keys = factory.output_tile.keys()
+		item.global_position = tilemap.to_global(
+	tilemap.map_to_local(factory.position + keys[current_size])
+)
+		print(tilemap.to_global(map_to_local(factory.position)))
+		add_child(item)
 
 
 func _input(event: InputEvent) -> void:
@@ -48,6 +58,6 @@ func spawn(mouse_position):
 			var local_tile =  Vector2i(x,y)
 			var tiles =tile+ Global.get_rotation_out_of_size(x ,y)
 			tilemap.set_cell(tiles,Global.factory_list[Global.current_house].tilemap_id,Global.factory_list[Global.current_house].position_tilemap+local_tile,Global.currentrotation)
-	Global.factory_list[Global.current_house].positon = tile
+	Global.factory_list[Global.current_house].position = tile
 	current_builds.append(Global.factory_list[Global.current_house])
 	

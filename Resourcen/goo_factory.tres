@@ -1,10 +1,14 @@
 [gd_resource type="Resource" script_class="BuildingResource" format=3 uid="uid://do5wua8mm3u2p"]
 
-[ext_resource type="Script" uid="uid://bfdslnvcm5ykg" path="res://Resourcen/item_resource.gd" id="1_j4bi8"]
+[ext_resource type="Script" uid="uid://e10ksi240mgo" path="res://Resourcen/item_resource.gd" id="1_j4bi8"]
 [ext_resource type="Script" uid="uid://c46u5wpm1rwce" path="res://Resourcen/building_resource.gd" id="2_hpae7"]
+[ext_resource type="Resource" uid="uid://bvdqxr7232ip4" path="res://Resourcen/goo.tres" id="2_lcioo"]
 
 [resource]
 script = ExtResource("2_hpae7")
 size = Vector2i(2, 2)
 tilemap_id = 4
-output = Array[ExtResource("1_j4bi8")]([null])
+output = [ExtResource("2_lcioo")]
+output_tile = Dictionary[Vector2i, int]({
+Vector2i(1, 1): 0
+})
