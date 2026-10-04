@@ -1,6 +1,9 @@
 [gd_resource type="Resource" script_class="BuildingResource" format=3 uid="uid://cwefkshq6k55c"]
 
+[ext_resource type="Script" uid="uid://bfdslnvcm5ykg" path="res://Resourcen/item_resource.gd" id="1_l3j0i"]
 [ext_resource type="Script" uid="uid://c46u5wpm1rwce" path="res://Resourcen/building_resource.gd" id="1_vavyw"]
+[ext_resource type="Resource" uid="uid://bvdqxr7232ip4" path="res://Resourcen/goo.tres" id="2_to4rq"]
 
 [resource]
 script = ExtResource("1_vavyw")
+output = Array[ExtResource("1_l3j0i")]([ExtResource("2_to4rq")])
