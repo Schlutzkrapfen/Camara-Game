@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="itemResouce" format=3 uid="uid://bvdqxr7232ip4"]
+
+[ext_resource type="Script" uid="uid://bfdslnvcm5ykg" path="res://Resourcen/item_resource.gd" id="1_ywj6v"]
+
+[resource]
+script = ExtResource("1_ywj6v")
+name = "Goo"
