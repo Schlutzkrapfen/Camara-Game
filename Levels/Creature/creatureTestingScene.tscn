@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d30y4604tyl5t"]
+
+[ext_resource type="Script" uid="uid://c75yvoc3lhvdv" path="res://script/creature_testing.gd" id="1_qu1v0"]
+[ext_resource type="PackedScene" uid="uid://h4gm0w78c05t" path="res://Levels/Creature/head.tscn" id="2_kgn47"]
+[ext_resource type="PackedScene" uid="uid://te3wdjrwjvf3" path="res://Levels/Creature/torso.tscn" id="3_h1l0e"]
+[ext_resource type="PackedScene" uid="uid://br6rp8mmcsbyd" path="res://Levels/Creature/leg.tscn" id="4_wqga0"]
+
+[node name="CreatureTestingScene" type="Node2D" unique_id=1857987435]
+script = ExtResource("1_qu1v0")
+part_scenes = Array[PackedScene]([ExtResource("2_kgn47"), ExtResource("3_h1l0e"), ExtResource("4_wqga0")])
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1101754663]
+position = Vector2(577, 324)
+zoom = Vector2(0.175, 0.175)
