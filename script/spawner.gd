@@ -36,7 +36,6 @@ func spawn(mouse_position):
 	print(tile,Global.factory_list[Global.current_house].tilemap_id,Global.factory_list[Global.current_house].position_tilemap)
 	for x in Global.factory_list[Global.current_house].size.x:
 		for y in Global.factory_list[Global.current_house].size.y:
-			var tiles = Vector2i(x ,y)
-			tilemap.set_cell(tile+tiles,Global.factory_list[Global.current_house].tilemap_id,Global.factory_list[Global.current_house].position_tilemap+tiles)
-	
-	
+			var local_tile =  Vector2i(x,y)
+			var tiles =tile+ Global.get_rotation_out_of_size(x ,y)
+			tilemap.set_cell(tiles,Global.factory_list[Global.current_house].tilemap_id,Global.factory_list[Global.current_house].position_tilemap+local_tile,Global.currentrotation)
