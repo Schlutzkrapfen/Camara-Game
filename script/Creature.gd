@@ -30,15 +30,15 @@ func _process(delta: float) -> void:
 # --- Stitching -------------------------------------------------------------
 
 ## Attaches another Creature to this creature. Returns false if it doesn't fit.
-func StitchBodyPart(part: Creature) -> bool:
+func StitchBodyPart(part: Creature, myExtraPriority: int, otherExtraPriority: int) -> bool:
 	if part == self or is_stitched or part.is_stitched:
 		return false
 	
 	
 	# Higher priority becomes the host. Equal priority: the caller is the host.
-	if part.stitch_priority > stitch_priority:
+	if part.stitch_priority + otherExtraPriority > stitch_priority + myExtraPriority:
 		print("Swapperoooo")
-		return part.StitchBodyPart(self)
+		return part.StitchBodyPart(self, otherExtraPriority, myExtraPriority)
 	
 	
 	var pair := _find_matching_points(part)
