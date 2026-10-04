@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BuildingResource" format=3 uid="uid://bx7jmv83i76ia"]
+
+[ext_resource type="Script" uid="uid://c46u5wpm1rwce" path="res://Resourcen/building_resource.gd" id="1_lt6ae"]
+
+[resource]
+script = ExtResource("1_lt6ae")
+size = Vector2i(1, 2)
+tilemap_id = 2
