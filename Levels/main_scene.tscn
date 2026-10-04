@@ -1,5 +1,38 @@
 [gd_scene format=3 uid="uid://b1x40dtqa0bf6"]
 
+[ext_resource type="Texture2D" uid="uid://dab8ry1vc6pti" path="res://assets/Protype Factory/factory.png" id="1_tl8y8"]
+[ext_resource type="Texture2D" uid="uid://d3jnlwymjk0yl" path="res://assets/Protype Factory/conver Belt.png" id="1_wr0fo"]
+[ext_resource type="Texture2D" uid="uid://b5w0sxaixnlhk" path="res://assets/Protype Factory/splitter.png" id="3_wr0fo"]
+[ext_resource type="Script" uid="uid://b7r4n585kvy5" path="res://Levels/spawner.gd" id="4_p8lrm"]
+[ext_resource type="Resource" uid="uid://cwefkshq6k55c" path="res://Resourcen/conaer_belt.tres" id="5_wr0fo"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mne4e"]
+texture = ExtResource("1_wr0fo")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_72q2g"]
+texture = ExtResource("1_tl8y8")
+texture_region_size = Vector2i(200, 200)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wjs4o"]
+texture = ExtResource("3_wr0fo")
+texture_region_size = Vector2i(200, 200)
+
+[sub_resource type="TileSet" id="TileSet_nacyp"]
+tile_size = Vector2i(100, 100)
+sources/1 = SubResource("TileSetAtlasSource_72q2g")
+sources/2 = SubResource("TileSetAtlasSource_wjs4o")
+sources/0 = SubResource("TileSetAtlasSource_mne4e")
+
 [node name="Main Scene" type="Node2D" unique_id=1857987435]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1101754663]
+position = Vector2(576, 327)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=271784119]
+tile_set = SubResource("TileSet_nacyp")
+script = ExtResource("4_p8lrm")
+factory_list = [ExtResource("5_wr0fo")]
