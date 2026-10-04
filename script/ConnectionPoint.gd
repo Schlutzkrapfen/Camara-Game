@@ -3,6 +3,7 @@ class_name ConnectionPoint
 extends Marker2D
 
 enum Direction { UP, DOWN, LEFT, RIGHT }
+var directionInxed: int = 0
 
 @export var direction: Direction = Direction.UP:
 	set(value):

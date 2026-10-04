@@ -71,7 +71,10 @@ func OnLeftClick(mouse_pos: Vector2) -> void:
 	_select(null)
 
 	if target.StitchBodyPart(nearest, 1, 0):
-		_parts.erase(nearest) 
+		if target.is_stitched:
+			_parts.erase(target)
+		else:
+			_parts.erase(nearest)
 	else:
 		print("%s doesn't fit onto %s" % [nearest.name, target.name])
 
