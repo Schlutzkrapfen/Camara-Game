@@ -10,8 +10,4 @@ extends Resource
 @export var output:Array[itemResouce]
 #Which tile has the output and which direction
 @export var output_tile:Dictionary[Vector2i,Global.TileTransform]
-var position:Vector2i = Vector2i(0,0)
 var cur_input:Array[itemResouce]
-var cur_time:float = 0
-var last_output:int = 0
-var build_rotation:Global.TileTransform 
