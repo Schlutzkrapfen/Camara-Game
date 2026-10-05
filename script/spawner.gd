@@ -32,24 +32,24 @@ func _process(delta: float) -> void:
 		#if factory.input == factory.cur_input:
 		factory.cur_time +=delta
 		if factory.cur_time > factory.resource_refrence.craft_time: 
-			var current_size:int = factory.last_output% factory.resource_refrence.output_tile.size()
-			var keys = factory.resource_refrence.output_tile.keys()
-			var cur_pos = key+ Global.get_rotation_out_of_size(keys[current_size].x,keys[current_size].y)
-			if flowfield.is_cell_free(cur_pos):
-				output_items(factory,cur_pos)
+			if output_items(factory,key):
 				factory.cur_time = 0
 
-func output_items(factory:BuildData,spawn_positon):
+func output_items(factory:BuildData,positon)-> bool:
 	for item_resource in factory.resource_refrence.output:
-		
+		var current_size:int = factory.last_output% factory.resource_refrence.output_tile.size()
+		var keys = factory.resource_refrence.output_tile.keys()
+		var cur_pos = positon + Global.get_rotation_out_of_size(keys[current_size].x,keys[current_size].y,factory.rotation)
+		if not flowfield.is_cell_free(cur_pos):
+			return false
 		var item = item_resource.item_scene.instantiate()
-		
-		
 		item.global_position = tilemap.to_global(
-		tilemap.map_to_local(spawn_positon)
+		tilemap.map_to_local(cur_pos)
 )
 		add_child(item)
 		flowfield.append_list_items(item)
+		return true
+	return false
 
 
 func _input(event: InputEvent) -> void:

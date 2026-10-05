@@ -29,8 +29,8 @@ func _process(delta: float) -> void:
 			item_used[item]=grid_pos
 	for item in item_used.keys():
 		move_item(item,delta,flowfield[item_used[item]],main_tile_map.to_global(main_tile_map.map_to_local(item_used[item])),item_used[item])
-		
-func  is_cell_free(grid_pos: Vector2i) -> bool:
+
+func is_cell_free(grid_pos: Vector2i) -> bool:
 	return not grid_pos_array.has(grid_pos)
 
 func move_item(node:Sprite2D,delta:float,transform_data:Global.TileTransform,flowfield_global_pos:Vector2,flowfield_pos:Vector2i):
