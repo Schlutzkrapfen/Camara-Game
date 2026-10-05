@@ -24,12 +24,17 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton \
 			and event.button_index == MOUSE_BUTTON_RIGHT \
 			and event.pressed:
-		SpawnParts()
+		OnRightClick(get_global_mouse_position())
 
 	if event is InputEventMouseButton \
 			and event.button_index == MOUSE_BUTTON_MIDDLE \
 			and event.pressed:
 		OnMiddleClick(get_global_mouse_position())
+	if event is InputEventKey \
+			and event.keycode == KEY_SPACE \
+			and event.pressed \
+			and not event.echo:
+		SpawnParts()
 
 
 func SpawnParts() -> void:
@@ -114,6 +119,13 @@ func OnMiddleClick(mouse_pos: Vector2) -> void:
 	print("Swapped out %s for %s" % [target.name, new_part.name])
 	target.queue_free()
 
+func OnRightClick(mouse_pos: Vector2) -> void:
+	var target := _get_nearest_creature_any(mouse_pos)
+	if target == null:
+		return
+
+	target.is_alive = true
+	print("%s is now alive!" % target.name)
 
 func _get_nearest_part(pos: Vector2) -> Creature:
 	var best: Creature = null

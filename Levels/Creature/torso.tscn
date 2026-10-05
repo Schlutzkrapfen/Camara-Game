@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c63dumv70rmjb" path="res://Levels/Creature/Creature.tscn" id="1_365tt"]
 [ext_resource type="Texture2D" uid="uid://c6vpl32cv0pnr" path="res://assets/Sprites/ModularCharacter/Torso/Torso_ThinTriangular.png" id="2_m63rl"]
 [ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="3_6f1hg"]
+[ext_resource type="Script" uid="uid://o2vmc3hwnjnl" path="res://script/ProceduralAnimation.gd" id="3_pg0v5"]
 
 [node name="Torso" unique_id=351333405 instance=ExtResource("1_365tt")]
 type = 1
@@ -10,6 +11,8 @@ stitch_priority = 100
 
 [node name="BodyPart" parent="." index="0" unique_id=685628172]
 texture = ExtResource("2_m63rl")
+script = ExtResource("3_pg0v5")
+isBreathing = true
 
 [node name="ConnectionPoint_1" type="Marker2D" parent="." index="1" unique_id=565967205]
 position = Vector2(15, -155)
