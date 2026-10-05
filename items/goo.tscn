@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://okfpuqgbojjs"]
 
 [ext_resource type="Texture2D" uid="uid://b156hx6atwntv" path="res://assets/Protype Factory/OIP-3525223804.jpg" id="1_kyumw"]
+[ext_resource type="Script" uid="uid://c13qp403g0800" path="res://items/item_resources.gd" id="2_kyumw"]
 
 [node name="goo" type="Sprite2D" unique_id=2078084850]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_kyumw")
+script = ExtResource("2_kyumw")
