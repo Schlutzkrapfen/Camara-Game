@@ -1,7 +1,10 @@
 class_name Creature
 extends Node2D
 
+enum BodyType { HEAD, TORSO, LEG }
+
 var is_alive: bool = false
+@export var type: BodyType = BodyType.HEAD
 @export var stitch_priority: int = 0
 @export var randomAttachmentRotationOffset: float = 5
 @export var randomAttachmentScaleOffset: float = 0.05
@@ -72,7 +75,7 @@ func _find_matching_points(part: Creature) -> Array:
 		return []
 	for mine in _connection_points:
 		for theirs in part._connection_points:
-			if mine.fits(theirs):
+			if mine.fits(theirs, part.type):
 				return [mine, theirs]
 	return []
 

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bam5vawnuy1fj" path="res://assets/Sprites/ModularCharacter/Legs/Leg_Simple.png" id="2_8jlq2"]
 
 [node name="Leg" unique_id=351333405 instance=ExtResource("1_umqyt")]
+type = 2
 
 [node name="BodyPart" parent="." index="0" unique_id=685628172]
 texture = ExtResource("2_8jlq2")

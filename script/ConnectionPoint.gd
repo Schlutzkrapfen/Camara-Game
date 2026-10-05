@@ -4,6 +4,7 @@ extends Marker2D
 
 enum Direction { UP, DOWN, LEFT, RIGHT }
 var directionInxed: int = 0
+@export var allowedBodyTypes: Array[Creature.BodyType]
 
 @export var direction: Direction = Direction.UP:
 	set(value):
@@ -27,8 +28,8 @@ func is_free() -> bool:
 	return enabled and connected_part == null
 
 
-func fits(other: ConnectionPoint) -> bool:
-	return is_free() and other.is_free() and direction == _opposite(other.direction)
+func fits(other: ConnectionPoint, type: Creature.BodyType) -> bool:
+	return is_free() and other.is_free() and type in allowedBodyTypes and direction == _opposite(other.direction)
 
 
 func get_direction_vector() -> Vector2:

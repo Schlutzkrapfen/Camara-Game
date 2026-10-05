@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="3_6f1hg"]
 
 [node name="Torso" unique_id=351333405 instance=ExtResource("1_365tt")]
+type = 1
 stitch_priority = 100
 
 [node name="BodyPart" parent="." index="0" unique_id=685628172]
@@ -12,16 +13,19 @@ texture = ExtResource("2_m63rl")
 
 [node name="ConnectionPoint" parent="." index="1" unique_id=1485094818]
 position = Vector2(12, -153)
+allowedBodyTypes = Array[int]([0])
 
 [node name="ConnectionPoint2" type="Marker2D" parent="." index="2" unique_id=465290583]
 position = Vector2(-37, -147)
 script = ExtResource("3_6f1hg")
+allowedBodyTypes = Array[int]([0])
 attachmentScale = 0.6
 attachmentRotation = -35.48
 
 [node name="ConnectionPoint4" type="Marker2D" parent="." index="3" unique_id=690560708]
 position = Vector2(12, 149)
 script = ExtResource("3_6f1hg")
+allowedBodyTypes = Array[int]([2])
 direction = 1
 
 [node name="ConnectionPoint5" type="Marker2D" parent="." index="4" unique_id=1096095616]
@@ -32,12 +36,14 @@ direction = 3
 [node name="ConnectionPoint6" type="Marker2D" parent="." index="5" unique_id=931488153]
 position = Vector2(5, 146)
 script = ExtResource("3_6f1hg")
+allowedBodyTypes = Array[int]([2])
 direction = 1
 attachmentRotation = 17.64
 
 [node name="ConnectionPoint7" type="Marker2D" parent="." index="6" unique_id=691805819]
 position = Vector2(18, 144)
 script = ExtResource("3_6f1hg")
+allowedBodyTypes = Array[int]([2])
 direction = 1
 attachmentRotation = -17.55
 

@@ -10,3 +10,4 @@ script = ExtResource("1_e52ar")
 
 [node name="ConnectionPoint" type="Marker2D" parent="." unique_id=1485094818]
 script = ExtResource("2_e67jd")
+allowedBodyTypes = Array[int]([0, 1, 2])
