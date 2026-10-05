@@ -10,4 +10,5 @@ extends Resource
 @export var output:Array[itemResouce]
 #Which tile has the output and which direction
 @export var output_tile:Dictionary[Vector2i,Global.TileTransform]
+@export var input_size:int = 1
 var cur_input:Array[itemResouce]
