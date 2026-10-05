@@ -80,6 +80,4 @@ main_tileset = NodePath("../MainTailMap")
 [node name="SwitchBuilding" type="Node" parent="." unique_id=1143980631]
 script = ExtResource("8_wjs4o")
 
-[connection signal="item_spawned" from="MainTailMap" to="MainTailMap/FlowField" method="append_list_items"]
-[connection signal="new_flowmaptile_saved" from="MainTailMap" to="MainTailMap/FlowField" method="append_flowfield"]
 [connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]
