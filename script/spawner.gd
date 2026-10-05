@@ -2,6 +2,7 @@ extends TileMapLayer
 
 
 @onready var tilemap:TileMapLayer =  self
+@onready var flowfield:Node = $FlowField
 signal new_flowmaptile_saved(postion,transform)  
 signal item_spawned(Node2d)  
 var is_okay_to_build:bool = true
@@ -33,8 +34,9 @@ func _process(delta: float) -> void:
 		#if factory.input == factory.cur_input:
 		factory.cur_time +=delta
 		if factory.cur_time > factory.resource_refrence.craft_time: 
-			output_items(factory,key)
-			factory.cur_time = 0
+			if flowfield.is_cell_free(key):
+				output_items(factory,key)
+				factory.cur_time = 0
 				
 
 func output_items(factory:BuildData,positon):
@@ -47,7 +49,7 @@ func output_items(factory:BuildData,positon):
 		tilemap.map_to_local(positon + Global.get_rotation_out_of_size(keys[current_size].x,keys[current_size].y,factory.rotation))
 )
 		add_child(item)
-		emit_signal("item_spawned",item)
+		flowfield.append_list_items(item)
 
 
 func _input(event: InputEvent) -> void:
