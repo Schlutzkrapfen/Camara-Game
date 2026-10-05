@@ -1,37 +1,38 @@
 [gd_scene format=3 uid="uid://h4gm0w78c05t"]
 
-[ext_resource type="PackedScene" uid="uid://c63dumv70rmjb" path="res://Levels/Creature/Creature.tscn" id="1_3vdm1"]
+[ext_resource type="Script" uid="uid://02teojrlf8xw" path="res://script/Creature.gd" id="1_lvnpa"]
 [ext_resource type="Texture2D" uid="uid://bab0wx2ieefdt" path="res://assets/Sprites/ModularCharacter/Head/Head_NaturalRound.png" id="2_5377a"]
 [ext_resource type="Script" uid="uid://o2vmc3hwnjnl" path="res://script/ProceduralAnimation.gd" id="3_lvnpa"]
 [ext_resource type="Texture2D" uid="uid://2230ftck7foe" path="res://assets/Sprites/ModularCharacter/Eyes/Eyes_LargeOpen.png" id="3_xq6yg"]
 [ext_resource type="Texture2D" uid="uid://ym1142h52ph7" path="res://assets/Sprites/ModularCharacter/Mouth/Mouth_Worried.png" id="4_lvnpa"]
 [ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="5_xq6yg"]
 
-[node name="Head" unique_id=351333405 instance=ExtResource("1_3vdm1")]
+[node name="Head" type="Node2D" unique_id=351333405]
+script = ExtResource("1_lvnpa")
 
-[node name="BodyPart" parent="." index="0" unique_id=685628172]
+[node name="BodyPart" type="Sprite2D" parent="." unique_id=685628172]
 texture = ExtResource("2_5377a")
 script = ExtResource("3_lvnpa")
 isBobbing = true
 
-[node name="Face" type="Node2D" parent="BodyPart" index="0" unique_id=1691534360]
+[node name="Face" type="Node2D" parent="BodyPart" unique_id=1691534360]
 
-[node name="Eyes" type="Sprite2D" parent="BodyPart/Face" index="0" unique_id=1295316946]
+[node name="Eyes" type="Sprite2D" parent="BodyPart/Face" unique_id=1295316946]
 texture = ExtResource("3_xq6yg")
 
-[node name="Nose" type="Sprite2D" parent="BodyPart/Face" index="1" unique_id=1923180672]
+[node name="Nose" type="Sprite2D" parent="BodyPart/Face" unique_id=1923180672]
 
-[node name="Mouth" type="Sprite2D" parent="BodyPart/Face" index="2" unique_id=70172397]
+[node name="Mouth" type="Sprite2D" parent="BodyPart/Face" unique_id=70172397]
 texture = ExtResource("4_lvnpa")
 
-[node name="ConnectionPoint_1" type="Marker2D" parent="." index="1" unique_id=1485094818]
+[node name="ConnectionPoint_1" type="Marker2D" parent="." unique_id=1485094818]
 position = Vector2(-1, -122)
 script = ExtResource("5_xq6yg")
 id = 1
 allowedBodyTypes = Array[int]([0])
 attachmentScale = 0.7
 
-[node name="ConnectionPoint_2" type="Marker2D" parent="." index="2" unique_id=2131286686]
+[node name="ConnectionPoint_2" type="Marker2D" parent="." unique_id=2131286686]
 position = Vector2(68, -98)
 script = ExtResource("5_xq6yg")
 id = 2
@@ -39,7 +40,7 @@ allowedBodyTypes = Array[int]([0])
 attachmentScale = 0.5
 attachmentRotation = 23.625
 
-[node name="ConnectionPoint_3" type="Marker2D" parent="." index="3" unique_id=969426924]
+[node name="ConnectionPoint_3" type="Marker2D" parent="." unique_id=969426924]
 position = Vector2(-83, -88)
 script = ExtResource("5_xq6yg")
 id = 3
@@ -47,14 +48,14 @@ allowedBodyTypes = Array[int]([0])
 attachmentScale = 0.5
 attachmentRotation = -25.875
 
-[node name="ConnectionPoint_4" type="Marker2D" parent="." index="4" unique_id=1515140862]
+[node name="ConnectionPoint_4" type="Marker2D" parent="." unique_id=1515140862]
 position = Vector2(0, 127)
 script = ExtResource("5_xq6yg")
 id = 4
 allowedBodyTypes = Array[int]([1, 2])
 direction = 1
 
-[node name="ConnectionPoint_5" type="Marker2D" parent="." index="5" unique_id=751374416]
+[node name="ConnectionPoint_5" type="Marker2D" parent="." unique_id=751374416]
 position = Vector2(22, 122)
 script = ExtResource("5_xq6yg")
 id = 5
@@ -62,7 +63,7 @@ allowedBodyTypes = Array[int]([1, 2])
 direction = 1
 attachmentRotation = -28.985
 
-[node name="ConnectionPoint_6" type="Marker2D" parent="." index="6" unique_id=1848258738]
+[node name="ConnectionPoint_6" type="Marker2D" parent="." unique_id=1848258738]
 position = Vector2(-21, 123)
 script = ExtResource("5_xq6yg")
 id = 6
@@ -70,13 +71,13 @@ allowedBodyTypes = Array[int]([1, 2])
 direction = 1
 attachmentRotation = 26.695
 
-[node name="ConnectionPoint_7" type="Marker2D" parent="." index="7" unique_id=1367141123]
+[node name="ConnectionPoint_7" type="Marker2D" parent="." unique_id=1367141123]
 position = Vector2(125, 1)
 script = ExtResource("5_xq6yg")
 id = 7
 direction = 3
 
-[node name="ConnectionPoint_8" type="Marker2D" parent="." index="8" unique_id=1794841693]
+[node name="ConnectionPoint_8" type="Marker2D" parent="." unique_id=1794841693]
 position = Vector2(-119, 1)
 script = ExtResource("5_xq6yg")
 id = 8

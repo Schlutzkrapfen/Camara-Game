@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node2D
 
 @export_group("Breathing")
 @export var isBreathing: bool = false
