@@ -1,13 +1,8 @@
 [gd_scene format=3 uid="uid://c63dumv70rmjb"]
 
 [ext_resource type="Script" uid="uid://02teojrlf8xw" path="res://script/Creature.gd" id="1_e52ar"]
-[ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="2_e67jd"]
 
 [node name="Creature" type="Node2D" unique_id=351333405]
 script = ExtResource("1_e52ar")
 
 [node name="BodyPart" type="Sprite2D" parent="." unique_id=685628172]
-
-[node name="ConnectionPoint" type="Marker2D" parent="." unique_id=1485094818]
-script = ExtResource("2_e67jd")
-allowedBodyTypes = Array[int]([0, 1, 2])

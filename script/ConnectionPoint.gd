@@ -3,7 +3,14 @@ class_name ConnectionPoint
 extends Marker2D
 
 enum Direction { UP, DOWN, LEFT, RIGHT }
-var directionInxed: int = 0
+@export var id: int = 0: #0 == Unset. This is a manual unique ID.
+	set(value):
+		self.name = "ConnectionPoint_" + str(value)
+		var number_part := name.trim_prefix("ConnectionPoint_")
+		if number_part.is_valid_int():
+			id = number_part.to_int()
+		else:
+			id = value
 @export var allowedBodyTypes: Array[Creature.BodyType]
 
 @export var direction: Direction = Direction.UP:

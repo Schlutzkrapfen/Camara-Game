@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c63dumv70rmjb" path="res://Levels/Creature/Creature.tscn" id="1_umqyt"]
 [ext_resource type="Texture2D" uid="uid://bam5vawnuy1fj" path="res://assets/Sprites/ModularCharacter/Legs/Leg_Simple.png" id="2_8jlq2"]
+[ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="3_8jlq2"]
 
 [node name="Leg" unique_id=351333405 instance=ExtResource("1_umqyt")]
 type = 2
@@ -9,5 +10,8 @@ type = 2
 [node name="BodyPart" parent="." index="0" unique_id=685628172]
 texture = ExtResource("2_8jlq2")
 
-[node name="ConnectionPoint" parent="." index="1" unique_id=1485094818]
+[node name="ConnectionPoint_1" type="Marker2D" parent="." index="1" unique_id=1485094818]
 position = Vector2(-15, -91)
+script = ExtResource("3_8jlq2")
+id = 1
+allowedBodyTypes = Array[int]([0, 1, 2])
