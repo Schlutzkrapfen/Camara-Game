@@ -8,7 +8,7 @@
 script = ExtResource("2_hpae7")
 size = Vector2i(2, 2)
 tilemap_id = 4
-output = [ExtResource("2_lcioo")]
+output = Array[ExtResource("1_j4bi8")]([ExtResource("2_lcioo")])
 output_tile = Dictionary[Vector2i, int]({
 Vector2i(1, 1): 0
 })
