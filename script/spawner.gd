@@ -68,8 +68,6 @@ func output_input(factory):
 		item.visible = true
 		flowfield.append_list_items(item)
 		factory.cur_items.remove_at(i)
-	
-	return false
 
 
 func check_input(factory:BuildData) ->bool:
