@@ -15,9 +15,11 @@ class BuildData:
 	var cur_time: float = 0
 	var cur_items: Array[Node2D] 
 	var last_output:int =0
-	func _init( p_buildingresource: BuildingResource ,p_transform: Global.TileTransform = Global.TileTransform.None) -> void:
+	var output_position:Array[Vector2i]
+	func _init( p_buildingresource: BuildingResource ,p_outputpostion:Array[Vector2i],p_transform: Global.TileTransform = Global.TileTransform.None) -> void:
 		rotation = p_transform
 		resource_refrence = p_buildingresource
+		output_position = p_outputpostion
 
 
 
@@ -26,11 +28,16 @@ func _ready() -> void:
 	process_priority = -1
 	pass
 
-func add_item_input(item:Node2D,positon:Vector2i):
-	current_builds[positon].cur_items.append(item)
-	item.visible = false
-	item.process_mode = Node.PROCESS_MODE_DISABLED
-	
+func add_item_input(item:Node2D,positon:Vector2i)->bool:
+	var factory = current_builds[positon]
+	if len(factory.cur_items) < factory.resource_refrence.input_size:
+		
+		factory.cur_items.append(item)
+		item.visible = false
+		print(factory.cur_items)
+		#item.process_mode = Node.PROCESS_MODE_DISABLED
+		return true
+	return false
 
 func check_building(is_okay:bool):
 	is_okay_to_build = is_okay
@@ -41,19 +48,18 @@ func _process(delta: float) -> void:
 		#if factory.input == factory.cur_input:
 		factory.cur_time +=delta
 		if factory.cur_time > factory.resource_refrence.craft_time: 
-			if output_items(factory,key):
+			if output_items(factory):
 				factory.cur_time = 0
 
-func output_items(factory:BuildData,positon)-> bool:
+func output_items(factory:BuildData)-> bool:
 	for item_resource in factory.resource_refrence.output:
-		var current_size:int = factory.last_output% factory.resource_refrence.output_tile.size()
-		var keys = factory.resource_refrence.output_tile.keys()
-		var cur_pos = positon + Global.get_rotation_out_of_size(keys[current_size].x,keys[current_size].y,factory.rotation)
-		if not flowfield.is_cell_free(cur_pos):
+		factory.last_output = (factory.last_output +1)% len(factory.output_position) 
+		if not flowfield.is_cell_free(factory.output_position[factory.last_output]):
 			return false
 		var item = item_resource.item_scene.instantiate()
 		item.global_position = tilemap.to_global(
-		tilemap.map_to_local(cur_pos)
+		
+		tilemap.map_to_local(factory.output_position[factory.last_output])
 )
 		add_child(item)
 		flowfield.append_list_items(item)
@@ -76,20 +82,23 @@ func delete(mouse_position):
 	print(tile)
 	tilemap.set_cell(tile)
 	
-	
+
+
 func spawn(mouse_position):
 	var local_position = tilemap.to_local(mouse_position)
 	var tile = tilemap.local_to_map(local_position)
 	var current_house = Global.factory_list[Global.current_house]
+	var output_postion:Array[Vector2i] 
 	for x in current_house.size.x:
 		for y in current_house.size.y:
 			var local_tile =  Vector2i(x,y)
 			var tiles = tile + Global.get_rotation_out_of_size(x ,y)
 			if current_house.output_tile.has(local_tile):
 				flowfield.append_flowfield(tiles,Global.currentrotation)
+				output_postion.append(Vector2i(tiles.x+Global.ROTATE_DIRECTION[Global.currentrotation].x,tiles.y+Global.ROTATE_DIRECTION[Global.currentrotation].y))
 			else:
 				flowfield.append_flowfield(tiles,Global.TileTransform.None)
 			occupied_tiles[tiles] = tile
 			tilemap.set_cell(tiles,current_house.tilemap_id,current_house.position_tilemap+local_tile,Global.currentrotation)
-	var buildings:BuildData = BuildData.new(current_house,Global.currentrotation)
+	var buildings:BuildData = BuildData.new(current_house,output_postion,Global.currentrotation)
 	current_builds[tile] =buildings

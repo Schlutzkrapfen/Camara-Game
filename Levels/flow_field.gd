@@ -27,8 +27,8 @@ func _process(delta: float) -> void:
 	for item in list_items:
 		var grid_pos =main_tile_map.local_to_map(item.global_position)
 		grid_pos_array[grid_pos] = true
-		if main_tile_map.occupied_tiles.has(grid_pos):
-			main_tile_map.add_item_input(item, main_tile_map.occupied_tiles[grid_pos])
+		if main_tile_map.occupied_tiles.has(grid_pos)and main_tile_map.add_item_input(item, main_tile_map.occupied_tiles[grid_pos]):
+			continue
 		if flowfield.has(grid_pos):
 			item_used[item]=grid_pos
 	for item in item_used.keys():
