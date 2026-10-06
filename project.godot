@@ -42,6 +42,10 @@ folder_colors={
 "res://script/": "blue"
 }
 
+[global_group]
+
+units=""
+
 [input]
 
 Belt={

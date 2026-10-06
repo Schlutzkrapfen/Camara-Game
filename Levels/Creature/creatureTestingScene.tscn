@@ -16,7 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://dw5pxqw638q5j" path="res://Levels/Creature/spike_1_L.tscn" id="14_y1hec"]
 [ext_resource type="PackedScene" uid="uid://cmq7h1hqqp6fu" path="res://Levels/Creature/spike_2_L.tscn" id="15_xxkyx"]
 [ext_resource type="PackedScene" uid="uid://dw6c0y8w2v2j3" path="res://Levels/Creature/spike_3_L.tscn" id="16_ahytx"]
-[ext_resource type="PackedScene" uid="uid://dlyg7svl3faxm" path="res://Levels/Enemy.tscn" id="17_xxkyx"]
+[ext_resource type="PackedScene" uid="uid://dlyg7svl3faxm" path="res://Levels/Enemies/Grunt.tscn" id="17_xxkyx"]
+[ext_resource type="PackedScene" uid="uid://c4uvcr8un6oyy" path="res://Levels/Enemies/Grunt_Hut.tscn" id="18_ahytx"]
 
 [node name="CreatureTestingScene" type="Node2D" unique_id=1857987435]
 script = ExtResource("1_qu1v0")
@@ -34,30 +35,5 @@ scale = Vector2(1.9811211, 2.053041)
 position = Vector2(1342, -999)
 scale = Vector2(1.9811211, 2.053041)
 
-[node name="Enemy3" parent="." unique_id=491003955 instance=ExtResource("17_xxkyx")]
-position = Vector2(2198, 579)
-scale = Vector2(1.9811211, 2.053041)
-
-[node name="Enemy4" parent="." unique_id=352803044 instance=ExtResource("17_xxkyx")]
-position = Vector2(1489.0002, 1545)
-scale = Vector2(1.9811211, 2.053041)
-
-[node name="Enemy5" parent="." unique_id=2081462986 instance=ExtResource("17_xxkyx")]
-position = Vector2(3091, 1727.9999)
-scale = Vector2(1.9811211, 2.053041)
-
-[node name="Enemy6" parent="." unique_id=249906539 instance=ExtResource("17_xxkyx")]
-position = Vector2(-1906, 1667)
-scale = Vector2(1.9811211, 2.053041)
-
-[node name="Enemy7" parent="." unique_id=2007162510 instance=ExtResource("17_xxkyx")]
-position = Vector2(-2126, 444)
-scale = Vector2(1.9811211, 2.053041)
-
-[node name="Enemy8" parent="." unique_id=2104141443 instance=ExtResource("17_xxkyx")]
-position = Vector2(-2279.0002, -1103)
-scale = Vector2(1.9811211, 2.053041)
-
-[node name="Enemy9" parent="." unique_id=84970422 instance=ExtResource("17_xxkyx")]
-position = Vector2(3145.9998, -1005)
-scale = Vector2(1.9811211, 2.053041)
+[node name="Enemy" parent="." unique_id=1823851156 instance=ExtResource("18_ahytx")]
+position = Vector2(-2158, 1773)
