@@ -13,6 +13,14 @@ enum TileTransform {
 	ROTATE_270 = TileSetAtlasSource.TRANSFORM_FLIP_V | TileSetAtlasSource.TRANSFORM_TRANSPOSE,
 	None
 }
+var ROTATE_DIRECTION:Dictionary[TileTransform,Vector2] = {
+	TileTransform.ROTATE_0: Vector2(1,0),
+	TileTransform.ROTATE_90: Vector2(0,1),
+	TileTransform.ROTATE_180: Vector2(-1,0),
+	TileTransform.ROTATE_270: Vector2(0,-1),
+	TileTransform.None:Vector2(0,0)
+	
+	}
 var currentrotation:TileTransform= TileTransform.ROTATE_0
 
 func get_rotation_out_of_size(x: int, y: int, rotation =TileTransform.None) -> Vector2i:
@@ -20,7 +28,6 @@ func get_rotation_out_of_size(x: int, y: int, rotation =TileTransform.None) -> V
 		rotation = currentrotation
 	match rotation :
 		TileTransform.ROTATE_90:
-			
 			return Vector2i(
 			-y ,
 			 x )
