@@ -1,7 +1,6 @@
 class_name MainTileMap
 extends TileMapLayer
 
-
 @onready var tilemap:TileMapLayer =  self
 @onready var flowfield:FlowField = $FlowField
 
@@ -33,8 +32,8 @@ func add_item_input(item:Node2D,positon:Vector2i)->bool:
 	if len(factory.cur_items) < factory.resource_refrence.input_size:
 		
 		factory.cur_items.append(item)
-		item.visible = false
-		print(factory.cur_items)
+		#item.visible = false
+		flowfield.delete_item(item)
 		#item.process_mode = Node.PROCESS_MODE_DISABLED
 		return true
 	return false
@@ -45,24 +44,60 @@ func check_building(is_okay:bool):
 func _process(delta: float) -> void:
 	for key in current_builds: # or current_builds.items()
 		var factory:BuildData = current_builds[key]
-		#if factory.input == factory.cur_input:
-		factory.cur_time +=delta
-		if factory.cur_time > factory.resource_refrence.craft_time: 
-			if output_items(factory):
-				factory.cur_time = 0
+		if len(factory.resource_refrence.output) == 0:
+			output_input(factory)
+			continue
+		if check_input(factory):
+			factory.cur_time +=delta
+			if factory.cur_time > factory.resource_refrence.craft_time: 
+				if output_items(factory):
+					factory.cur_time = 0
+			
+
+func output_input(factory):
+	for i in range(factory.cur_items.size() - 1, -1, -1):
+		var item = factory.cur_items[i]
+		factory.last_output = (factory.last_output +1)% len(factory.output_position) 
+		if not flowfield.is_cell_free(factory.output_position[factory.last_output]):
+			continue
+		factory.cur_items.clear()
+		item.process_mode = Node.AUTO_TRANSLATE_MODE_INHERIT
+		item.global_position = tilemap.to_global(
+		tilemap.map_to_local(factory.output_position[factory.last_output])
+)
+		item.visible = true
+		flowfield.append_list_items(item)
+		factory.cur_items.remove_at(i)
+	
+	return false
+
+
+func check_input(factory:BuildData) ->bool:
+	var required: Array = factory.resource_refrence.input
+	var available: Array = factory.cur_items.duplicate()
+	for type in required:
+		var found := false
+		for item in available:
+			if is_instance_of(item, type):
+				available.erase(item)  # each item can only satisfy one requirement
+				found = true
+				break
+		if not found:
+			return false
+	return true
 
 func output_items(factory:BuildData)-> bool:
 	for item_resource in factory.resource_refrence.output:
 		factory.last_output = (factory.last_output +1)% len(factory.output_position) 
 		if not flowfield.is_cell_free(factory.output_position[factory.last_output]):
 			return false
-		var item = item_resource.item_scene.instantiate()
+		var item = item_resource.instantiate()
 		item.global_position = tilemap.to_global(
-		
 		tilemap.map_to_local(factory.output_position[factory.last_output])
 )
 		add_child(item)
 		flowfield.append_list_items(item)
+		factory.cur_items.clear()
 		return true
 	return false
 
@@ -82,8 +117,6 @@ func delete(mouse_position):
 	print(tile)
 	tilemap.set_cell(tile)
 	
-
-
 func spawn(mouse_position):
 	var local_position = tilemap.to_local(mouse_position)
 	var tile = tilemap.local_to_map(local_position)

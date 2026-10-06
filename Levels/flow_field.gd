@@ -19,6 +19,8 @@ func append_flowfield(vec:Vector2, Rotation:Global.TileTransform):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func append_list_items(node:Node2D):
 	list_items.append(node)
+func delete_item(node:Node2D):
+	list_items.erase(node)
 
 func _process(delta: float) -> void:
 	item_moved.clear()
@@ -37,7 +39,7 @@ func _process(delta: float) -> void:
 func is_cell_free(grid_pos: Vector2i) -> bool:
 	return not grid_pos_array.has(grid_pos)
 
-func move_item(node:Sprite2D,delta:float,transform_data:Global.TileTransform,flowfield_global_pos:Vector2,flowfield_pos:Vector2i):
+func move_item(node:Node2D,delta:float,transform_data:Global.TileTransform,flowfield_global_pos:Vector2,flowfield_pos:Vector2i):
 	match transform_data:
 		Global.TileTransform.ROTATE_0:
 			var target_y := flowfield_global_pos.y 
