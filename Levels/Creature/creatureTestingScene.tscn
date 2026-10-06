@@ -33,31 +33,3 @@ scale = Vector2(1.9811211, 2.053041)
 [node name="Enemy2" parent="." unique_id=1860689096 instance=ExtResource("17_xxkyx")]
 position = Vector2(1342, -999)
 scale = Vector2(1.9811211, 2.053041)
-
-[node name="Enemy3" parent="." unique_id=491003955 instance=ExtResource("17_xxkyx")]
-position = Vector2(2198, 579)
-scale = Vector2(1.9811211, 2.053041)
-
-[node name="Enemy4" parent="." unique_id=352803044 instance=ExtResource("17_xxkyx")]
-position = Vector2(1489.0002, 1545)
-scale = Vector2(1.9811211, 2.053041)
-
-[node name="Enemy5" parent="." unique_id=2081462986 instance=ExtResource("17_xxkyx")]
-position = Vector2(3091, 1727.9999)
-scale = Vector2(1.9811211, 2.053041)
-
-[node name="Enemy6" parent="." unique_id=249906539 instance=ExtResource("17_xxkyx")]
-position = Vector2(-1906, 1667)
-scale = Vector2(1.9811211, 2.053041)
-
-[node name="Enemy7" parent="." unique_id=2007162510 instance=ExtResource("17_xxkyx")]
-position = Vector2(-2126, 444)
-scale = Vector2(1.9811211, 2.053041)
-
-[node name="Enemy8" parent="." unique_id=2104141443 instance=ExtResource("17_xxkyx")]
-position = Vector2(-2279.0002, -1103)
-scale = Vector2(1.9811211, 2.053041)
-
-[node name="Enemy9" parent="." unique_id=84970422 instance=ExtResource("17_xxkyx")]
-position = Vector2(3145.9998, -1005)
-scale = Vector2(1.9811211, 2.053041)

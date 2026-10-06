@@ -5,6 +5,10 @@
 
 [node name="Enemy" type="Node2D" unique_id=1843378386 groups=["enemies"]]
 script = ExtResource("1_0ic64")
+speed = 150.0
+attackCooldown = 0.2
+minSelfdestructTime = 400.0
+maxSelfdestructTime = 600.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=780132004]
 texture = ExtResource("1_jh61n")

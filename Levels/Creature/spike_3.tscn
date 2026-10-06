@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dxhh21i31w2eo" path="res://assets/Sprites/ModularCharacter/Accessories/Spikes/Spike_Large.png" id="3_vyxou"]
 [ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="4_4ibty"]
 
-[node name="Spike" type="Node2D" unique_id=351333405]
+[node name="Spike" type="Node2D" unique_id=351333405 groups=["units"]]
 script = ExtResource("1_vyxou")
 type = 3
 attackDamage = 15

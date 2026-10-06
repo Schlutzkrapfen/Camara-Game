@@ -34,6 +34,7 @@ var is_alive: bool = false:
 var target: Node2D
 var timeUntilSelfDestruct: float
 var curAttackCooldown: float = 0.0
+var sprite: Sprite2D
 
 ## True once this part has been stitched onto another creature.
 var is_stitched: bool = false
@@ -46,6 +47,7 @@ var _connection_points: Array[ConnectionPoint] = []
 func _ready() -> void:
 	_ensure_connection_points()
 	timeUntilSelfDestruct = randf_range(minSelfdestructTime, maxSelfdestructTime)
+	sprite = find_children("*", "Sprite2D")[0]
 
 
 func _ensure_connection_points() -> void:
@@ -84,7 +86,7 @@ func _process(delta: float) -> void:
 	if curAttackCooldown <= 0:
 		position += (target.position - self.position).normalized() * delta * speed
 	
-	## attackDamage if possible
+	## Attack if possible
 	if curAttackCooldown <= 0:
 		var someoneInRange: bool = false
 		for enemy in get_tree().get_nodes_in_group("enemies"):
@@ -110,6 +112,18 @@ func SpawnAttackVisual() -> void:
 	fx.radius = attackRange
 	get_tree().current_scene.add_child(fx)
 	fx.global_position = global_position
+
+func TakeDamage(damage: int) -> void:
+	hp -= damage
+	DamageFlash()
+	
+	if hp <= 0:
+		Die()
+
+func DamageFlash() -> void:
+	var tween = create_tween()
+	sprite.modulate = Color(2.5, 0.3, 0.3)
+	tween.tween_property(sprite, "modulate", Color.WHITE, 0.15)
 
 func Die() -> void:
 	self.queue_free()
