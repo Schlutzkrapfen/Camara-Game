@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ffsnyxqu58mx"]
+
+[ext_resource type="Script" uid="uid://02teojrlf8xw" path="res://script/Creature.gd" id="1_vyxou"]
+[ext_resource type="Script" uid="uid://o2vmc3hwnjnl" path="res://script/ProceduralAnimation.gd" id="2_un3k5"]
+[ext_resource type="Texture2D" uid="uid://dxhh21i31w2eo" path="res://assets/Sprites/ModularCharacter/Accessories/Spikes/Spike_Large.png" id="3_vyxou"]
+[ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="4_4ibty"]
+
+[node name="Spike" type="Node2D" unique_id=351333405]
+script = ExtResource("1_vyxou")
+type = 3
+
+[node name="Pivot" type="Marker2D" parent="." unique_id=325312056]
+script = ExtResource("2_un3k5")
+isRotating = true
+
+[node name="BodyPart" type="Sprite2D" parent="Pivot" unique_id=685628172]
+z_index = -10
+position = Vector2(31, -35)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_vyxou")
+
+[node name="ConnectionPoint_1" type="Marker2D" parent="." unique_id=1485094818]
+position = Vector2(1, 1)
+script = ExtResource("4_4ibty")
+id = 1
+allowedBodyTypes = Array[int]([0, 1, 2])
+direction = 2

@@ -9,6 +9,7 @@
 
 [node name="Head" type="Node2D" unique_id=351333405]
 script = ExtResource("1_lvnpa")
+stitch_priority = 300
 
 [node name="BodyPart" type="Sprite2D" parent="." unique_id=685628172]
 texture = ExtResource("2_5377a")
@@ -72,13 +73,15 @@ direction = 1
 attachmentRotation = -28.985
 
 [node name="ConnectionPoint_201" type="Marker2D" parent="." unique_id=1367141123]
-position = Vector2(125, 1)
+position = Vector2(96, -71)
 script = ExtResource("5_xq6yg")
 id = 201
+allowedBodyTypes = Array[int]([3])
 direction = 3
 
 [node name="ConnectionPoint_301" type="Marker2D" parent="." unique_id=1794841693]
-position = Vector2(-119, 1)
+position = Vector2(-106, -66)
 script = ExtResource("5_xq6yg")
 id = 301
+allowedBodyTypes = Array[int]([3])
 direction = 2

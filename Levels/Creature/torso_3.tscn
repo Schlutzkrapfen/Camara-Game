@@ -8,7 +8,7 @@
 [node name="Torso" type="Node2D" unique_id=351333405]
 script = ExtResource("1_26ja6")
 type = 1
-stitch_priority = 100
+stitch_priority = 500
 
 [node name="BodyPart" type="Sprite2D" parent="." unique_id=685628172]
 texture = ExtResource("2_26ja6")
@@ -87,34 +87,40 @@ direction = 1
 position = Vector2(122, -85)
 script = ExtResource("4_r20mw")
 id = 201
+allowedBodyTypes = Array[int]([3])
 direction = 3
 
 [node name="ConnectionPoint_202" type="Marker2D" parent="." unique_id=1522758959]
 position = Vector2(159, 11)
 script = ExtResource("4_r20mw")
 id = 202
+allowedBodyTypes = Array[int]([3])
 direction = 3
 
 [node name="ConnectionPoint_203" type="Marker2D" parent="." unique_id=1650167569]
 position = Vector2(145, 89)
 script = ExtResource("4_r20mw")
 id = 203
+allowedBodyTypes = Array[int]([3])
 direction = 3
 
 [node name="ConnectionPoint_301" type="Marker2D" parent="." unique_id=2037888554]
 position = Vector2(-135, -69)
 script = ExtResource("4_r20mw")
 id = 301
+allowedBodyTypes = Array[int]([3])
 direction = 2
 
 [node name="ConnectionPoint_302" type="Marker2D" parent="." unique_id=72995844]
 position = Vector2(-155, 2)
 script = ExtResource("4_r20mw")
 id = 302
+allowedBodyTypes = Array[int]([3])
 direction = 2
 
 [node name="ConnectionPoint_303" type="Marker2D" parent="." unique_id=344551721]
 position = Vector2(-152, 78)
 script = ExtResource("4_r20mw")
 id = 303
+allowedBodyTypes = Array[int]([3])
 direction = 2

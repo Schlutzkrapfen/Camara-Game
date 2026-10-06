@@ -8,24 +8,26 @@
 [node name="Leg" type="Node2D" unique_id=351333405]
 script = ExtResource("1_7a4f0")
 type = 2
+stitch_priority = 100
 
 [node name="Pivot" type="Marker2D" parent="." unique_id=325312056]
 script = ExtResource("3_7a4f0")
 isRotating = true
 
 [node name="BodyPart" type="Sprite2D" parent="Pivot" unique_id=685628172]
+z_index = -20
 position = Vector2(12.805, 73.335)
 texture = ExtResource("3_4p0ic")
 
-[node name="ConnectionPoint_101" type="Marker2D" parent="." unique_id=1485094818]
+[node name="ConnectionPoint_1" type="Marker2D" parent="." unique_id=1485094818]
 position = Vector2(1, 1)
 script = ExtResource("3_8jlq2")
-id = 101
+id = 1
 allowedBodyTypes = Array[int]([0, 1])
 
-[node name="ConnectionPoint_102" type="Marker2D" parent="." unique_id=1105117741]
+[node name="ConnectionPoint_101" type="Marker2D" parent="." unique_id=1105117741]
 script = ExtResource("3_8jlq2")
-id = 102
+id = 101
 allowedBodyTypes = Array[int]([2])
 direction = 1
 attachmentRotation = 141.255
