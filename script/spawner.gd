@@ -1,28 +1,36 @@
+class_name MainTileMap
 extends TileMapLayer
 
 
 @onready var tilemap:TileMapLayer =  self
 @onready var flowfield:FlowField = $FlowField
 
-
+var current_builds: Dictionary[Vector2i, BuildData]
+var occupied_tiles: Dictionary[Vector2i, Vector2i] = {}
 
 var is_okay_to_build:bool = true
 class BuildData:
 	var rotation: Global.TileTransform
 	var resource_refrence: BuildingResource
 	var cur_time: float = 0
+	var cur_items: Array[Node2D] 
 	var last_output:int =0
 	func _init( p_buildingresource: BuildingResource ,p_transform: Global.TileTransform = Global.TileTransform.None) -> void:
 		rotation = p_transform
 		resource_refrence = p_buildingresource
 
 
-var current_builds: Dictionary[Vector2i, BuildData]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_priority = -1
 	pass
+
+func add_item_input(item:Node2D,positon:Vector2i):
+	current_builds[positon].cur_items.append(item)
+	item.visible = false
+	item.process_mode = Node.PROCESS_MODE_DISABLED
+	
 
 func check_building(is_okay:bool):
 	is_okay_to_build = is_okay
@@ -81,11 +89,7 @@ func spawn(mouse_position):
 				flowfield.append_flowfield(tiles,Global.currentrotation)
 			else:
 				flowfield.append_flowfield(tiles,Global.TileTransform.None)
+			occupied_tiles[tiles] = tile
 			tilemap.set_cell(tiles,current_house.tilemap_id,current_house.position_tilemap+local_tile,Global.currentrotation)
-	
-	var buildings:BuildData =  BuildData.new(current_house,Global.currentrotation)
+	var buildings:BuildData = BuildData.new(current_house,Global.currentrotation)
 	current_builds[tile] =buildings
-
-
-	
-	

@@ -1,12 +1,14 @@
 class_name FlowField
 extends Node
-@export var main_tile_map: TileMapLayer
+@export var main_tile_map: MainTileMap
 @export var speed:int =  1000
 var flowfield:Dictionary[Vector2,Global.TileTransform]
-var list_items:Array[Sprite2D]
+var list_items:Array[Node2D]
 var grid_pos_array:Dictionary[Vector2i,bool]
-var item_used:Dictionary[Sprite2D,Vector2]
+var item_used:Dictionary[Node2D,Vector2]
 var item_moved:Dictionary[Vector2,bool]
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -15,7 +17,7 @@ func append_flowfield(vec:Vector2, Rotation:Global.TileTransform):
 	flowfield.get_or_add(vec,Rotation)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func append_list_items(node:Sprite2D):
+func append_list_items(node:Node2D):
 	list_items.append(node)
 
 func _process(delta: float) -> void:
@@ -25,6 +27,8 @@ func _process(delta: float) -> void:
 	for item in list_items:
 		var grid_pos =main_tile_map.local_to_map(item.global_position)
 		grid_pos_array[grid_pos] = true
+		if main_tile_map.occupied_tiles.has(grid_pos):
+			main_tile_map.add_item_input(item, main_tile_map.occupied_tiles[grid_pos])
 		if flowfield.has(grid_pos):
 			item_used[item]=grid_pos
 	for item in item_used.keys():
