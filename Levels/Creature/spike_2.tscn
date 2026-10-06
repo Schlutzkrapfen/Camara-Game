@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://2k4c1td3mkse"]
 
 [ext_resource type="Script" uid="uid://02teojrlf8xw" path="res://script/Creature.gd" id="1_srp3w"]
-[ext_resource type="Script" uid="uid://o2vmc3hwnjnl" path="res://script/ProceduralAnimation.gd" id="2_7n3fk"]
 [ext_resource type="Texture2D" uid="uid://jy0e00irmuh2" path="res://assets/Sprites/ModularCharacter/Accessories/Spikes/Spike_Medium.png" id="3_srp3w"]
 [ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="4_axj70"]
 
@@ -10,8 +9,6 @@ script = ExtResource("1_srp3w")
 type = 3
 
 [node name="Pivot" type="Marker2D" parent="." unique_id=325312056]
-script = ExtResource("2_7n3fk")
-isRotating = true
 
 [node name="BodyPart" type="Sprite2D" parent="Pivot" unique_id=685628172]
 z_index = -10
