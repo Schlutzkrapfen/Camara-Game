@@ -3,12 +3,19 @@ extends Node2D
 
 enum BodyType { HEAD, TORSO, LEG }
 
-var is_alive: bool = false
+@export_category("General")
 @export var type: BodyType = BodyType.HEAD
 @export var stitch_priority: int = 0
 @export var randomAttachmentRotationOffset: float = 5
 @export var randomAttachmentScaleOffset: float = 0.05
 var attached_parts: Array[Creature] = []
+
+@export_category("Gameplay Stats")
+var is_alive: bool = false
+@export var hp: int = 0
+@export var lives: int = 0
+@export var speed: float = 0
+@export var attack: float = 0
 
 ## True once this part has been stitched onto another creature.
 var is_stitched: bool = false

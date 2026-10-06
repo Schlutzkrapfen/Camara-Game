@@ -4,10 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://h4gm0w78c05t" path="res://Levels/Creature/head.tscn" id="2_kgn47"]
 [ext_resource type="PackedScene" uid="uid://te3wdjrwjvf3" path="res://Levels/Creature/torso.tscn" id="3_h1l0e"]
 [ext_resource type="PackedScene" uid="uid://br6rp8mmcsbyd" path="res://Levels/Creature/leg.tscn" id="4_wqga0"]
+[ext_resource type="PackedScene" uid="uid://dv3qwt1jtj1wt" path="res://Levels/Creature/torso_2.tscn" id="5_h1l0e"]
+[ext_resource type="PackedScene" uid="uid://dtcu05c44x3w8" path="res://Levels/Creature/torso_3.tscn" id="6_oyvla"]
+[ext_resource type="PackedScene" uid="uid://cg3y50e7rvs8o" path="res://Levels/Creature/torso_4.tscn" id="7_3c7w0"]
+[ext_resource type="PackedScene" uid="uid://fno8mfow55r1" path="res://Levels/Creature/torso_5.tscn" id="8_3c7w0"]
 
 [node name="CreatureTestingScene" type="Node2D" unique_id=1857987435]
 script = ExtResource("1_qu1v0")
-part_scenes = Array[PackedScene]([ExtResource("2_kgn47"), ExtResource("3_h1l0e"), ExtResource("4_wqga0")])
+part_scenes = Array[PackedScene]([ExtResource("2_kgn47"), ExtResource("3_h1l0e"), ExtResource("4_wqga0"), ExtResource("5_h1l0e"), ExtResource("6_oyvla"), ExtResource("7_3c7w0"), ExtResource("8_3c7w0")])
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1101754663]
 position = Vector2(577, 324)

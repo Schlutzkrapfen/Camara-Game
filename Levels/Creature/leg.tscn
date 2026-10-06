@@ -17,8 +17,23 @@ isRotating = true
 position = Vector2(12.805, 73.335)
 texture = ExtResource("2_8jlq2")
 
-[node name="ConnectionPoint_1" type="Marker2D" parent="." unique_id=1485094818]
+[node name="ConnectionPoint_101" type="Marker2D" parent="." unique_id=1485094818]
 position = Vector2(1, 1)
 script = ExtResource("3_8jlq2")
-id = 1
+id = 101
 allowedBodyTypes = Array[int]([0, 1, 2])
+
+[node name="ConnectionPoint_102" type="Marker2D" parent="." unique_id=1105117741]
+position = Vector2(1, 1)
+script = ExtResource("3_8jlq2")
+id = 102
+allowedBodyTypes = Array[int]([2])
+direction = 1
+attachmentRotation = 141.255
+
+[node name="ConnectionPoint_103" type="Marker2D" parent="." unique_id=40482600]
+position = Vector2(1, 1)
+script = ExtResource("3_8jlq2")
+id = 103
+allowedBodyTypes = Array[int]([2])
+attachmentRotation = 70.13

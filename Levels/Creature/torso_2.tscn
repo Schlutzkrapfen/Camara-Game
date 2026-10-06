@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://dv3qwt1jtj1wt"]
+
+[ext_resource type="Script" uid="uid://02teojrlf8xw" path="res://script/Creature.gd" id="1_icbgm"]
+[ext_resource type="Texture2D" uid="uid://cpyngwtkruuuk" path="res://assets/Sprites/ModularCharacter/Torso/Torso_StandardRectangular.png" id="2_icbgm"]
+[ext_resource type="Script" uid="uid://o2vmc3hwnjnl" path="res://script/ProceduralAnimation.gd" id="3_goaf8"]
+[ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="4_niabm"]
+
+[node name="Torso" type="Node2D" unique_id=351333405]
+script = ExtResource("1_icbgm")
+type = 1
+stitch_priority = 100
+
+[node name="BodyPart" type="Sprite2D" parent="." unique_id=685628172]
+texture = ExtResource("2_icbgm")
+script = ExtResource("3_goaf8")
+isBreathing = true
+
+[node name="ConnectionPoint_1" type="Marker2D" parent="." unique_id=565967205]
+position = Vector2(-6, -154)
+script = ExtResource("4_niabm")
+id = 1
+allowedBodyTypes = Array[int]([0])
+
+[node name="ConnectionPoint_2" type="Marker2D" parent="." unique_id=465290583]
+position = Vector2(-88, -122)
+script = ExtResource("4_niabm")
+id = 2
+allowedBodyTypes = Array[int]([0])
+attachmentScale = 0.6
+attachmentRotation = -35.48
+
+[node name="ConnectionPoint_3" type="Marker2D" parent="." unique_id=1381587691]
+position = Vector2(71, -122)
+script = ExtResource("4_niabm")
+id = 3
+allowedBodyTypes = Array[int]([0])
+attachmentScale = 0.8
+attachmentRotation = 35.48
+
+[node name="ConnectionPoint_101" type="Marker2D" parent="." unique_id=690560708]
+position = Vector2(31, 152)
+script = ExtResource("4_niabm")
+id = 101
+allowedBodyTypes = Array[int]([2])
+direction = 1
+
+[node name="ConnectionPoint_102" type="Marker2D" parent="." unique_id=931488153]
+position = Vector2(-91, 131)
+script = ExtResource("4_niabm")
+id = 102
+allowedBodyTypes = Array[int]([2])
+direction = 1
+attachmentRotation = 17.64
+
+[node name="ConnectionPoint_103" type="Marker2D" parent="." unique_id=691805819]
+position = Vector2(104, 134)
+script = ExtResource("4_niabm")
+id = 103
+allowedBodyTypes = Array[int]([2])
+direction = 1
+attachmentRotation = -17.55
+
+[node name="ConnectionPoint_104" type="Marker2D" parent="." unique_id=765652926]
+position = Vector2(-29, 152)
+script = ExtResource("4_niabm")
+id = 104
+allowedBodyTypes = Array[int]([2])
+direction = 1
+
+[node name="ConnectionPoint_201" type="Marker2D" parent="." unique_id=1096095616]
+position = Vector2(95, -82)
+script = ExtResource("4_niabm")
+id = 201
+direction = 3
+
+[node name="ConnectionPoint_202" type="Marker2D" parent="." unique_id=1522758959]
+position = Vector2(119, 10)
+script = ExtResource("4_niabm")
+id = 202
+direction = 3
+
+[node name="ConnectionPoint_203" type="Marker2D" parent="." unique_id=1650167569]
+position = Vector2(116, 105)
+script = ExtResource("4_niabm")
+id = 203
+direction = 3
+
+[node name="ConnectionPoint_301" type="Marker2D" parent="." unique_id=2037888554]
+position = Vector2(-117, -69)
+script = ExtResource("4_niabm")
+id = 301
+direction = 2
+
+[node name="ConnectionPoint_302" type="Marker2D" parent="." unique_id=72995844]
+position = Vector2(-121, 1)
+script = ExtResource("4_niabm")
+id = 302
+direction = 2
+
+[node name="ConnectionPoint_303" type="Marker2D" parent="." unique_id=344551721]
+position = Vector2(-111, 77)
+script = ExtResource("4_niabm")
+id = 303
+direction = 2

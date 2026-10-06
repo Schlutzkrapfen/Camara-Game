@@ -32,53 +32,53 @@ id = 1
 allowedBodyTypes = Array[int]([0])
 attachmentScale = 0.7
 
-[node name="ConnectionPoint_2" type="Marker2D" parent="." unique_id=2131286686]
-position = Vector2(68, -98)
+[node name="ConnectionPoint_2" type="Marker2D" parent="." unique_id=969426924]
+position = Vector2(-83, -88)
 script = ExtResource("5_xq6yg")
 id = 2
 allowedBodyTypes = Array[int]([0])
 attachmentScale = 0.5
-attachmentRotation = 23.625
+attachmentRotation = -25.875
 
-[node name="ConnectionPoint_3" type="Marker2D" parent="." unique_id=969426924]
-position = Vector2(-83, -88)
+[node name="ConnectionPoint_3" type="Marker2D" parent="." unique_id=2131286686]
+position = Vector2(68, -98)
 script = ExtResource("5_xq6yg")
 id = 3
 allowedBodyTypes = Array[int]([0])
 attachmentScale = 0.5
-attachmentRotation = -25.875
+attachmentRotation = 23.625
 
-[node name="ConnectionPoint_4" type="Marker2D" parent="." unique_id=1515140862]
+[node name="ConnectionPoint_101" type="Marker2D" parent="." unique_id=1515140862]
 position = Vector2(0, 127)
 script = ExtResource("5_xq6yg")
-id = 4
+id = 101
 allowedBodyTypes = Array[int]([1, 2])
 direction = 1
 
-[node name="ConnectionPoint_5" type="Marker2D" parent="." unique_id=751374416]
-position = Vector2(22, 122)
-script = ExtResource("5_xq6yg")
-id = 5
-allowedBodyTypes = Array[int]([1, 2])
-direction = 1
-attachmentRotation = -28.985
-
-[node name="ConnectionPoint_6" type="Marker2D" parent="." unique_id=1848258738]
+[node name="ConnectionPoint_102" type="Marker2D" parent="." unique_id=1848258738]
 position = Vector2(-21, 123)
 script = ExtResource("5_xq6yg")
-id = 6
+id = 102
 allowedBodyTypes = Array[int]([1, 2])
 direction = 1
 attachmentRotation = 26.695
 
-[node name="ConnectionPoint_7" type="Marker2D" parent="." unique_id=1367141123]
+[node name="ConnectionPoint_103" type="Marker2D" parent="." unique_id=751374416]
+position = Vector2(22, 122)
+script = ExtResource("5_xq6yg")
+id = 103
+allowedBodyTypes = Array[int]([1, 2])
+direction = 1
+attachmentRotation = -28.985
+
+[node name="ConnectionPoint_201" type="Marker2D" parent="." unique_id=1367141123]
 position = Vector2(125, 1)
 script = ExtResource("5_xq6yg")
-id = 7
+id = 201
 direction = 3
 
-[node name="ConnectionPoint_8" type="Marker2D" parent="." unique_id=1794841693]
+[node name="ConnectionPoint_301" type="Marker2D" parent="." unique_id=1794841693]
 position = Vector2(-119, 1)
 script = ExtResource("5_xq6yg")
-id = 8
+id = 301
 direction = 2
