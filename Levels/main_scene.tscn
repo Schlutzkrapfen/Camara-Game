@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b5w0sxaixnlhk" path="res://assets/Protype Factory/splitter.png" id="3_wr0fo"]
 [ext_resource type="Texture2D" uid="uid://cjxdymamhuqj0" path="res://assets/Protype Factory/goofactory.png" id="4_mc1i1"]
 [ext_resource type="Script" uid="uid://b7r4n585kvy5" path="res://script/spawner.gd" id="4_p8lrm"]
+[ext_resource type="Texture2D" uid="uid://d27i4qnwa0txv" path="res://assets/Protype Factory/headfactory.png" id="4_xnfqo"]
 [ext_resource type="Script" uid="uid://bko1gb6s0qt05" path="res://Levels/flow_field.gd" id="6_8rkvs"]
 [ext_resource type="Script" uid="uid://bi4ewvw0hvmxg" path="res://script/switch_factory.gd" id="8_wjs4o"]
 
@@ -28,6 +29,14 @@ texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 0:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kumpi"]
+texture = ExtResource("4_xnfqo")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qs7lm"]
 texture = ExtResource("4_mc1i1")
 texture_region_size = Vector2i(100, 100)
@@ -42,6 +51,7 @@ sources/1 = SubResource("TileSetAtlasSource_72q2g")
 sources/0 = SubResource("TileSetAtlasSource_mne4e")
 sources/2 = SubResource("TileSetAtlasSource_mc1i1")
 sources/4 = SubResource("TileSetAtlasSource_qs7lm")
+sources/3 = SubResource("TileSetAtlasSource_kumpi")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rkvs"]
 texture = ExtResource("1_wjs4o")
@@ -80,6 +90,4 @@ main_tileset = NodePath("../MainTailMap")
 [node name="SwitchBuilding" type="Node" parent="." unique_id=1143980631]
 script = ExtResource("8_wjs4o")
 
-[connection signal="item_spawned" from="MainTailMap" to="MainTailMap/FlowField" method="append_list_items"]
-[connection signal="new_flowmaptile_saved" from="MainTailMap" to="MainTailMap/FlowField" method="append_flowfield"]
 [connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]

@@ -2,8 +2,9 @@ extends TileMapLayer
 
 
 @onready var tilemap:TileMapLayer =  self
-signal new_flowmaptile_saved(postion,transform)  
-signal item_spawned(Node2d)  
+@onready var flowfield:FlowField = $FlowField
+
+
 var is_okay_to_build:bool = true
 class BuildData:
 	var rotation: Global.TileTransform
@@ -17,12 +18,10 @@ class BuildData:
 
 var current_builds: Dictionary[Vector2i, BuildData]
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	process_priority = -1
 	pass
-
 
 func check_building(is_okay:bool):
 	is_okay_to_build = is_okay
@@ -33,21 +32,24 @@ func _process(delta: float) -> void:
 		#if factory.input == factory.cur_input:
 		factory.cur_time +=delta
 		if factory.cur_time > factory.resource_refrence.craft_time: 
-			output_items(factory,key)
-			factory.cur_time = 0
-				
+			if output_items(factory,key):
+				factory.cur_time = 0
 
-func output_items(factory:BuildData,positon):
+func output_items(factory:BuildData,positon)-> bool:
 	for item_resource in factory.resource_refrence.output:
 		var current_size:int = factory.last_output% factory.resource_refrence.output_tile.size()
-		var item = item_resource.item_scene.instantiate()
 		var keys = factory.resource_refrence.output_tile.keys()
-		
+		var cur_pos = positon + Global.get_rotation_out_of_size(keys[current_size].x,keys[current_size].y,factory.rotation)
+		if not flowfield.is_cell_free(cur_pos):
+			return false
+		var item = item_resource.item_scene.instantiate()
 		item.global_position = tilemap.to_global(
-		tilemap.map_to_local(positon + Global.get_rotation_out_of_size(keys[current_size].x,keys[current_size].y,factory.rotation))
+		tilemap.map_to_local(cur_pos)
 )
 		add_child(item)
-		emit_signal("item_spawned",item)
+		flowfield.append_list_items(item)
+		return true
+	return false
 
 
 func _input(event: InputEvent) -> void:
@@ -74,7 +76,7 @@ func spawn(mouse_position):
 		for y in current_house.size.y:
 			var local_tile =  Vector2i(x,y)
 			var tiles = tile + Global.get_rotation_out_of_size(x ,y)
-			emit_signal("new_flowmaptile_saved",tiles,Global.currentrotation)
+			flowfield.append_flowfield(tiles,Global.currentrotation)
 			tilemap.set_cell(tiles,current_house.tilemap_id,current_house.position_tilemap+local_tile,Global.currentrotation)
 	var buildings:BuildData =  BuildData.new(current_house,Global.currentrotation)
 	current_builds[tile] =buildings

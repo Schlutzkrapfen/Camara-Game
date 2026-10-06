@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="itemResouce" format=3 uid="uid://bvdqxr7232ip4"]
 
-[ext_resource type="PackedScene" uid="uid://okfpuqgbojjs" path="res://items/goo.tscn" id="1_oc1hb"]
+[ext_resource type="PackedScene" uid="uid://okfpuqgbojjs" path="res://Levels/items/goo.tscn" id="1_oc1hb"]
 [ext_resource type="Script" uid="uid://e10ksi240mgo" path="res://Resourcen/item_resource.gd" id="2_j6o5v"]
 
 [resource]
