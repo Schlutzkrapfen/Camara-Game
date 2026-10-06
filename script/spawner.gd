@@ -1,3 +1,4 @@
+class_name Spawner
 extends TileMapLayer
 
 
@@ -11,6 +12,8 @@ class BuildData:
 	var rotation: Global.TileTransform
 	var resource_refrence: BuildingResource
 	var cur_time: float = 0
+	var cur_items: Array[ItemList]
+	var cur_tiles:Array[Vector2i]
 	var last_output:int =0
 	func _init( p_buildingresource: BuildingResource ,p_transform: Global.TileTransform = Global.TileTransform.None) -> void:
 		rotation = p_transform
@@ -22,6 +25,9 @@ var current_builds: Dictionary[Vector2i, BuildData]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_priority = -1
+	pass
+
+func add_to_input(item):
 	pass
 
 func check_building(is_okay:bool):
@@ -79,13 +85,10 @@ func spawn(mouse_position):
 			var tiles = tile + Global.get_rotation_out_of_size(x ,y)
 			if current_house.output_tile.has(local_tile):
 				flowfield.append_flowfield(tiles,Global.currentrotation)
+				
 			else:
 				flowfield.append_flowfield(tiles,Global.TileTransform.None)
 			tilemap.set_cell(tiles,current_house.tilemap_id,current_house.position_tilemap+local_tile,Global.currentrotation)
 	
 	var buildings:BuildData =  BuildData.new(current_house,Global.currentrotation)
 	current_builds[tile] =buildings
-
-
-	
-	
