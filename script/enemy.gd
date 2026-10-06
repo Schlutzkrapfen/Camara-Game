@@ -6,16 +6,20 @@ class_name Enemy
 @export var attackDamage: int = 3
 @export var attackCooldown: float = 0.1
 @export var attackRange: float = 200
-@export var minSelfdestructTime: float = 4
-@export var maxSelfdestructTime: float = 6
+
+@export_category("Spawner")
+@export var isSpawner: bool = false
+@export var spawn: PackedScene
+@export var minSpawnTime: float = 3
+@export var maxSpawnTime: float = 5
 var target: Node2D
-var timeUntilSelfDestruct: float
+var curTimeUntilNextSpawn: float
 var curAttackCooldown: float = 0.0
 var sprite: Sprite2D
 
 
+
 func _ready() -> void:
-	timeUntilSelfDestruct = randf_range(minSelfdestructTime, maxSelfdestructTime)
 	sprite = find_children("*", "Sprite2D")[0]
 
 
@@ -23,19 +27,20 @@ func _process(delta: float) -> void:
 	#if not raidStarted:
 	#	return
 	
+	if isSpawner:
+		curTimeUntilNextSpawn -= delta
+		if curTimeUntilNextSpawn <= 0:
+			curTimeUntilNextSpawn = randf_range(minSpawnTime, maxSpawnTime)
+			var newEnemy = spawn.instantiate() as Enemy
+			get_tree().current_scene.add_child(newEnemy)
+			newEnemy.global_position = self.global_position
+	
 	## Confirm target
-	if target == null:
+	if speed > 0 and target == null: # speed = 0 means it's a building
 		target = SearchForTarget()
-		timeUntilSelfDestruct -= delta
-		if timeUntilSelfDestruct <= 0:
-			Die()
 		return
 	
 	curAttackCooldown -= delta
-	
-	## Move towards target
-	if curAttackCooldown <= 0:
-		position += (target.position - self.position).normalized() * delta * speed
 	
 	## Attack if possible
 	if curAttackCooldown <= 0:
@@ -50,6 +55,10 @@ func _process(delta: float) -> void:
 			else:
 				curAttackCooldown = attackCooldown
 			SpawnAttackVisual()
+		else:
+			## Move towards target
+			if speed > 0:
+				position += (target.position - self.position).normalized() * delta * speed
 
 
 func SearchForTarget() -> Node2D:

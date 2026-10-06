@@ -82,9 +82,6 @@ func _process(delta: float) -> void:
 	
 	curAttackCooldown -= delta
 	
-	## Move towards target
-	if curAttackCooldown <= 0:
-		position += (target.position - self.position).normalized() * delta * speed
 	
 	## Attack if possible
 	if curAttackCooldown <= 0:
@@ -99,6 +96,9 @@ func _process(delta: float) -> void:
 			else:
 				curAttackCooldown = attackCooldown
 			SpawnAttackVisual()
+		else:
+			## Move towards target
+			position += (target.position - self.position).normalized() * delta * speed
 
 
 func SearchForTarget() -> Enemy:

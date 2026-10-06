@@ -16,7 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://dw5pxqw638q5j" path="res://Levels/Creature/spike_1_L.tscn" id="14_y1hec"]
 [ext_resource type="PackedScene" uid="uid://cmq7h1hqqp6fu" path="res://Levels/Creature/spike_2_L.tscn" id="15_xxkyx"]
 [ext_resource type="PackedScene" uid="uid://dw6c0y8w2v2j3" path="res://Levels/Creature/spike_3_L.tscn" id="16_ahytx"]
-[ext_resource type="PackedScene" uid="uid://dlyg7svl3faxm" path="res://Levels/Enemy.tscn" id="17_xxkyx"]
+[ext_resource type="PackedScene" uid="uid://dlyg7svl3faxm" path="res://Levels/Enemies/Grunt.tscn" id="17_xxkyx"]
+[ext_resource type="PackedScene" uid="uid://c4uvcr8un6oyy" path="res://Levels/Enemies/Grunt_Hut.tscn" id="18_ahytx"]
 
 [node name="CreatureTestingScene" type="Node2D" unique_id=1857987435]
 script = ExtResource("1_qu1v0")
@@ -33,3 +34,6 @@ scale = Vector2(1.9811211, 2.053041)
 [node name="Enemy2" parent="." unique_id=1860689096 instance=ExtResource("17_xxkyx")]
 position = Vector2(1342, -999)
 scale = Vector2(1.9811211, 2.053041)
+
+[node name="Enemy" parent="." unique_id=1823851156 instance=ExtResource("18_ahytx")]
+position = Vector2(-2158, 1773)
