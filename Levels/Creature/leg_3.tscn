@@ -9,6 +9,9 @@
 script = ExtResource("1_5tkjm")
 type = 2
 stitch_priority = 100
+speed = 45.0
+attackDamage = 3
+attackCooldown = -0.05
 
 [node name="Pivot" type="Marker2D" parent="." unique_id=325312056]
 script = ExtResource("2_s0ycw")

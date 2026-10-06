@@ -7,6 +7,7 @@
 [node name="Spike" type="Node2D" unique_id=351333405]
 script = ExtResource("1_q7y10")
 type = 3
+attackDamage = 10
 
 [node name="Pivot" type="Marker2D" parent="." unique_id=325312056]
 

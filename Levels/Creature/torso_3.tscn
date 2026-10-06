@@ -9,6 +9,9 @@
 script = ExtResource("1_26ja6")
 type = 1
 stitch_priority = 500
+hp = 30
+attackCooldown = 0.3
+attackRange = 10.0
 
 [node name="BodyPart" type="Sprite2D" parent="." unique_id=685628172]
 texture = ExtResource("2_26ja6")

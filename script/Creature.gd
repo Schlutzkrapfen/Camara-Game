@@ -11,11 +11,29 @@ enum BodyType { HEAD, TORSO, LEG, SPIKE }
 var attached_parts: Array[Creature] = []
 
 @export_category("Gameplay Stats")
-var is_alive: bool = false
+var is_alive: bool = false:
+	set(value):
+		if is_alive == value:
+			return # stops infinite loop
+		is_alive = value
+		
+		_ensure_connection_points()
+		for point in _connection_points:
+			if point.connected_part != null:
+				point.connected_part.is_alive = value
+
 @export var hp: int = 0
 @export var lives: int = 0
 @export var speed: float = 0
-@export var attack: float = 0
+@export var attackDamage: int = 0
+@export var attackCooldown: float = 0.1
+@export var attackRange: float = 0
+@export_category("Global Stats")
+@export var minSelfdestructTime: float = 4
+@export var maxSelfdestructTime: float = 6
+var target: Node2D
+var timeUntilSelfDestruct: float
+var curAttackCooldown: float = 0.0
 
 ## True once this part has been stitched onto another creature.
 var is_stitched: bool = false
@@ -23,9 +41,11 @@ var is_stitched: bool = false
 var _connection_points: Array[ConnectionPoint] = []
 
 
-## START
+# --- Connection Logic -------------------------------------------------------------
+
 func _ready() -> void:
 	_ensure_connection_points()
+	timeUntilSelfDestruct = randf_range(minSelfdestructTime, maxSelfdestructTime)
 
 
 func _ensure_connection_points() -> void:
@@ -44,10 +64,55 @@ func _find_connection_point_by_id(target_id: int) -> ConnectionPoint:
 	return null
 
 
-## MISSING GAMEPLAY LOGIC
-@warning_ignore("unused_parameter")
+# --- Gameplay -------------------------------------------------------------
+
 func _process(delta: float) -> void:
-	pass
+	if not is_alive:
+		return
+	
+	## Confirm target
+	if target == null:
+		target = SearchForTarget()
+		timeUntilSelfDestruct -= delta
+		if timeUntilSelfDestruct <= 0:
+			Die()
+		return
+	
+	curAttackCooldown -= delta
+	
+	## Move towards target
+	if curAttackCooldown <= 0:
+		position += (target.position - self.position).normalized() * delta * speed
+	
+	## attackDamage if possible
+	if curAttackCooldown <= 0:
+		var someoneInRange: bool = false
+		for enemy in get_tree().get_nodes_in_group("enemies"):
+			if global_position.distance_squared_to(enemy.global_position) <= attackRange * attackRange:
+				someoneInRange = true
+				enemy.TakeDamage(attackDamage)
+		if someoneInRange:
+			if attackCooldown < 0.1: # Hard-Coded minimum
+				curAttackCooldown = 0.1
+			else:
+				curAttackCooldown = attackCooldown
+			SpawnAttackVisual()
+
+
+func SearchForTarget() -> Enemy:
+	var enemies := get_tree().get_nodes_in_group("enemies")
+	if enemies.is_empty():
+		return null
+	return enemies.pick_random() as Enemy
+
+func SpawnAttackVisual() -> void:
+	var fx := AttackEffect.new()
+	fx.radius = attackRange
+	get_tree().current_scene.add_child(fx)
+	fx.global_position = global_position
+
+func Die() -> void:
+	self.queue_free()
 
 
 # --- Stitching -------------------------------------------------------------
@@ -80,6 +145,14 @@ func StitchBodyPart(part: Creature, myExtraPriority: int, otherExtraPriority: in
 	part.scale = Vector2(newScale, newScale)
 	part.rotation = deg_to_rad(mine.attachmentRotation + randf_range(-randomAttachmentRotationOffset, randomAttachmentRotationOffset))
 	part.position = mine.position - part.transform.basis_xform(theirs.position)
+	
+	lives += part.lives
+	hp += part.hp
+	speed += part.speed
+	attackDamage += part.attackDamage
+	attackCooldown += part.attackCooldown
+	attackRange += part.attackRange
+	print("%s new stats: L:%s | Hp:%s | Spd:%s | Atk:%s | Atk_Cd:%s | Atk_Rng:%s" % [self.name, lives, hp, speed, attackDamage, attackCooldown, attackRange])
 	
 	part._on_stitched()
 	print("Stitched %s(%s) onto %s(%s)" % [part.name, part.stitch_priority, self.name, self.stitch_priority])
@@ -165,7 +238,14 @@ func SwapCreature(new_creature: Creature) -> void:
 			parent_node.add_child(new_creature)
 			new_creature.global_transform = self.global_transform
 			new_creature.is_stitched = false
-
+	
+	new_creature.lives += lives
+	new_creature.hp += hp
+	new_creature.speed += speed
+	new_creature.attackCooldown += attackCooldown
+	new_creature.attackRange += attackRange
+	print("%s new stats: L:%s | Hp:%s | Spd:%s | Atk:%s | Atk_Cd:%s | Atk_Rng:%s" % [new_creature.name, new_creature.lives, new_creature.hp, new_creature.speed, new_creature.attackDamage, new_creature.attackCooldown, new_creature.attackRange])
+	
 	# 2. Reattach child limbs attached to this creature by ConnectionPoint ID
 	var children_to_reattach: Array[Dictionary] = []
 	for cp in _connection_points:

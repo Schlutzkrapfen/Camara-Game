@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dw5pxqw638q5j" path="res://Levels/Creature/spike_1_L.tscn" id="14_y1hec"]
 [ext_resource type="PackedScene" uid="uid://cmq7h1hqqp6fu" path="res://Levels/Creature/spike_2_L.tscn" id="15_xxkyx"]
 [ext_resource type="PackedScene" uid="uid://dw6c0y8w2v2j3" path="res://Levels/Creature/spike_3_L.tscn" id="16_ahytx"]
+[ext_resource type="PackedScene" uid="uid://dlyg7svl3faxm" path="res://Levels/Enemy.tscn" id="17_xxkyx"]
 
 [node name="CreatureTestingScene" type="Node2D" unique_id=1857987435]
 script = ExtResource("1_qu1v0")
@@ -24,3 +25,39 @@ part_scenes = Array[PackedScene]([ExtResource("2_kgn47"), ExtResource("3_h1l0e")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1101754663]
 position = Vector2(577, 324)
 zoom = Vector2(0.175, 0.175)
+
+[node name="Enemy1" parent="." unique_id=1843378386 instance=ExtResource("17_xxkyx")]
+position = Vector2(-1245, -595)
+scale = Vector2(1.9811211, 2.053041)
+
+[node name="Enemy2" parent="." unique_id=1860689096 instance=ExtResource("17_xxkyx")]
+position = Vector2(1342, -999)
+scale = Vector2(1.9811211, 2.053041)
+
+[node name="Enemy3" parent="." unique_id=491003955 instance=ExtResource("17_xxkyx")]
+position = Vector2(2198, 579)
+scale = Vector2(1.9811211, 2.053041)
+
+[node name="Enemy4" parent="." unique_id=352803044 instance=ExtResource("17_xxkyx")]
+position = Vector2(1489.0002, 1545)
+scale = Vector2(1.9811211, 2.053041)
+
+[node name="Enemy5" parent="." unique_id=2081462986 instance=ExtResource("17_xxkyx")]
+position = Vector2(3091, 1727.9999)
+scale = Vector2(1.9811211, 2.053041)
+
+[node name="Enemy6" parent="." unique_id=249906539 instance=ExtResource("17_xxkyx")]
+position = Vector2(-1906, 1667)
+scale = Vector2(1.9811211, 2.053041)
+
+[node name="Enemy7" parent="." unique_id=2007162510 instance=ExtResource("17_xxkyx")]
+position = Vector2(-2126, 444)
+scale = Vector2(1.9811211, 2.053041)
+
+[node name="Enemy8" parent="." unique_id=2104141443 instance=ExtResource("17_xxkyx")]
+position = Vector2(-2279.0002, -1103)
+scale = Vector2(1.9811211, 2.053041)
+
+[node name="Enemy9" parent="." unique_id=84970422 instance=ExtResource("17_xxkyx")]
+position = Vector2(3145.9998, -1005)
+scale = Vector2(1.9811211, 2.053041)

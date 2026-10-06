@@ -10,6 +10,8 @@
 [node name="Head" type="Node2D" unique_id=351333405]
 script = ExtResource("1_lvnpa")
 stitch_priority = 300
+lives = 1
+attackRange = 30.0
 
 [node name="BodyPart" type="Sprite2D" parent="." unique_id=685628172]
 texture = ExtResource("2_5377a")
