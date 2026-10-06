@@ -8,10 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://dtcu05c44x3w8" path="res://Levels/Creature/torso_3.tscn" id="6_oyvla"]
 [ext_resource type="PackedScene" uid="uid://cg3y50e7rvs8o" path="res://Levels/Creature/torso_4.tscn" id="7_3c7w0"]
 [ext_resource type="PackedScene" uid="uid://fno8mfow55r1" path="res://Levels/Creature/torso_5.tscn" id="8_3c7w0"]
+[ext_resource type="PackedScene" uid="uid://btntyicyivdry" path="res://Levels/Creature/leg_2.tscn" id="9_6q6ar"]
+[ext_resource type="PackedScene" uid="uid://dp8bcxgy7sxq2" path="res://Levels/Creature/leg_3.tscn" id="10_85nhp"]
 
 [node name="CreatureTestingScene" type="Node2D" unique_id=1857987435]
 script = ExtResource("1_qu1v0")
-part_scenes = Array[PackedScene]([ExtResource("2_kgn47"), ExtResource("3_h1l0e"), ExtResource("4_wqga0"), ExtResource("5_h1l0e"), ExtResource("6_oyvla"), ExtResource("7_3c7w0"), ExtResource("8_3c7w0")])
+part_scenes = Array[PackedScene]([ExtResource("2_kgn47"), ExtResource("3_h1l0e"), ExtResource("5_h1l0e"), ExtResource("6_oyvla"), ExtResource("7_3c7w0"), ExtResource("8_3c7w0"), ExtResource("4_wqga0"), ExtResource("9_6q6ar"), ExtResource("10_85nhp")])
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1101754663]
 position = Vector2(577, 324)

@@ -1,7 +1,7 @@
 class_name Creature
 extends Node2D
 
-enum BodyType { HEAD, TORSO, LEG }
+enum BodyType { HEAD, TORSO, LEG, SPIKE }
 
 @export_category("General")
 @export var type: BodyType = BodyType.HEAD
