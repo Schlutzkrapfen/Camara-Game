@@ -5,6 +5,7 @@ extends TileMapLayer
 @onready var flowfield:FlowField = $FlowField
 
 
+
 var is_okay_to_build:bool = true
 class BuildData:
 	var rotation: Global.TileTransform
@@ -76,8 +77,12 @@ func spawn(mouse_position):
 		for y in current_house.size.y:
 			var local_tile =  Vector2i(x,y)
 			var tiles = tile + Global.get_rotation_out_of_size(x ,y)
-			flowfield.append_flowfield(tiles,Global.currentrotation)
+			if current_house.output_tile.has(local_tile):
+				flowfield.append_flowfield(tiles,Global.currentrotation)
+			else:
+				flowfield.append_flowfield(tiles,Global.TileTransform.None)
 			tilemap.set_cell(tiles,current_house.tilemap_id,current_house.position_tilemap+local_tile,Global.currentrotation)
+	
 	var buildings:BuildData =  BuildData.new(current_house,Global.currentrotation)
 	current_builds[tile] =buildings
 
