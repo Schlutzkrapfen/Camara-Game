@@ -67,7 +67,10 @@ func output_input(factory):
 )
 		item.visible = true
 		flowfield.append_list_items(item)
+		if factory.cur_items.size() == 0:
+			return
 		factory.cur_items.remove_at(i)
+		
 
 
 func check_input(factory:BuildData) ->bool:
@@ -103,11 +106,12 @@ func output_items(factory:BuildData)-> bool:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton :
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and is_okay_to_build:
-			spawn(event.position)
+			spawn()
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			delete(event.position)
+			delete()
 
-func delete(mouse_position):
+func delete():
+	var mouse_position = get_global_mouse_position()
 	var local_position:Vector2 = tilemap.to_local(mouse_position)
 	var tile:Vector2i = tilemap.local_to_map(local_position)
 	if not occupied_tiles.has(tile):
@@ -125,9 +129,9 @@ func delete(mouse_position):
 			occupied_tiles.erase(factory_position)
 	
 
-func spawn(mouse_position):
-	var local_position = tilemap.to_local(mouse_position)
-	var tile = tilemap.local_to_map(local_position)
+func spawn():
+	var mouse_position = get_global_mouse_position()
+	var tile = tilemap.local_to_map(tilemap.to_local(mouse_position))
 	var current_house = Global.factory_list[Global.current_house]
 	var output_postion:Array[Vector2i] 
 	for x in current_house.size.x:
