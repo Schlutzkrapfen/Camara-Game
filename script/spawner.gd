@@ -14,6 +14,7 @@ class BuildData:
 	var cur_time: float = 0
 	var cur_items: Array[Node2D] 
 	var last_output:int =0
+	var black_list:Dictionary[Node2D,bool]
 	var output_position:Array[Vector2i]
 	var can_get_input:bool
 	func _init( p_buildingresource: BuildingResource ,p_outputpostion:Array[Vector2i],p_transform: Global.TileTransform = Global.TileTransform.None) -> void:
@@ -30,7 +31,10 @@ func _ready() -> void:
 ## Stores an item inside the building at the given tile if it has room, returns whether it was accepted.
 func add_item_input(item:Node2D,positon:Vector2i)->bool:
 	var factory = current_builds[positon]
-	if len(factory.cur_items) < factory.resource_refrence.input_size:
+	if len(factory.cur_items) < factory.resource_refrence.input_size and not factory.black_list.has(item):
+		if not needs_item(factory,item):
+			factory.black_list[item] = true
+			return false
 		factory.cur_items.append(item)
 		item.visible = false
 		flowfield.delete_item(item)
@@ -38,6 +42,22 @@ func add_item_input(item:Node2D,positon:Vector2i)->bool:
 		return true
 	return false
 
+## Returns true if the building still needs an item of this item's type.
+func needs_item(factory: BuildData, item: Node2D) -> bool:
+	if len(factory.resource_refrence.input) == 0:
+		return true
+	var still_needed: Array = factory.resource_refrence.input.duplicate()
+	# Cross off requirements already covered by stored items.
+	for stored in factory.cur_items:
+		for type in still_needed:
+			if is_instance_of(stored, type):
+				still_needed.erase(type)
+				break
+	# Does the new item fit one of the remaining requirements?
+	for type in still_needed:
+		if is_instance_of(item, type):
+			return true
+	return false
 
 ## Enables or disables building placement.
 func check_building(is_okay:bool):
@@ -55,9 +75,14 @@ func _process(delta: float) -> void:
 			factory.cur_time +=delta
 			if factory.cur_time > factory.resource_refrence.craft_time: 
 				if factory.resource_refrence.factory_type == Global.factory_type.Combine:
-					combine_items(factory)
-					factory.cur_time = 0
-					factory.can_get_input = true
+					if combine_items(factory):
+						factory.cur_time = 0
+						factory.can_get_input = true
+					return
+				if factory.resource_refrence.factory_type == Global.factory_type.Combine:
+					if combine_items(factory):
+						factory.cur_time = 0
+						factory.can_get_input = true
 					return
 				if output_items(factory):
 					factory.cur_time = 0
@@ -65,7 +90,7 @@ func _process(delta: float) -> void:
 
 
 ## Stitches two stored Creature items together and sends the result out.
-func combine_items(factory:BuildData):
+func combine_items(factory:BuildData)-> bool:
 	var two_creaturs:Array[Creature]
 	for item in factory.cur_items:
 		var typed_item := item as Creature
@@ -75,14 +100,16 @@ func combine_items(factory:BuildData):
 				break
 	two_creaturs[1].StitchBodyPart(two_creaturs[0])
 	two_creaturs[0].visible= true
-	output_input(factory)
+	return output_input(factory)
 	
 ## Moves stored items out of the building onto a free output cell and re-enables them.
-func output_input(factory):
+func output_input(factory)->bool:
+	var full_output:int = 0
 	for i in range(factory.cur_items.size() - 1, -1, -1):
 		var item = factory.cur_items[i]
 		factory.last_output = (factory.last_output +1)% len(factory.output_position) 
 		if not flowfield.is_cell_free(factory.output_position[factory.last_output]):
+			full_output+=1
 			continue
 		
 		item.process_mode = Node.AUTO_TRANSLATE_MODE_INHERIT
@@ -93,8 +120,11 @@ func output_input(factory):
 		flowfield.append_list_items(item)
 		factory.cur_items.clear()
 		if factory.cur_items.size() == 0:
-			return
+			return true
 		factory.cur_items.remove_at(i)
+	if full_output == factory.cur_items.size():
+		return false
+	return true
 
 ## Returns true if the building holds items matching all its required input types.
 func check_input(factory:BuildData) ->bool:
@@ -129,7 +159,7 @@ func output_items(factory:BuildData)-> bool:
 	return false
 
 ## Left click places a building, right click deletes one.
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton :
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and is_okay_to_build:
 			spawn()
