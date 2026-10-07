@@ -65,6 +65,10 @@ func check_building(is_okay:bool):
 
 ## Each frame, runs every building: passes items through, crafts, and outputs results.
 func _process(delta: float) -> void:
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)and is_okay_to_build:
+		spawn()
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		delete()
 	for key in current_builds: # or current_builds.items()
 		var factory:BuildData = current_builds[key]
 		if factory.resource_refrence.factory_type == Global.factory_type.No_builder:
@@ -85,7 +89,7 @@ func _process(delta: float) -> void:
 						factory.can_get_input = true
 					return
 				if factory.resource_refrence.factory_type == Global.factory_type.Aliver:
-					if false:
+					if alive:
 						factory.cur_time = 0
 						factory.can_get_input = true
 					return
@@ -113,6 +117,7 @@ func upgrade_items(factory:BuildData)-> bool:
 		if creature == null:
 			continue
 		creature.UpgradeCreature()
+		
 		result = creature
 	factory.cur_items.clear()
 	if result:
@@ -127,8 +132,10 @@ func combine_items(factory:BuildData)-> bool:
 			two_creaturs.append(typed_item)
 			if two_creaturs.size() == 2:
 				break
-	two_creaturs[1].StitchBodyPart(two_creaturs[0])
-	two_creaturs[0].visible= true
+	if two_creaturs[1].StitchBodyPart(two_creaturs[0]):
+		two_creaturs[0].visible= true
+	factory.cur_items.clear()
+	
 	return output_input(factory)
 	
 ## Moves stored items out of the building onto a free output cell and re-enables them.
@@ -187,13 +194,6 @@ func output_items(factory:BuildData)-> bool:
 		return true
 	return false
 
-## Left click places a building, right click deletes one.
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton :
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and is_okay_to_build:
-			spawn()
-		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			delete()
 
 ## Removes the building under the mouse and frees all the tiles it covered.
 func delete():
