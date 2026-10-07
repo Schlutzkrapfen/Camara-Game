@@ -75,23 +75,20 @@ sources/1 = SubResource("TileSetAtlasSource_xnfqo")
 [node name="Main Scene" type="Node2D" unique_id=1857987435]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1101754663]
-position = Vector2(576, 327)
 script = ExtResource("1_q6pkb")
-locked = true
 min_zoom = 0.0
-max_zoom = 5.0
-min_y = -1000.0
-max_y = 650.0
-min_x = 0.0
-max_x = 1150.0
-locked_min_y = 30.0
-locked_max_y = 650.0
-locked_min_x = 0.0
-locked_max_x = 1150.0
-show_gizmos = false
+max_zoom = 0.7
+zoom_step = 1.15
+min_y = -14000.0
+max_y = 7300.0
+min_x = -7600.0
+max_x = 7600.0
+locked_min_y = -900.0
+locked_max_y = 7300.0
+locked_min_x = -7600.0
+locked_max_x = 7600.0
 
 [node name="MainTailMap" type="TileMapLayer" parent="." unique_id=271784119]
-scale = Vector2(0.1, 0.1)
 tile_set = SubResource("TileSet_nacyp")
 script = ExtResource("6_814nw")
 
@@ -100,7 +97,6 @@ script = ExtResource("7_5mrl6")
 main_tile_map = NodePath("..")
 
 [node name="CheckIfBuild" type="TileMapLayer" parent="." unique_id=1360988074 node_paths=PackedStringArray("main_tileset")]
-scale = Vector2(0.1, 0.1)
 tile_set = SubResource("TileSet_mne4e")
 physics_quadrant_size = 100
 script = ExtResource("10_kq7mr")
@@ -108,8 +104,8 @@ main_tileset = NodePath("../MainTailMap")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=9532409]
 self_modulate = Color(1, 1, 1, 0.2784314)
-position = Vector2(577.00006, -154.00002)
-scale = Vector2(0.2989258, 0.2989258)
+position = Vector2(0, -3463)
+scale = Vector2(4, 4)
 texture = ExtResource("12_2d3ho")
 
 [node name="UI" parent="." unique_id=1117017474 instance=ExtResource("14_fo3dw")]

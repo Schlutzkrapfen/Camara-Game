@@ -13,6 +13,7 @@ var curSettlementIndex: int = 0
 
 # --- Inputs -------------------------------------------------------------------
 
+@onready var btn_GooFactory: TextureButton = $"../UI/Margin/HBox/GooFactory"
 @onready var btn_Conveyor: TextureButton = $"../UI/Margin/HBox/ConveyorBelt"
 @onready var btn_Splitter: TextureButton = $"../UI/Margin/HBox/Splitter"
 @onready var btn_Head: TextureButton = $"../UI/Margin/HBox/HeadFactory"
@@ -25,6 +26,7 @@ var curSettlementIndex: int = 0
 @onready var btn_Raid: TextureButton = $"../UI/Margin/HBox/RAID"
 
 func _ready() -> void:
+	btn_GooFactory.pressed.connect(func(): Global.current_house = 0)
 	btn_Conveyor.pressed.connect(func(): Global.current_house = 1)
 	btn_Splitter.pressed.connect(func(): Global.current_house = 2)
 	btn_Head.pressed.connect(func(): Global.current_house = 3)
