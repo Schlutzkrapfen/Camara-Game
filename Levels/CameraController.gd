@@ -1,4 +1,5 @@
 extends Camera2D
+class_name CameraController
 
 ## Master switch: when true, edge scrolling is disabled and the camera
 ## smoothly glides to `locked_y`.

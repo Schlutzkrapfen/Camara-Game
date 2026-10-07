@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://ifvtipktctcg"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0pwr8"]
+load_path = "res://.godot/imported/ConveorBelt.png-a8b56819bfd61482fdfb509a7fdbefa6.ctex"
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1117017474]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=42983778]
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+accessibility_region = true
+
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer" unique_id=1778342489]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = SubResource("CompressedTexture2D_0pwr8")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton2" type="TextureButton" parent="HBoxContainer" unique_id=1429658527]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = SubResource("CompressedTexture2D_0pwr8")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton3" type="TextureButton" parent="HBoxContainer" unique_id=1343827892]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = SubResource("CompressedTexture2D_0pwr8")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton4" type="TextureButton" parent="HBoxContainer" unique_id=433393495]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = SubResource("CompressedTexture2D_0pwr8")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton5" type="TextureButton" parent="HBoxContainer" unique_id=729504554]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = SubResource("CompressedTexture2D_0pwr8")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton6" type="TextureButton" parent="HBoxContainer" unique_id=328206392]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = SubResource("CompressedTexture2D_0pwr8")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton7" type="TextureButton" parent="HBoxContainer" unique_id=1896127305]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = SubResource("CompressedTexture2D_0pwr8")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton8" type="TextureButton" parent="HBoxContainer" unique_id=646083852]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = SubResource("CompressedTexture2D_0pwr8")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton9" type="TextureButton" parent="HBoxContainer" unique_id=182636248]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = SubResource("CompressedTexture2D_0pwr8")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton10" type="TextureButton" parent="HBoxContainer" unique_id=1257446594]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = SubResource("CompressedTexture2D_0pwr8")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton11" type="TextureButton" parent="HBoxContainer" unique_id=782212222]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = SubResource("CompressedTexture2D_0pwr8")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton12" type="TextureButton" parent="HBoxContainer" unique_id=2114411772]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = SubResource("CompressedTexture2D_0pwr8")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton13" type="TextureButton" parent="HBoxContainer" unique_id=347143680]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = SubResource("CompressedTexture2D_0pwr8")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton14" type="TextureButton" parent="HBoxContainer" unique_id=1394794458]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture_normal = SubResource("CompressedTexture2D_0pwr8")
+ignore_texture_size = true
+stretch_mode = 4
