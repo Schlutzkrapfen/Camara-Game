@@ -4,7 +4,9 @@ extends Node
 	preload("res://Resourcen/splitter.tres"),
 	preload("res://Resourcen/goo_factory.tres"),
 	preload("res://Resourcen/head_maker.tres"),
-	preload("res://Resourcen/combiner.tres")
+	preload("res://Resourcen/combiner.tres"),
+	preload("res://Resourcen/upgrader.tres")
+	
 ]
 var current_house: int = 1
 enum TileTransform {

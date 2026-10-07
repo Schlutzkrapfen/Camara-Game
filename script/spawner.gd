@@ -79,8 +79,8 @@ func _process(delta: float) -> void:
 						factory.cur_time = 0
 						factory.can_get_input = true
 					return
-				if factory.resource_refrence.factory_type == Global.factory_type.Combine:
-					if combine_items(factory):
+				if factory.resource_refrence.factory_type == Global.factory_type.Upgrader:
+					if upgrade_items(factory):
 						factory.cur_time = 0
 						factory.can_get_input = true
 					return
@@ -88,7 +88,18 @@ func _process(delta: float) -> void:
 					factory.cur_time = 0
 					factory.can_get_input = true
 
-
+func upgrade_items(factory:BuildData)-> bool:
+	var result: Creature = null
+	for item in factory.cur_items:
+		var creature := item as Creature
+		if creature == null:
+			continue
+		creature.UpgradeCreature()
+		result = creature
+	factory.cur_items.clear()
+	if result:
+		factory.cur_items.append(result)
+	return output_input(factory)
 ## Stitches two stored Creature items together and sends the result out.
 func combine_items(factory:BuildData)-> bool:
 	var two_creaturs:Array[Creature]
