@@ -9,6 +9,9 @@ class_name CameraController
 @export var lock_smoothing: float = 6.0 # higher = snappier glide
 
 @export_group("Edge Scrolling")
+## Master switch for edge scrolling (both axes). When off, moving the mouse to
+## the screen edge never scrolls the camera. WASD movement and zoom still work.
+@export var edge_scrolling_enabled: bool = true
 @export var max_speed: float = 700.0 # screen pixels/sec at the very screen edge
 @export_range(0.02, 0.5) var edge_size: float = 0.15 # fraction of screen height that scrolls
 @export var speed_smoothing: float = 10.0 # higher = faster speed changes
@@ -17,6 +20,13 @@ class_name CameraController
 @export var scroll_x_enabled: bool = true
 @export var max_speed_x: float = 700.0 # screen pixels/sec at the very left/right screen edge
 @export_range(0.02, 0.5) var edge_size_x: float = 0.08 # fraction of screen width that scrolls
+
+@export_group("Keyboard Movement")
+## Move the camera with W/A/S/D (physical keys, so it also works on AZERTY etc.).
+## Independent of edge scrolling. Ignored while a UI control has keyboard focus.
+@export var keyboard_enabled: bool = true
+@export var keyboard_speed: float = 700.0 # screen pixels/sec
+@export var keyboard_smoothing: float = 10.0 # higher = faster speed changes
 
 @export_group("Zoom")
 @export var min_zoom: float = 0.5 # zoomed out (sees more)
@@ -57,6 +67,7 @@ class_name CameraController
 
 var _velocity: float = 0.0
 var _velocity_x: float = 0.0
+var _key_velocity: Vector2 = Vector2.ZERO
 var _target_zoom: float = 1.0
 var _was_locked: bool = false
 var _gliding: bool = false
@@ -104,6 +115,7 @@ func _process(delta: float) -> void:
 		_glide(delta)
 	else:
 		_edge_scroll(delta, limits)
+		_keyboard_move(delta)
 
 	# Final safety net: whatever moved or zoomed the camera this frame,
 	# the visible area never leaves the limits.
@@ -142,6 +154,7 @@ func _update_lock_state(limits: Rect2) -> void:
 	_was_locked = locked
 	_velocity = 0.0
 	_velocity_x = 0.0
+	_key_velocity = Vector2.ZERO
 	_gliding = true
 	if locked:
 		_glide_target = limits.get_center() # centre of the locked limits
@@ -167,16 +180,36 @@ func _edge_scroll(delta: float, limits: Rect2) -> void:
 	var blend := 1.0 - exp(-speed_smoothing * delta)
 
 	# Divide by zoom so the scroll speed looks the same on screen at any zoom.
-	var strength_y := _edge_strength(mouse.y, view_size.y, edge_size)
+	# With the master toggle off the strength is 0, so any leftover speed
+	# eases out smoothly instead of stopping dead.
+	var strength_y := _edge_strength(mouse.y, view_size.y, edge_size) if edge_scrolling_enabled else 0.0
 	_velocity = lerpf(_velocity, strength_y * max_speed / zoom.y, blend)
 	global_position.y += _velocity * delta
 
 	if scroll_x_enabled:
-		var strength_x := _edge_strength(mouse.x, view_size.x, edge_size_x)
+		var strength_x := _edge_strength(mouse.x, view_size.x, edge_size_x) if edge_scrolling_enabled else 0.0
 		_velocity_x = lerpf(_velocity_x, strength_x * max_speed_x / zoom.x, blend)
 		global_position.x += _velocity_x * delta
 	else:
 		_velocity_x = 0.0
+
+
+## WASD movement. Speed is divided by zoom so it feels the same on screen at
+## any zoom level, and diagonals are normalised so they aren't faster.
+func _keyboard_move(delta: float) -> void:
+	var dir := Vector2.ZERO
+	# Don't steal keys while the player is typing in a LineEdit etc.
+	if keyboard_enabled and get_viewport().gui_get_focus_owner() == null:
+		dir = Vector2(
+			int(Input.is_physical_key_pressed(KEY_D)) - int(Input.is_physical_key_pressed(KEY_A)),
+			int(Input.is_physical_key_pressed(KEY_S)) - int(Input.is_physical_key_pressed(KEY_W)))
+		dir = dir.normalized()
+
+	var blend := 1.0 - exp(-keyboard_smoothing * delta)
+	_key_velocity = _key_velocity.lerp(dir * keyboard_speed / zoom.x, blend)
+	if _key_velocity.length_squared() < 0.01:
+		_key_velocity = Vector2.ZERO
+	global_position += _key_velocity * delta
 
 
 ## Smoothly moves zoom toward the (bounds-aware) target zoom.

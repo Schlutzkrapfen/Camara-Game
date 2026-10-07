@@ -78,6 +78,7 @@ sources/1 = SubResource("TileSetAtlasSource_xnfqo")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1101754663]
 script = ExtResource("1_q6pkb")
 locked = true
+edge_scrolling_enabled = false
 min_zoom = 0.0
 max_zoom = 0.7
 zoom_step = 1.15
