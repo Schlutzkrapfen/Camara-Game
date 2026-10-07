@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://br6rp8mmcsbyd"]
 
 [ext_resource type="Script" uid="uid://02teojrlf8xw" path="res://script/Creature.gd" id="1_7a4f0"]
+[ext_resource type="PackedScene" uid="uid://btntyicyivdry" path="res://Levels/Creature/leg_2.tscn" id="2_4p0ic"]
 [ext_resource type="Texture2D" uid="uid://d3p037ura5nvy" path="res://assets/Sprites/ModularCharacter/Legs/Leg_Tiny.png" id="3_4p0ic"]
 [ext_resource type="Script" uid="uid://o2vmc3hwnjnl" path="res://script/ProceduralAnimation.gd" id="3_7a4f0"]
 [ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="3_8jlq2"]
@@ -9,6 +10,7 @@
 script = ExtResource("1_7a4f0")
 type = 2
 stitch_priority = 100
+upgrade = ExtResource("2_4p0ic")
 speed = 15.0
 attackDamage = 1
 attackCooldown = -0.05

@@ -94,29 +94,31 @@ func OnMiddleClick(mouse_pos: Vector2) -> void:
 	if target == null:
 		return
 
-	if part_scenes.is_empty():
-		push_warning("No part_scenes available to swap with.")
-		return
+#	if part_scenes.is_empty():
+#		push_warning("No part_scenes available to swap with.")
+#		return
 
-	var scene: PackedScene = part_scenes.pick_random()
-	var new_part := scene.instantiate() as Creature
-	if new_part == null:
-		return
+#	var scene: PackedScene = part_scenes.pick_random()
+#	var new_part := scene.instantiate() as Creature
+#	if new_part == null:
+#		return
 
-	new_part.name = "%s_replacement_%d" % [scene.resource_path.get_file().get_basename(), randi() % 1000]
+#	new_part.name = "%s_replacement_%d" % [scene.resource_path.get_file().get_basename(), randi() % 1000]
 
 	if _selected == target:
 		_select(null)
 
 	# Swap out the target part with the newly instantiated part
-	target.SwapCreature(new_part)
+#	target.SwapCreature(new_part)
 
+	var worked = target.UpgradeCreature()
+	print(worked)
 	# If the target was a standalone root part in _parts, track the new part instead
-	if target in _parts:
-		var idx := _parts.find(target)
-		_parts[idx] = new_part
+#	if target in _parts:
+#		var idx := _parts.find(target)
+#		_parts[idx] = new_part
 
-	print("Swapped out %s for %s" % [target.name, new_part.name])
+#	print("Swapped out %s for %s" % [target.name, new_part.name])
 	target.queue_free()
 
 func OnRightClick(mouse_pos: Vector2) -> void:

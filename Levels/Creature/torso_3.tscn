@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://02teojrlf8xw" path="res://script/Creature.gd" id="1_26ja6"]
 [ext_resource type="Texture2D" uid="uid://c21ifjjcd8x68" path="res://assets/Sprites/ModularCharacter/Torso/Torso_BroadRound.png" id="2_26ja6"]
+[ext_resource type="PackedScene" uid="uid://cg3y50e7rvs8o" path="res://Levels/Creature/torso_4.tscn" id="2_et5v6"]
 [ext_resource type="Script" uid="uid://o2vmc3hwnjnl" path="res://script/ProceduralAnimation.gd" id="3_rhf5e"]
 [ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="4_r20mw"]
 
@@ -9,6 +10,7 @@
 script = ExtResource("1_26ja6")
 type = 1
 stitch_priority = 500
+upgrade = ExtResource("2_et5v6")
 hp = 30
 attackCooldown = 0.3
 attackRange = 10.0

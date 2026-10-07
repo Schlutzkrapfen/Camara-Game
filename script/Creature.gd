@@ -8,6 +8,7 @@ enum BodyType { HEAD, TORSO, LEG, SPIKE }
 @export var stitch_priority: int = 0
 @export var randomAttachmentRotationOffset: float = 5
 @export var randomAttachmentScaleOffset: float = 0.05
+@export var upgrade: PackedScene
 var attached_parts: Array[Creature] = []
 
 @export_category("Gameplay Stats")
@@ -198,6 +199,14 @@ func _on_stitched() -> void:
 
 
 # --- Swapping & Reattachment ------------------------------------------------
+
+func UpgradeCreature() -> bool:
+	if upgrade == null:
+		return false
+	
+	var newVersion = upgrade.instantiate()
+	SwapCreature(newVersion as Creature)
+	return true
 
 ## Swaps this creature out for a new creature in the chain, matching connection points by ID.
 func SwapCreature(new_creature: Creature) -> void:
