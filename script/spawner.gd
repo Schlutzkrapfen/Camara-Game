@@ -30,10 +30,7 @@ func _ready() -> void:
 ## Stores an item inside the building at the given tile if it has room, returns whether it was accepted.
 func add_item_input(item:Node2D,positon:Vector2i)->bool:
 	var factory = current_builds[positon]
-	if not factory.can_get_input:
-		return false
 	if len(factory.cur_items) < factory.resource_refrence.input_size:
-		
 		factory.cur_items.append(item)
 		item.visible = false
 		flowfield.delete_item(item)
@@ -50,21 +47,22 @@ func check_building(is_okay:bool):
 func _process(delta: float) -> void:
 	for key in current_builds: # or current_builds.items()
 		var factory:BuildData = current_builds[key]
-		if len(factory.resource_refrence.output) == Global.factory_type.No_builder:
+		if factory.resource_refrence.factory_type == Global.factory_type.No_builder:
 			output_input(factory)
 			continue
 		if check_input(factory):
 			factory.can_get_input = false
-			if factory.resource_refrence.factory_type == Global.factory_type.Combine:
-				combine_items(factory)
 			factory.cur_time +=delta
-			
 			if factory.cur_time > factory.resource_refrence.craft_time: 
+				if factory.resource_refrence.factory_type == Global.factory_type.Combine:
+					combine_items(factory)
+					factory.cur_time = 0
+					factory.can_get_input = true
+					return
 				if output_items(factory):
 					factory.cur_time = 0
-		else:
-			factory.can_get_input = true
-			
+					factory.can_get_input = true
+
 
 ## Stitches two stored Creature items together and sends the result out.
 func combine_items(factory:BuildData):
@@ -86,13 +84,14 @@ func output_input(factory):
 		factory.last_output = (factory.last_output +1)% len(factory.output_position) 
 		if not flowfield.is_cell_free(factory.output_position[factory.last_output]):
 			continue
-		factory.cur_items.clear()
+		
 		item.process_mode = Node.AUTO_TRANSLATE_MODE_INHERIT
 		item.global_position = tilemap.to_global(
 		tilemap.map_to_local(factory.output_position[factory.last_output])
 )
 		item.visible = true
 		flowfield.append_list_items(item)
+		factory.cur_items.clear()
 		if factory.cur_items.size() == 0:
 			return
 		factory.cur_items.remove_at(i)
@@ -130,7 +129,7 @@ func output_items(factory:BuildData)-> bool:
 	return false
 
 ## Left click places a building, right click deletes one.
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton :
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and is_okay_to_build:
 			spawn()
