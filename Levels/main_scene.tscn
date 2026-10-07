@@ -72,6 +72,7 @@ sources/1 = SubResource("TileSetAtlasSource_xnfqo")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1101754663]
 position = Vector2(576, 327)
+zoom = Vector2(0.5, 0.5)
 
 [node name="MainTailMap" type="TileMapLayer" parent="." unique_id=271784119]
 tile_set = SubResource("TileSet_nacyp")

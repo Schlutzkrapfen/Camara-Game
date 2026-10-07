@@ -15,11 +15,11 @@ class BuildData:
 	var cur_items: Array[Node2D] 
 	var last_output:int =0
 	var output_position:Array[Vector2i]
+	var can_get_inptu:bool
 	func _init( p_buildingresource: BuildingResource ,p_outputpostion:Array[Vector2i],p_transform: Global.TileTransform = Global.TileTransform.None) -> void:
 		rotation = p_transform
 		resource_refrence = p_buildingresource
 		output_position = p_outputpostion
-
 
 
 # Called when the node enters the scene tree for the first time.
@@ -44,15 +44,29 @@ func check_building(is_okay:bool):
 func _process(delta: float) -> void:
 	for key in current_builds: # or current_builds.items()
 		var factory:BuildData = current_builds[key]
-		if len(factory.resource_refrence.output) == 0:
+		if len(factory.resource_refrence.output) == Global.factory_type.No_builder:
 			output_input(factory)
 			continue
 		if check_input(factory):
+			if factory.resource_refrence.factory_type == Global.factory_type.Combine:
+				combine_items(factory)
 			factory.cur_time +=delta
 			if factory.cur_time > factory.resource_refrence.craft_time: 
 				if output_items(factory):
 					factory.cur_time = 0
 			
+func combine_items(factory:BuildData):
+	var two_creaturs:Array[Creature]
+	for item in factory.cur_items:
+		var typed_item := item as Creature
+		if typed_item:
+			two_creaturs.append(typed_item)
+			if two_creaturs.size() == 2:
+				break
+	two_creaturs[1].StitchBodyPart(two_creaturs[0])
+	two_creaturs[0].visible= true
+	output_input(factory)
+	
 
 func output_input(factory):
 	for i in range(factory.cur_items.size() - 1, -1, -1):
@@ -67,8 +81,9 @@ func output_input(factory):
 )
 		item.visible = true
 		flowfield.append_list_items(item)
+		if factory.cur_items.size() == 0:
+			return
 		factory.cur_items.remove_at(i)
-
 
 func check_input(factory:BuildData) ->bool:
 	var required: Array = factory.resource_refrence.input
@@ -99,15 +114,15 @@ func output_items(factory:BuildData)-> bool:
 		return true
 	return false
 
-
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton :
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and is_okay_to_build:
-			spawn(event.position)
+			spawn()
 		if event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			delete(event.position)
+			delete()
 
-func delete(mouse_position):
+func delete():
+	var mouse_position = get_global_mouse_position()
 	var local_position:Vector2 = tilemap.to_local(mouse_position)
 	var tile:Vector2i = tilemap.local_to_map(local_position)
 	if not occupied_tiles.has(tile):
@@ -124,10 +139,9 @@ func delete(mouse_position):
 			flowfield.delete_flowfield(factory_position)
 			occupied_tiles.erase(factory_position)
 	
-
-func spawn(mouse_position):
-	var local_position = tilemap.to_local(mouse_position)
-	var tile = tilemap.local_to_map(local_position)
+func spawn():
+	var mouse_position = get_global_mouse_position()
+	var tile = tilemap.local_to_map(tilemap.to_local(mouse_position))
 	var current_house = Global.factory_list[Global.current_house]
 	var output_postion:Array[Vector2i] 
 	for x in current_house.size.x:

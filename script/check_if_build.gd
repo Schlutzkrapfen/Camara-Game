@@ -5,7 +5,6 @@ extends TileMapLayer
 
 signal is_okay_to_build(bool)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func check_if_okay_to_build(tile)-> bool:
 	for x in Global.factory_list[Global.current_house].size.x:
