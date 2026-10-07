@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BuildingResource" format=3 uid="uid://cebvjto3m5g8p"]
+
+[ext_resource type="Script" uid="uid://4rxcymabsf8u" path="res://script/goo.gd" id="1_ipgg6"]
+[ext_resource type="PackedScene" uid="uid://h4gm0w78c05t" path="res://Levels/Creature/head.tscn" id="2_iue05"]
+[ext_resource type="Script" uid="uid://c46u5wpm1rwce" path="res://Resourcen/building_resource.gd" id="3_ydlen"]
+
+[resource]
+script = ExtResource("3_ydlen")
+size = Vector2i(2, 2)
+tilemap_id = 3
+craft_time = 1.0
+input = Array[Script]([ExtResource("1_ipgg6")])
+output = Array[PackedScene]([ExtResource("2_iue05")])
+output_tile = Dictionary[Vector2i, int]({
+Vector2i(1, 1): 0
+})

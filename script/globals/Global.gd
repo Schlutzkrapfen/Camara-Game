@@ -1,12 +1,15 @@
 extends Node
 @onready var factory_list: Array[BuildingResource] = [
+	preload("res://Resourcen/goo_factory.tres"),
 	preload("res://Resourcen/conaer_belt.tres"),
 	preload("res://Resourcen/splitter.tres"),
-	preload("res://Resourcen/goo_factory.tres"),
 	preload("res://Resourcen/head_maker.tres"),
+	preload("res://Resourcen/torso_maker.tres"),
+	preload("res://Resourcen/horn_maker.tres"),
+	preload("res://Resourcen/foot_maker.tres"),
 	preload("res://Resourcen/combiner.tres"),
-	preload("res://Resourcen/upgrader.tres")
-	
+	preload("res://Resourcen/upgrader.tres"),
+	preload("res://Resourcen/aliver.tres"),
 ]
 var current_house: int = 1
 enum TileTransform {
