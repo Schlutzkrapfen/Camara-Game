@@ -84,6 +84,11 @@ func _process(delta: float) -> void:
 						factory.cur_time = 0
 						factory.can_get_input = true
 					return
+				if factory.resource_refrence.factory_type == Global.factory_type.Aliver:
+					if false:
+						factory.cur_time = 0
+						factory.can_get_input = true
+					return
 				if output_items(factory):
 					factory.cur_time = 0
 					factory.can_get_input = true

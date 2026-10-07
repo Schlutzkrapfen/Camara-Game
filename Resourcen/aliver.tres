@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BuildingResource" format=3 uid="uid://dbha2usat6l0u"]
+
+[ext_resource type="Script" uid="uid://02teojrlf8xw" path="res://script/Creature.gd" id="1_n0qn3"]
+[ext_resource type="Script" uid="uid://c46u5wpm1rwce" path="res://Resourcen/building_resource.gd" id="3_fysok"]
+
+[resource]
+script = ExtResource("3_fysok")
+size = Vector2i(3, 2)
+tilemap_id = 3
+craft_time = 4.0
+input = Array[Script]([ExtResource("1_n0qn3")])
+output_tile = Dictionary[Vector2i, int]({
+Vector2i(1, 1): 0
+})
+factory_type = 3
