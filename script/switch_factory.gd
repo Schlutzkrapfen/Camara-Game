@@ -15,12 +15,12 @@ func _ready() -> void:
 	btn_Conveyor.pressed.connect(func(): Global.current_house = 0)
 	btn_Splitter.pressed.connect(func(): Global.current_house = 1)
 	btn_Head.pressed.connect(func(): Global.current_house = 3)
-	btn_Torso.pressed.connect(func(): Global.current_house = 0) # MISSING!
-	btn_Spike.pressed.connect(func(): Global.current_house = 0) # MISSING!
-	btn_Leg.pressed.connect(func(): Global.current_house = 0) # MISSING!
+	btn_Torso.pressed.connect(func(): print("MISSING PROPPER MAPPING! Fallback to conveyor belt!"); Global.current_house = 0) # MISSING!
+	btn_Spike.pressed.connect(func(): print("MISSING PROPPER MAPPING! Fallback to conveyor belt!"); Global.current_house = 0) # MISSING!
+	btn_Leg.pressed.connect(func(): print("MISSING PROPPER MAPPING! Fallback to conveyor belt!"); Global.current_house = 0) # MISSING!
 	btn_Combiner.pressed.connect(func(): Global.current_house = 4)
-	btn_Upgrader.pressed.connect(func(): Global.current_house = 0) # MISSING!
-	btn_Aliver.pressed.connect(func(): Global.current_house = 0) # MISSING!
+	btn_Upgrader.pressed.connect(func(): print("MISSING PROPPER MAPPING! Fallback to conveyor belt!"); Global.current_house = 0) # MISSING!
+	btn_Aliver.pressed.connect(func(): print("MISSING PROPPER MAPPING! Fallback to conveyor belt!"); Global.current_house = 0) # MISSING!
 	btn_Raid.pressed.connect(func(): print("RAAAAAAAAID"))
 	pass
 
