@@ -130,7 +130,7 @@ func output_items(factory:BuildData)-> bool:
 	return false
 
 ## Left click places a building, right click deletes one.
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton :
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and is_okay_to_build:
 			spawn()

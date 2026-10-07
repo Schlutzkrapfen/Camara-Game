@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dsmrf3r26mbjx"]
 
 [ext_resource type="Texture2D" uid="uid://d3jnlwymjk0yl" path="res://assets/Protype Factory/conver Belt.png" id="1_iuxem"]
-[ext_resource type="Script" uid="uid://qc7ohwp5cnrk" path="res://Levels/CameraControl.gd" id="1_q6pkb"]
+[ext_resource type="Script" uid="uid://qc7ohwp5cnrk" path="res://Levels/CameraController.gd" id="1_q6pkb"]
 [ext_resource type="Texture2D" uid="uid://dab8ry1vc6pti" path="res://assets/Protype Factory/factory.png" id="2_2d3ho"]
 [ext_resource type="Texture2D" uid="uid://b5w0sxaixnlhk" path="res://assets/Protype Factory/splitter.png" id="3_q6pkb"]
 [ext_resource type="Texture2D" uid="uid://d27i4qnwa0txv" path="res://assets/Protype Factory/headfactory.png" id="4_fo3dw"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dw655442tyxqd" path="res://script/check_if_build.gd" id="10_kq7mr"]
 [ext_resource type="Script" uid="uid://bi4ewvw0hvmxg" path="res://script/switch_factory.gd" id="11_jio06"]
 [ext_resource type="Texture2D" uid="uid://d1nv5c1vgdg3v" path="res://assets/Sprites/RoughPlan.png" id="12_2d3ho"]
+[ext_resource type="PackedScene" uid="uid://ifvtipktctcg" path="res://Levels/UI.tscn" id="14_fo3dw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mne4e"]
 texture = ExtResource("1_iuxem")
@@ -104,5 +105,7 @@ self_modulate = Color(1, 1, 1, 0.2784314)
 position = Vector2(577.00006, -154.00002)
 scale = Vector2(0.2989258, 0.2989258)
 texture = ExtResource("12_2d3ho")
+
+[node name="UI" parent="." unique_id=1117017474 instance=ExtResource("14_fo3dw")]
 
 [connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]
