@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://dsmrf3r26mbjx"]
+
+[ext_resource type="Texture2D" uid="uid://d3jnlwymjk0yl" path="res://assets/Protype Factory/conver Belt.png" id="1_iuxem"]
+[ext_resource type="Script" uid="uid://qc7ohwp5cnrk" path="res://Levels/CameraControl.gd" id="1_q6pkb"]
+[ext_resource type="Texture2D" uid="uid://dab8ry1vc6pti" path="res://assets/Protype Factory/factory.png" id="2_2d3ho"]
+[ext_resource type="Texture2D" uid="uid://b5w0sxaixnlhk" path="res://assets/Protype Factory/splitter.png" id="3_q6pkb"]
+[ext_resource type="Texture2D" uid="uid://d27i4qnwa0txv" path="res://assets/Protype Factory/headfactory.png" id="4_fo3dw"]
+[ext_resource type="Texture2D" uid="uid://cjxdymamhuqj0" path="res://assets/Protype Factory/goofactory.png" id="5_sf7bd"]
+[ext_resource type="Script" uid="uid://b7r4n585kvy5" path="res://script/spawner.gd" id="6_814nw"]
+[ext_resource type="Script" uid="uid://bko1gb6s0qt05" path="res://Levels/flow_field.gd" id="7_5mrl6"]
+[ext_resource type="Texture2D" uid="uid://cklbh2npgj3ln" path="res://assets/BuildingCheck/Right.png" id="8_e6hx3"]
+[ext_resource type="Texture2D" uid="uid://d3ps21yld861w" path="res://assets/BuildingCheck/Wrong.png" id="9_4vxro"]
+[ext_resource type="Script" uid="uid://dw655442tyxqd" path="res://script/check_if_build.gd" id="10_kq7mr"]
+[ext_resource type="Script" uid="uid://bi4ewvw0hvmxg" path="res://script/switch_factory.gd" id="11_jio06"]
+[ext_resource type="Texture2D" uid="uid://d1nv5c1vgdg3v" path="res://assets/Sprites/RoughPlan.png" id="12_2d3ho"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mne4e"]
+texture = ExtResource("1_iuxem")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_72q2g"]
+texture = ExtResource("2_2d3ho")
+texture_region_size = Vector2i(200, 200)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mc1i1"]
+texture = ExtResource("3_q6pkb")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kumpi"]
+texture = ExtResource("4_fo3dw")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qs7lm"]
+texture = ExtResource("5_sf7bd")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_nacyp"]
+tile_size = Vector2i(100, 100)
+sources/1 = SubResource("TileSetAtlasSource_72q2g")
+sources/0 = SubResource("TileSetAtlasSource_mne4e")
+sources/2 = SubResource("TileSetAtlasSource_mc1i1")
+sources/4 = SubResource("TileSetAtlasSource_qs7lm")
+sources/3 = SubResource("TileSetAtlasSource_kumpi")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rkvs"]
+texture = ExtResource("8_e6hx3")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xnfqo"]
+texture = ExtResource("9_4vxro")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mne4e"]
+tile_size = Vector2i(100, 100)
+sources/0 = SubResource("TileSetAtlasSource_8rkvs")
+sources/1 = SubResource("TileSetAtlasSource_xnfqo")
+
+[node name="Main Scene" type="Node2D" unique_id=1857987435]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1101754663]
+position = Vector2(576, 327)
+script = ExtResource("1_q6pkb")
+locked = true
+locked_y = 327.0
+min_y = -500.0
+max_y = 327.0
+
+[node name="MainTailMap" type="TileMapLayer" parent="." unique_id=271784119]
+scale = Vector2(0.3, 0.3)
+tile_set = SubResource("TileSet_nacyp")
+script = ExtResource("6_814nw")
+
+[node name="FlowField" type="Node" parent="MainTailMap" unique_id=20738206 node_paths=PackedStringArray("main_tile_map")]
+script = ExtResource("7_5mrl6")
+main_tile_map = NodePath("..")
+
+[node name="CheckIfBuild" type="TileMapLayer" parent="." unique_id=1360988074 node_paths=PackedStringArray("main_tileset")]
+scale = Vector2(0.3, 0.3)
+tile_set = SubResource("TileSet_mne4e")
+physics_quadrant_size = 100
+script = ExtResource("10_kq7mr")
+main_tileset = NodePath("../MainTailMap")
+
+[node name="SwitchBuilding" type="Node" parent="." unique_id=1143980631]
+script = ExtResource("11_jio06")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=9532409]
+self_modulate = Color(1, 1, 1, 0.2784314)
+position = Vector2(577.00006, -154.00002)
+scale = Vector2(0.2989258, 0.2989258)
+texture = ExtResource("12_2d3ho")
+
+[connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]
