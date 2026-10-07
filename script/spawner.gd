@@ -65,7 +65,7 @@ func check_building(is_okay:bool):
 
 ## Each frame, runs every building: passes items through, crafts, and outputs results.
 func _process(delta: float) -> void:
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)and is_okay_to_build:
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and is_okay_to_build:
 		spawn()
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
 		delete()
@@ -89,7 +89,7 @@ func _process(delta: float) -> void:
 						factory.can_get_input = true
 					return
 				if factory.resource_refrence.factory_type == Global.factory_type.Aliver:
-					if alive:
+					if alive(factory):
 						factory.cur_time = 0
 						factory.can_get_input = true
 					return
@@ -106,6 +106,7 @@ func alive(factory:BuildData)-> bool:
 		creature.is_alive = true
 		result = creature
 	factory.cur_items.clear()
+	flowfield.list_items.erase(result)
 	if result:
 		factory.cur_items.append(result)
 	return output_input(factory)
@@ -119,10 +120,9 @@ func upgrade_items(factory:BuildData)-> bool:
 		creature.UpgradeCreature()
 		
 		result = creature
-	factory.cur_items.clear()
 	if result:
 		factory.cur_items.append(result)
-	return output_input(factory)
+	return output_one_item(factory,result)
 ## Stitches two stored Creature items together and sends the result out.
 func combine_items(factory:BuildData)-> bool:
 	var two_creaturs:Array[Creature]
@@ -132,12 +132,22 @@ func combine_items(factory:BuildData)-> bool:
 			two_creaturs.append(typed_item)
 			if two_creaturs.size() == 2:
 				break
-	if two_creaturs[1].StitchBodyPart(two_creaturs[0]):
-		two_creaturs[0].visible= true
+	var dic = two_creaturs[1].StitchBodyPart(two_creaturs[0])
+	two_creaturs[0].visible= true
+	return output_one_item(factory,dic["host"])
+
+func output_one_item(factory,item)->bool:
+	factory.last_output = (factory.last_output +1)% len(factory.output_position) 
+	if not flowfield.is_cell_free(factory.output_position[factory.last_output]):
+		return false 
+	item.process_mode = Node.AUTO_TRANSLATE_MODE_INHERIT
+	item.global_position = tilemap.to_global(
+	tilemap.map_to_local(factory.output_position[factory.last_output])
+)
+	item.visible = true
+	flowfield.append_list_items(item)
 	factory.cur_items.clear()
-	
-	return output_input(factory)
-	
+	return true
 ## Moves stored items out of the building onto a free output cell and re-enables them.
 func output_input(factory)->bool:
 	var full_output:int = 0
