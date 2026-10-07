@@ -29,11 +29,11 @@ func _ready() -> void:
 	btn_Splitter.pressed.connect(func(): Global.current_house = 2)
 	btn_Head.pressed.connect(func(): Global.current_house = 3)
 	btn_Torso.pressed.connect(func():  Global.current_house = 4) 
-	btn_Spike.pressed.connect(func(): Global.current_house = 5) # MISSING!
-	btn_Leg.pressed.connect(func(): Global.current_house = 6) # MISSING!
+	btn_Spike.pressed.connect(func(): Global.current_house = 5) 
+	btn_Leg.pressed.connect(func(): Global.current_house = 6) 
 	btn_Combiner.pressed.connect(func(): Global.current_house = 7)
 	btn_Upgrader.pressed.connect(func(): Global.current_house = 8)
-	btn_Aliver.pressed.connect(func(): Global.current_house = 9) # MISSING!
+	btn_Aliver.pressed.connect(func(): Global.current_house = 9) 
 	btn_Raid.pressed.connect(func(): StartRaid())
 
 func _unhandled_input(event: InputEvent) -> void:
