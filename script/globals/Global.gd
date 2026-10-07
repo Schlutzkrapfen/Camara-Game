@@ -3,7 +3,8 @@ extends Node
 	preload("res://Resourcen/conaer_belt.tres"),
 	preload("res://Resourcen/splitter.tres"),
 	preload("res://Resourcen/goo_factory.tres"),
-	preload("res://Resourcen/head_maker.tres")
+	preload("res://Resourcen/head_maker.tres"),
+	preload("res://Resourcen/combiner.tres")
 ]
 var current_house: int = 1
 enum TileTransform {
@@ -13,6 +14,13 @@ enum TileTransform {
 	ROTATE_270 = TileSetAtlasSource.TRANSFORM_FLIP_V | TileSetAtlasSource.TRANSFORM_TRANSPOSE,
 	None
 }
+enum  factory_type{
+		Normal =0,
+		Combine= 1,
+		Upgrader= 2,
+		Aliver= 3,
+		No_builder = 4
+	}
 var ROTATE_DIRECTION:Dictionary[TileTransform,Vector2] = {
 	TileTransform.ROTATE_0: Vector2(1,0),
 	TileTransform.ROTATE_90: Vector2(0,1),

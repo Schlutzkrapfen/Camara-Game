@@ -132,7 +132,7 @@ func Die() -> void:
 # --- Stitching -------------------------------------------------------------
 
 ## Attaches another Creature to this creature. Returns false if it doesn't fit.
-func StitchBodyPart(part: Creature, myExtraPriority: int, otherExtraPriority: int) -> bool:
+func StitchBodyPart(part: Creature, myExtraPriority: int=0, otherExtraPriority: int= 0) -> bool:
 	if part == self or is_stitched or part.is_stitched:
 		return false
 	

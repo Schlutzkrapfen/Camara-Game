@@ -10,6 +10,8 @@ func _input(event: InputEvent) -> void:
 		Global.current_house = 2
 	if event.is_action_released("HeadFactory"):
 		Global.current_house = 3
+	if event.is_action_released("Combiner"):
+		Global.current_house = 4
 	if event.is_action_pressed("roration"):
 		var rotations = Global.TileTransform.values()
 		var index = rotations.find(Global.currentrotation)
