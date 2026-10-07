@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dsmrf3r26mbjx"]
 
 [ext_resource type="Texture2D" uid="uid://d3jnlwymjk0yl" path="res://assets/Protype Factory/conver Belt.png" id="1_iuxem"]
-[ext_resource type="Script" uid="uid://qc7ohwp5cnrk" path="res://Levels/CameraController.gd" id="1_q6pkb"]
+[ext_resource type="Script" uid="uid://qc7ohwp5cnrk" path="res://script/CameraController.gd" id="1_q6pkb"]
 [ext_resource type="Texture2D" uid="uid://dab8ry1vc6pti" path="res://assets/Protype Factory/factory.png" id="2_2d3ho"]
 [ext_resource type="Texture2D" uid="uid://b5w0sxaixnlhk" path="res://assets/Protype Factory/splitter.png" id="3_q6pkb"]
 [ext_resource type="Texture2D" uid="uid://d27i4qnwa0txv" path="res://assets/Protype Factory/headfactory.png" id="4_fo3dw"]
@@ -78,9 +78,6 @@ sources/1 = SubResource("TileSetAtlasSource_xnfqo")
 position = Vector2(576, 327)
 script = ExtResource("1_q6pkb")
 locked = true
-world_bounds = Rect2(0, -2000, 1000, 4000)
-min_zoom = 1.0
-max_zoom = 5.0
 
 [node name="MainTailMap" type="TileMapLayer" parent="." unique_id=271784119]
 scale = Vector2(0.1, 0.1)
