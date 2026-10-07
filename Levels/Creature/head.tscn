@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="5_xq6yg"]
 
 [node name="Head" type="Node2D" unique_id=351333405 groups=["units"]]
+scale = Vector2(0.2, 0.2)
 script = ExtResource("1_lvnpa")
 stitch_priority = 300
 lives = 1

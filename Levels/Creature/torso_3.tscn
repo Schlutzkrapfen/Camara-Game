@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="4_r20mw"]
 
 [node name="Torso" type="Node2D" unique_id=351333405 groups=["units"]]
+scale = Vector2(0.2, 0.2)
 script = ExtResource("1_26ja6")
 type = 1
 stitch_priority = 500
