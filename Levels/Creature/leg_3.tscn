@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="4_1efdp"]
 
 [node name="Leg" type="Node2D" unique_id=351333405 groups=["units"]]
+scale = Vector2(0.2, 0.2)
 script = ExtResource("1_5tkjm")
 type = 2
 stitch_priority = 100

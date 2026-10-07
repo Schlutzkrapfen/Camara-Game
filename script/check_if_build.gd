@@ -11,7 +11,11 @@ func check_if_okay_to_build(tile)-> bool:
 	for x in Global.factory_list[Global.current_house].size.x:
 		for y in Global.factory_list[Global.current_house].size.y:
 			var tiles = Global.get_rotation_out_of_size(x,y)
-			if main_tileset.get_cell_tile_data(tile +tiles) != null:
+			var end_tile: Vector2i = tile + tiles
+			if tile.x < 0 or tile.y < 0 or end_tile.x > Global.build_zone_size.x or end_tile.y > Global.build_zone_size.y:
+				emit_signal("is_okay_to_build",false)
+				return false
+			if main_tileset.get_cell_tile_data(end_tile) != null:
 				emit_signal("is_okay_to_build",false)
 				return false
 	emit_signal("is_okay_to_build",true)
@@ -26,7 +30,7 @@ func _process(_delta: float) -> void:#
 	for x in Global.factory_list[Global.current_house].size.x:
 		for y in Global.factory_list[Global.current_house].size.y:
 			var tiles = tile +Global.get_rotation_out_of_size(x, y)
-			var local_tile =  Vector2i(x,y)
+			var local_tile = Vector2i(x,y)
 			if is_okay:
 				tilemap.set_cell(tiles,0,Vector2i(0,0))
 			else:

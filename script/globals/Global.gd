@@ -1,4 +1,5 @@
 extends Node
+var build_zone_size:Vector2i = Vector2i(1000,1000)
 @onready var factory_list: Array[BuildingResource] = [
 	preload("res://Resourcen/goo_factory.tres"),
 	preload("res://Resourcen/conaer_belt.tres"),
