@@ -110,6 +110,9 @@ func _input(event: InputEvent) -> void:
 func delete(mouse_position):
 	var local_position:Vector2 = tilemap.to_local(mouse_position)
 	var tile:Vector2i = tilemap.local_to_map(local_position)
+	if not occupied_tiles.has(tile):
+		print("nothing to delte")
+		return
 	var factory_start_position:Vector2i = occupied_tiles[tile]
 	var build_data:BuildData = current_builds[factory_start_position]
 	var size:Vector2i = build_data.resource_refrence.size
