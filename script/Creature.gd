@@ -133,9 +133,9 @@ func Die() -> void:
 # --- Stitching -------------------------------------------------------------
 
 ## Attaches another Creature to this creature. Returns false if it doesn't fit.
-func StitchBodyPart(part: Creature, myExtraPriority: int=0, otherExtraPriority: int= 0) -> bool:
+func StitchBodyPart(part: Creature, myExtraPriority: int=0, otherExtraPriority: int= 0) -> Dictionary:
 	if part == self or is_stitched or part.is_stitched:
-		return false
+		return {"success": false, "host": self, "otherPart": part}
 	
 	# Higher priority becomes the host. Equal priority: the caller is the host.
 	if part.stitch_priority + otherExtraPriority > stitch_priority + myExtraPriority:
@@ -144,7 +144,7 @@ func StitchBodyPart(part: Creature, myExtraPriority: int=0, otherExtraPriority: 
 	
 	var pair := _find_matching_points(part)
 	if pair.is_empty():
-		return false
+		return {"success": false, "host": self, "otherPart": part}
 
 	var mine: ConnectionPoint = pair[0]
 	var theirs: ConnectionPoint = pair[1]
@@ -171,7 +171,7 @@ func StitchBodyPart(part: Creature, myExtraPriority: int=0, otherExtraPriority: 
 	
 	part._on_stitched()
 	print("Stitched %s(%s) onto %s(%s)" % [part.name, part.stitch_priority, self.name, self.stitch_priority])
-	return true
+	return {"success": true, "host": self, "otherPart": part}
 
 
 func _find_matching_points(part: Creature) -> Array:
