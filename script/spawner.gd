@@ -105,11 +105,7 @@ func alive(factory:BuildData)-> bool:
 			continue
 		creature.is_alive = true
 		result = creature
-	factory.cur_items.clear()
-	flowfield.list_items.erase(result)
-	if result:
-		factory.cur_items.append(result)
-	return output_input(factory)
+	return output_one_item(factory,result)
 
 func upgrade_items(factory:BuildData)-> bool:
 	var result: Creature = null
@@ -133,7 +129,7 @@ func combine_items(factory:BuildData)-> bool:
 			if two_creaturs.size() == 2:
 				break
 	var dic = two_creaturs[1].StitchBodyPart(two_creaturs[0])
-	two_creaturs[0].visible= true
+	two_creaturs[0].visible= false
 	return output_one_item(factory,dic["host"])
 
 func output_one_item(factory,item)->bool:
