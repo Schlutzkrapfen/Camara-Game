@@ -14,9 +14,11 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func append_flowfield(vec:Vector2, Rotation:Global.TileTransform):
-	flowfield.get_or_add(vec,Rotation)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	var test = flowfield.get_or_add(vec,Rotation)
+	if (test != Rotation):
+		print("Something wrong with spawning the flowfield")
+func delete_flowfield(vec:Vector2):
+	flowfield.erase(vec)
 func append_list_items(node:Node2D):
 	list_items.append(node)
 func delete_item(node:Node2D):

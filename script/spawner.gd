@@ -32,9 +32,9 @@ func add_item_input(item:Node2D,positon:Vector2i)->bool:
 	if len(factory.cur_items) < factory.resource_refrence.input_size:
 		
 		factory.cur_items.append(item)
-		#item.visible = false
+		item.visible = false
 		flowfield.delete_item(item)
-		#item.process_mode = Node.PROCESS_MODE_DISABLED
+		item.process_mode = Node.PROCESS_MODE_DISABLED
 		return true
 	return false
 
@@ -108,13 +108,20 @@ func _input(event: InputEvent) -> void:
 			delete(event.position)
 
 func delete(mouse_position):
-	#TODO:delte hole factory
-	var local_position = tilemap.to_local(mouse_position)
-	var tile = tilemap.local_to_map(local_position)
-	print("ERROR DELTE DOES NOT FUNKTION CORRECLTY AT THE MOMENT")
-	print(tile)
-	tilemap.set_cell(tile)
+	var local_position:Vector2 = tilemap.to_local(mouse_position)
+	var tile:Vector2i = tilemap.local_to_map(local_position)
+	var factory_start_position:Vector2i = occupied_tiles[tile]
+	var build_data:BuildData = current_builds[factory_start_position]
+	var size:Vector2i = build_data.resource_refrence.size
+	current_builds.erase(factory_start_position)
+	for x in size.x:
+		for y in size.y:
+			var factory_position = factory_start_position + Global.get_rotation_out_of_size(x,y,build_data.rotation)
+			tilemap.set_cell(factory_position)
+			flowfield.delete_flowfield(factory_position)
+			occupied_tiles.erase(factory_position)
 	
+
 func spawn(mouse_position):
 	var local_position = tilemap.to_local(mouse_position)
 	var tile = tilemap.local_to_map(local_position)
