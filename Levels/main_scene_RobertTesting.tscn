@@ -89,6 +89,7 @@ locked_min_y = -900.0
 locked_max_y = 7300.0
 locked_min_x = -7600.0
 locked_max_x = 7600.0
+show_gizmos = false
 
 [node name="MainTailMap" type="TileMapLayer" parent="." unique_id=271784119]
 tile_set = SubResource("TileSet_nacyp")
