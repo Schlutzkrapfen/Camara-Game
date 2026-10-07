@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d27i4qnwa0txv" path="res://assets/Protype Factory/headfactory.png" id="4_xnfqo"]
 [ext_resource type="Script" uid="uid://bko1gb6s0qt05" path="res://Levels/flow_field.gd" id="6_8rkvs"]
 [ext_resource type="Script" uid="uid://bi4ewvw0hvmxg" path="res://script/switch_factory.gd" id="8_wjs4o"]
+[ext_resource type="PackedScene" uid="uid://ifvtipktctcg" path="res://Levels/UI.tscn" id="12_qs7lm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mne4e"]
 texture = ExtResource("1_wr0fo")
@@ -90,5 +91,7 @@ main_tileset = NodePath("../MainTailMap")
 
 [node name="SwitchBuilding" type="Node" parent="." unique_id=1143980631]
 script = ExtResource("8_wjs4o")
+
+[node name="UI" parent="." unique_id=1117017474 instance=ExtResource("12_qs7lm")]
 
 [connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]

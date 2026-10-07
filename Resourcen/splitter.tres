@@ -10,3 +10,4 @@ output_tile = Dictionary[Vector2i, int]({
 Vector2i(0, 0): 0,
 Vector2i(0, 1): 0
 })
+factory_type = 4
