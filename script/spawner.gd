@@ -93,6 +93,19 @@ func _process(delta: float) -> void:
 					factory.cur_time = 0
 					factory.can_get_input = true
 
+func alive(factory:BuildData)-> bool:
+	var result: Creature = null
+	for item in factory.cur_items:
+		var creature := item as Creature
+		if creature == null:
+			continue
+		creature.is_alive = true
+		result = creature
+	factory.cur_items.clear()
+	if result:
+		factory.cur_items.append(result)
+	return output_input(factory)
+
 func upgrade_items(factory:BuildData)-> bool:
 	var result: Creature = null
 	for item in factory.cur_items:
