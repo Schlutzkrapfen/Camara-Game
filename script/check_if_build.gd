@@ -2,6 +2,7 @@ extends TileMapLayer
 
 @export var main_tileset:TileMapLayer
 @onready var tilemap:TileMapLayer = self
+@onready var rotation_tilemap= $Rotationbuild
 
 signal is_okay_to_build(bool)
 

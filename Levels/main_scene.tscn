@@ -1,58 +1,13 @@
 [gd_scene format=3 uid="uid://b1x40dtqa0bf6"]
 
 [ext_resource type="Script" uid="uid://dw655442tyxqd" path="res://script/check_if_build.gd" id="1_72q2g"]
-[ext_resource type="Texture2D" uid="uid://dab8ry1vc6pti" path="res://assets/Protype Factory/factory.png" id="1_tl8y8"]
+[ext_resource type="TileSet" uid="uid://dfd14baga48q4" path="res://Resourcen/Tilemap.tres" id="1_mc1i1"]
 [ext_resource type="Texture2D" uid="uid://cklbh2npgj3ln" path="res://assets/BuildingCheck/Right.png" id="1_wjs4o"]
-[ext_resource type="Texture2D" uid="uid://d3jnlwymjk0yl" path="res://assets/Protype Factory/conver Belt.png" id="1_wr0fo"]
 [ext_resource type="Texture2D" uid="uid://d3ps21yld861w" path="res://assets/BuildingCheck/Wrong.png" id="2_mc1i1"]
-[ext_resource type="Texture2D" uid="uid://b5w0sxaixnlhk" path="res://assets/Protype Factory/splitter.png" id="3_wr0fo"]
-[ext_resource type="Texture2D" uid="uid://cjxdymamhuqj0" path="res://assets/Protype Factory/goofactory.png" id="4_mc1i1"]
 [ext_resource type="Script" uid="uid://b7r4n585kvy5" path="res://script/spawner.gd" id="4_p8lrm"]
-[ext_resource type="Texture2D" uid="uid://d27i4qnwa0txv" path="res://assets/Protype Factory/headfactory.png" id="4_xnfqo"]
 [ext_resource type="Script" uid="uid://bko1gb6s0qt05" path="res://Levels/flow_field.gd" id="6_8rkvs"]
 [ext_resource type="Script" uid="uid://do8dom7rcdpjx" path="res://script/globals/GameManager.gd" id="11_qs7lm"]
 [ext_resource type="PackedScene" uid="uid://ifvtipktctcg" path="res://Levels/UI.tscn" id="12_qs7lm"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mne4e"]
-texture = ExtResource("1_wr0fo")
-texture_region_size = Vector2i(100, 100)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_72q2g"]
-texture = ExtResource("1_tl8y8")
-texture_region_size = Vector2i(200, 200)
-0:0/0 = 0
-1:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mc1i1"]
-texture = ExtResource("3_wr0fo")
-texture_region_size = Vector2i(100, 100)
-0:0/0 = 0
-0:1/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kumpi"]
-texture = ExtResource("4_xnfqo")
-texture_region_size = Vector2i(100, 100)
-0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qs7lm"]
-texture = ExtResource("4_mc1i1")
-texture_region_size = Vector2i(100, 100)
-0:0/0 = 0
-1:0/0 = 0
-1:1/0 = 0
-0:1/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_nacyp"]
-tile_size = Vector2i(100, 100)
-sources/1 = SubResource("TileSetAtlasSource_72q2g")
-sources/0 = SubResource("TileSetAtlasSource_mne4e")
-sources/2 = SubResource("TileSetAtlasSource_mc1i1")
-sources/4 = SubResource("TileSetAtlasSource_qs7lm")
-sources/3 = SubResource("TileSetAtlasSource_kumpi")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rkvs"]
 texture = ExtResource("1_wjs4o")
@@ -76,7 +31,7 @@ position = Vector2(576, 327)
 zoom = Vector2(0.5, 0.5)
 
 [node name="MainTailMap" type="TileMapLayer" parent="." unique_id=271784119]
-tile_set = SubResource("TileSet_nacyp")
+tile_set = ExtResource("1_mc1i1")
 script = ExtResource("4_p8lrm")
 
 [node name="FlowField" type="Node" parent="MainTailMap" unique_id=20738206 node_paths=PackedStringArray("main_tile_map")]
@@ -88,6 +43,10 @@ tile_set = SubResource("TileSet_mne4e")
 physics_quadrant_size = 100
 script = ExtResource("1_72q2g")
 main_tileset = NodePath("../MainTailMap")
+
+[node name="Rotationbuild" type="TileMapLayer" parent="CheckIfBuild" unique_id=101602341]
+modulate = Color(1, 1, 1, 0.3019608)
+tile_set = ExtResource("1_mc1i1")
 
 [node name="SwitchBuilding" type="Node" parent="." unique_id=1143980631]
 script = ExtResource("11_qs7lm")
