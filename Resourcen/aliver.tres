@@ -7,8 +7,10 @@
 script = ExtResource("3_fysok")
 size = Vector2i(2, 2)
 tilemap_id = 3
+craft_time = 4.0
 input = Array[Script]([ExtResource("1_n0qn3")])
 output_tile = Dictionary[Vector2i, int]({
 Vector2i(1, 1): 0
 })
+buildcost = 5
 factory_type = 3
