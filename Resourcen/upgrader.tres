@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("2_j3uab")
 size = Vector2i(2, 2)
-tilemap_id = 3
+tilemap_id = 10
 craft_time = 1.0
 input = Array[Script]([ExtResource("1_d52ty"), ExtResource("2_aenpf")])
 output_tile = Dictionary[Vector2i, int]({

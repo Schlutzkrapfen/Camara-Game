@@ -5,15 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://ctv77pkrn66by" path="res://assets/Sprites/Factories/ConveyorBelt.png" id="2_5mrl6"]
 [ext_resource type="Texture2D" uid="uid://b5w0sxaixnlhk" path="res://assets/Protype Factory/splitter.png" id="3_q6pkb"]
 [ext_resource type="Texture2D" uid="uid://d27i4qnwa0txv" path="res://assets/Protype Factory/headfactory.png" id="4_fo3dw"]
+[ext_resource type="Texture2D" uid="uid://ctqwdm2fila7h" path="res://assets/Sprites/Factories/LegFactory.png" id="4_yb4kb"]
+[ext_resource type="Texture2D" uid="uid://dfakgxksy5s5i" path="res://assets/Sprites/Factories/Combiner.png" id="5_agfhl"]
 [ext_resource type="Texture2D" uid="uid://cjxdymamhuqj0" path="res://assets/Protype Factory/goofactory.png" id="5_sf7bd"]
+[ext_resource type="Texture2D" uid="uid://fnxol2v3v8jk" path="res://assets/Sprites/Factories/Upgrader.png" id="6_3cjmu"]
 [ext_resource type="Script" uid="uid://b7r4n585kvy5" path="res://script/spawner.gd" id="6_814nw"]
 [ext_resource type="Script" uid="uid://bko1gb6s0qt05" path="res://Levels/flow_field.gd" id="7_5mrl6"]
+[ext_resource type="Texture2D" uid="uid://cgnh8i2ap5c72" path="res://assets/Sprites/Factories/Aliver.png" id="7_7ioe8"]
 [ext_resource type="Texture2D" uid="uid://cox70khsxs566" path="res://assets/Sprites/Factories/HeadFactory.png" id="7_e6hx3"]
 [ext_resource type="Texture2D" uid="uid://cklbh2npgj3ln" path="res://assets/BuildingCheck/Right.png" id="8_e6hx3"]
 [ext_resource type="Texture2D" uid="uid://d3ps21yld861w" path="res://assets/BuildingCheck/Wrong.png" id="9_4vxro"]
 [ext_resource type="Script" uid="uid://dw655442tyxqd" path="res://script/check_if_build.gd" id="10_kq7mr"]
 [ext_resource type="Texture2D" uid="uid://d1nv5c1vgdg3v" path="res://assets/Sprites/RoughPlan.png" id="12_2d3ho"]
 [ext_resource type="TileSet" uid="uid://dfd14baga48q4" path="res://Resourcen/Tilemap.tres" id="12_814nw"]
+[ext_resource type="Texture2D" uid="uid://c3ybt8onpq3yn" path="res://assets/Sprites/Factories/TorsoFactory.png" id="12_vv2xv"]
+[ext_resource type="Texture2D" uid="uid://drnamukdl1ch5" path="res://assets/Sprites/Factories/SpikeFactory.png" id="13_hmfgy"]
 [ext_resource type="PackedScene" uid="uid://ifvtipktctcg" path="res://Levels/UI.tscn" id="14_fo3dw"]
 [ext_resource type="PackedScene" uid="uid://b5dskihv6nlwm" path="res://Levels/Settlements/TestSettlement.tscn" id="15_814nw"]
 [ext_resource type="Script" uid="uid://do8dom7rcdpjx" path="res://script/globals/GameManager.gd" id="15_sf7bd"]
@@ -28,6 +34,30 @@ texture = ExtResource("2_2d3ho")
 texture_region_size = Vector2i(200, 200)
 0:0/0 = 0
 1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvusm"]
+texture = ExtResource("6_3cjmu")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u2hbt"]
+texture = ExtResource("7_7ioe8")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mc1i1"]
 texture = ExtResource("3_q6pkb")
@@ -57,6 +87,32 @@ texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 1:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ylpvw"]
+texture = ExtResource("12_vv2xv")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t8v6m"]
+texture = ExtResource("13_hmfgy")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pwl7"]
+texture = ExtResource("4_yb4kb")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbg0h"]
+texture = ExtResource("5_agfhl")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_nacyp"]
 tile_size = Vector2i(100, 100)
 sources/1 = SubResource("TileSetAtlasSource_72q2g")
@@ -65,6 +121,12 @@ sources/2 = SubResource("TileSetAtlasSource_mc1i1")
 sources/4 = SubResource("TileSetAtlasSource_qs7lm")
 sources/3 = SubResource("TileSetAtlasSource_kumpi")
 sources/5 = SubResource("TileSetAtlasSource_5mrl6")
+sources/6 = SubResource("TileSetAtlasSource_ylpvw")
+sources/7 = SubResource("TileSetAtlasSource_t8v6m")
+sources/8 = SubResource("TileSetAtlasSource_8pwl7")
+sources/9 = SubResource("TileSetAtlasSource_pbg0h")
+sources/10 = SubResource("TileSetAtlasSource_pvusm")
+sources/11 = SubResource("TileSetAtlasSource_u2hbt")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rkvs"]
 texture = ExtResource("8_e6hx3")

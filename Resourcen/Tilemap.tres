@@ -1,13 +1,20 @@
 [gd_resource type="TileSet" format=3 uid="uid://dfd14baga48q4"]
 
-[ext_resource type="Texture2D" uid="uid://d3jnlwymjk0yl" path="res://assets/Protype Factory/conver Belt.png" id="1_n21aq"]
+[ext_resource type="Texture2D" uid="uid://ctv77pkrn66by" path="res://assets/Sprites/Factories/ConveyorBelt.png" id="1_pjlse"]
 [ext_resource type="Texture2D" uid="uid://dab8ry1vc6pti" path="res://assets/Protype Factory/factory.png" id="2_a150c"]
 [ext_resource type="Texture2D" uid="uid://b5w0sxaixnlhk" path="res://assets/Protype Factory/splitter.png" id="3_bcu6u"]
+[ext_resource type="Texture2D" uid="uid://fnxol2v3v8jk" path="res://assets/Sprites/Factories/Upgrader.png" id="3_talwf"]
+[ext_resource type="Texture2D" uid="uid://cgnh8i2ap5c72" path="res://assets/Sprites/Factories/Aliver.png" id="4_660bf"]
 [ext_resource type="Texture2D" uid="uid://d27i4qnwa0txv" path="res://assets/Protype Factory/headfactory.png" id="4_rtxov"]
 [ext_resource type="Texture2D" uid="uid://cjxdymamhuqj0" path="res://assets/Protype Factory/goofactory.png" id="5_ypk7q"]
+[ext_resource type="Texture2D" uid="uid://cox70khsxs566" path="res://assets/Sprites/Factories/HeadFactory.png" id="8_3i84h"]
+[ext_resource type="Texture2D" uid="uid://c3ybt8onpq3yn" path="res://assets/Sprites/Factories/TorsoFactory.png" id="9_3re27"]
+[ext_resource type="Texture2D" uid="uid://drnamukdl1ch5" path="res://assets/Sprites/Factories/SpikeFactory.png" id="10_it4xu"]
+[ext_resource type="Texture2D" uid="uid://ctqwdm2fila7h" path="res://assets/Sprites/Factories/LegFactory.png" id="11_aegih"]
+[ext_resource type="Texture2D" uid="uid://dfakgxksy5s5i" path="res://assets/Sprites/Factories/Combiner.png" id="12_6a53h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mne4e"]
-texture = ExtResource("1_n21aq")
+texture = ExtResource("1_pjlse")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 
@@ -16,6 +23,30 @@ texture = ExtResource("2_a150c")
 texture_region_size = Vector2i(200, 200)
 0:0/0 = 0
 1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exgle"]
+texture = ExtResource("3_talwf")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qki62"]
+texture = ExtResource("4_660bf")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mc1i1"]
 texture = ExtResource("3_bcu6u")
@@ -39,6 +70,38 @@ texture_region_size = Vector2i(100, 100)
 1:1/0 = 0
 0:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v8h58"]
+texture = ExtResource("8_3i84h")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bohxa"]
+texture = ExtResource("9_3re27")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cbb8p"]
+texture = ExtResource("10_it4xu")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xm4py"]
+texture = ExtResource("11_aegih")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ifij"]
+texture = ExtResource("12_6a53h")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
 [resource]
 tile_size = Vector2i(100, 100)
 sources/1 = SubResource("TileSetAtlasSource_72q2g")
@@ -46,3 +109,10 @@ sources/0 = SubResource("TileSetAtlasSource_mne4e")
 sources/2 = SubResource("TileSetAtlasSource_mc1i1")
 sources/4 = SubResource("TileSetAtlasSource_qs7lm")
 sources/3 = SubResource("TileSetAtlasSource_kumpi")
+sources/5 = SubResource("TileSetAtlasSource_v8h58")
+sources/6 = SubResource("TileSetAtlasSource_bohxa")
+sources/7 = SubResource("TileSetAtlasSource_cbb8p")
+sources/8 = SubResource("TileSetAtlasSource_xm4py")
+sources/9 = SubResource("TileSetAtlasSource_0ifij")
+sources/10 = SubResource("TileSetAtlasSource_exgle")
+sources/11 = SubResource("TileSetAtlasSource_qki62")

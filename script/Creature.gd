@@ -135,7 +135,9 @@ func DamageFlash() -> void:
 	tween.tween_property(sprite, "modulate", Color.WHITE, 0.15)
 
 func Die() -> void:
-	self.queue_free()
+	self.visible = false
+	self.process_mode = Node.PROCESS_MODE_DISABLED
+	#self.queue_free()
 
 
 # --- Stitching -------------------------------------------------------------
