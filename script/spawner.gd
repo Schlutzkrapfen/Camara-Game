@@ -211,8 +211,10 @@ func output_items(factory:BuildData)-> bool:
 ## Removes the building under the mouse and frees all the tiles it covered.
 func delete():
 	var mouse_position = get_global_mouse_position()
+	
 	var local_position:Vector2 = tilemap.to_local(mouse_position)
 	var tile:Vector2i = tilemap.local_to_map(local_position)
+	print(tile)
 	if not occupied_tiles.has(tile):
 		print("nothing to delte")
 		return

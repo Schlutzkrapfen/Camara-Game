@@ -13,7 +13,7 @@ func check_if_okay_to_build(tile)-> bool:
 		for y in Global.factory_list[Global.current_house].size.y:
 			var tiles = Global.get_rotation_out_of_size(x,y)
 			var end_tile: Vector2i = tile + tiles
-			if tile.x < 0 or tile.y < 0 or end_tile.x > Global.build_zone_size.x or end_tile.y > Global.build_zone_size.y or main_tileset.get_cell_tile_data(end_tile) != null:
+			if tile.x < Global.build_zone_size_top_left.x or tile.y < Global.build_zone_size_top_left.y or end_tile.x > Global.build_zone_size_buttom_right.x or end_tile.y > Global.build_zone_size_buttom_right.y or main_tileset.get_cell_tile_data(end_tile) != null:
 				emit_signal("is_okay_to_build",false)
 				return false
 	emit_signal("is_okay_to_build",true)
