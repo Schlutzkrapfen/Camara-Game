@@ -19,7 +19,6 @@ script = ExtResource("2_s0ycw")
 isRotating = true
 
 [node name="BodyPart" type="Sprite2D" parent="Pivot" unique_id=685628172]
-z_index = -20
 position = Vector2(12.805, 73.335)
 texture = ExtResource("3_5tkjm")
 
