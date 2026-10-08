@@ -23,6 +23,9 @@
 [ext_resource type="PackedScene" uid="uid://ifvtipktctcg" path="res://Levels/UI.tscn" id="14_fo3dw"]
 [ext_resource type="PackedScene" uid="uid://b5dskihv6nlwm" path="res://Levels/Settlements/TestSettlement.tscn" id="15_814nw"]
 [ext_resource type="Script" uid="uid://do8dom7rcdpjx" path="res://script/globals/GameManager.gd" id="15_sf7bd"]
+[ext_resource type="Texture2D" uid="uid://chnfiiflilo6y" path="res://assets/Sprites/Tutorial/Page1.png" id="24_vv2xv"]
+[ext_resource type="Texture2D" uid="uid://dv1cvv0chdhul" path="res://assets/Sprites/Tutorial/Page2.png" id="25_hmfgy"]
+[ext_resource type="Texture2D" uid="uid://dd3gs8u7pxyk5" path="res://assets/Sprites/Tutorial/Page3.png" id="26_8pwl7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mne4e"]
 texture = ExtResource("2_5mrl6")
@@ -192,6 +195,7 @@ texture = ExtResource("12_2d3ho")
 script = ExtResource("15_sf7bd")
 cam = NodePath("../Camera2D")
 settlements = Array[PackedScene]([ExtResource("15_814nw")])
+tutorial_images = Array[Texture2D]([ExtResource("24_vv2xv"), ExtResource("25_hmfgy"), ExtResource("26_8pwl7")])
 metadata/_custom_type_script = "uid://do8dom7rcdpjx"
 
 [connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]
