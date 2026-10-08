@@ -105,6 +105,7 @@ func alive(factory:BuildData)-> bool:
 			continue
 		creature.is_alive = true
 		result = creature
+		break
 	return output_one_item(factory,result)
 
 func upgrade_items(factory:BuildData)-> bool:
