@@ -11,6 +11,7 @@
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_lvnpa")
 stitch_priority = 300
+hp = 1
 lives = 1
 attackRange = 30.0
 
