@@ -5,7 +5,7 @@ enum GameState { BUILDING, RAIDING }
 var curGameState: GameState = GameState.BUILDING
 @export_category("General")
 @export var cam: CameraController
-@export var curGoo: int = 50
+
 @export_category("Raiding") 
 @export var settlements: Array[PackedScene] 
 var curSettlementIndex: int = 0

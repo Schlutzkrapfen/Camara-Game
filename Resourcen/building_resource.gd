@@ -11,5 +11,6 @@ extends Resource
 #Which tile has the output and which direction
 @export var output_tile:Dictionary[Vector2i,Global.TileTransform]
 @export var input_size:int = 1
+@export var buildcost:int = 1
 
 @export var factory_type:Global.factory_type = 0

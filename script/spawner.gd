@@ -105,6 +105,7 @@ func alive(factory:BuildData)-> bool:
 			continue
 		creature.is_alive = true
 		result = creature
+		break
 	return output_one_item(factory,result)
 
 func upgrade_items(factory:BuildData)-> bool:
@@ -210,10 +211,10 @@ func output_items(factory:BuildData)-> bool:
 ## Removes the building under the mouse and frees all the tiles it covered.
 func delete():
 	var mouse_position = get_global_mouse_position()
+	
 	var local_position:Vector2 = tilemap.to_local(mouse_position)
 	var tile:Vector2i = tilemap.local_to_map(local_position)
 	if not occupied_tiles.has(tile):
-		print("nothing to delte")
 		return
 	var factory_start_position:Vector2i = occupied_tiles[tile]
 	var build_data:BuildData = current_builds[factory_start_position]
@@ -225,6 +226,7 @@ func delete():
 			tilemap.set_cell(factory_position)
 			flowfield.delete_flowfield(factory_position)
 			occupied_tiles.erase(factory_position)
+	Global.curGoo += build_data.resource_refrence.buildcost
 
 ## Places the selected building at the mouse tile, registers its tiles, flowfield, and output cells.
 func spawn():
@@ -245,3 +247,4 @@ func spawn():
 			tilemap.set_cell(tiles,current_house.tilemap_id,current_house.position_tilemap+local_tile,Global.currentrotation)
 	var buildings:BuildData = BuildData.new(current_house,output_postion,Global.currentrotation)
 	current_builds[tile] =buildings
+	Global.curGoo -= current_house.buildcost

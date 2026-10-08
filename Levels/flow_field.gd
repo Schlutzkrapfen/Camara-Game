@@ -29,6 +29,8 @@ func _process(delta: float) -> void:
 	grid_pos_array.clear()
 	item_used.clear()
 	for item in list_items:
+		if item == null:
+			continue
 		var grid_pos =main_tile_map.local_to_map(item.global_position)
 		grid_pos_array[grid_pos] = true
 		if main_tile_map.occupied_tiles.has(grid_pos)and main_tile_map.add_item_input(item, main_tile_map.occupied_tiles[grid_pos]):

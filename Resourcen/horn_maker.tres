@@ -14,3 +14,4 @@ output = Array[PackedScene]([ExtResource("2_rbs7q")])
 output_tile = Dictionary[Vector2i, int]({
 Vector2i(1, 1): 0
 })
+buildcost = 3
