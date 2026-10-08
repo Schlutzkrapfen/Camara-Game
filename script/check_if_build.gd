@@ -5,7 +5,8 @@ extends TileMapLayer
 @onready var rotation_tilemap= $Rotationbuild
 
 signal is_okay_to_build(bool)
-
+func _ready() -> void:
+		process_priority = -2
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func check_if_okay_to_build(tile)-> bool:
 	for x in Global.factory_list[Global.current_house].size.x:
