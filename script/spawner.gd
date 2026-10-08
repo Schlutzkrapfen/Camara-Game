@@ -116,8 +116,8 @@ func upgrade_items(factory:BuildData)-> bool:
 		creature.UpgradeCreature()
 		
 		result = creature
-	if result:
-		factory.cur_items.append(result)
+	if result == null:
+		return false
 	return output_one_item(factory,result)
 ## Stitches two stored Creature items together and sends the result out.
 func combine_items(factory:BuildData)-> bool:
@@ -128,9 +128,15 @@ func combine_items(factory:BuildData)-> bool:
 			two_creaturs.append(typed_item)
 			if two_creaturs.size() == 2:
 				break
-	var dic = two_creaturs[1].StitchBodyPart(two_creaturs[0])
-	two_creaturs[0].visible= false
-	return output_one_item(factory,dic["host"])
+	var dic = two_creaturs[0].StitchBodyPart(two_creaturs[1])
+	
+	if output_one_item(factory,dic["host"]):
+		if dic["success"] == true:
+			two_creaturs[0].visible = true
+			two_creaturs[1].visible = true
+		return true
+	else:
+		return false
 
 func output_one_item(factory,item)->bool:
 	factory.last_output = (factory.last_output +1)% len(factory.output_position) 
