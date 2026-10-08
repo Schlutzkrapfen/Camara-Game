@@ -82,17 +82,17 @@ func _process(delta: float) -> void:
 					if combine_items(factory):
 						factory.cur_time = 0
 						factory.can_get_input = true
-					return
+					continue
 				if factory.resource_refrence.factory_type == Global.factory_type.Upgrader:
 					if upgrade_items(factory):
 						factory.cur_time = 0
 						factory.can_get_input = true
-					return
+					continue
 				if factory.resource_refrence.factory_type == Global.factory_type.Aliver:
 					if alive(factory):
 						factory.cur_time = 0
 						factory.can_get_input = true
-					return
+					continue
 				if output_items(factory):
 					factory.cur_time = 0
 					factory.can_get_input = true
