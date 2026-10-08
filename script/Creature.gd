@@ -137,6 +137,13 @@ func DamageFlash() -> void:
 func Die() -> void:
 	self.visible = false
 	self.process_mode = Node.PROCESS_MODE_DISABLED
+	is_alive = false
+	self.position = Vector2(1000,1000)
+	self.remove_from_group("units")
+	for parts in attached_parts:
+		parts.remove_from_group("units")
+		parts.is_alive = false
+		parts.process_mode = Node.PROCESS_MODE_DISABLED
 	#self.queue_free()
 
 

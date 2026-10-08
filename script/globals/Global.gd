@@ -27,7 +27,8 @@ enum  factory_type{
 		Combine= 1,
 		Upgrader= 2,
 		Aliver= 3,
-		No_builder = 4
+		No_builder = 4,
+		Emit_Signal = 5
 	}
 var ROTATE_DIRECTION:Dictionary[TileTransform,Vector2] = {
 	TileTransform.ROTATE_0: Vector2(1,0),

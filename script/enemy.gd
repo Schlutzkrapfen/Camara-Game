@@ -13,7 +13,7 @@ class_name Enemy
 @export var spawn: PackedScene
 @export var minSpawnTime: float = 3
 @export var maxSpawnTime: float = 5
-var target: Node2D
+var target: Creature
 var curTimeUntilNextSpawn: float
 var curAttackCooldown: float = 0.0
 var sprite: Sprite2D
@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 	
 	## Confirm target
 	
-	if speed > 0 and target == null: # speed = 0 means it's a building
+	if speed > 0 and (target == null or not target.is_alive): # speed = 0 means it's a building
 		searchCountDown -= 1
 		if searchCountDown <= 0: 
 			target = SearchForTarget()
@@ -69,7 +69,6 @@ func _process(delta: float) -> void:
 
 func SearchForTarget() -> Node2D:
 	var playerUnits := get_tree().get_nodes_in_group("units")
-	print(playerUnits)
 	if playerUnits.is_empty():
 		return null
 	return playerUnits.pick_random() as Node2D

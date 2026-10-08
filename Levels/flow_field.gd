@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 	item_used.clear()
 	for item in list_items:
 		if item == null:
+
 			continue
 		var grid_pos =main_tile_map.local_to_map(item.global_position)
 		grid_pos_array[grid_pos] = true

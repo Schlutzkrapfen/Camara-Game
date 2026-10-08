@@ -6,6 +6,7 @@ extends TileMapLayer
 
 var current_builds: Dictionary[Vector2i, BuildData]
 var occupied_tiles: Dictionary[Vector2i, Vector2i] = {}
+signal maschin_finished
 
 var is_okay_to_build:bool = true
 class BuildData:
@@ -17,6 +18,7 @@ class BuildData:
 	var black_list:Dictionary[Node2D,bool]
 	var output_position:Array[Vector2i]
 	var can_get_input:bool
+	var already_emited:bool
 	func _init( p_buildingresource: BuildingResource ,p_outputpostion:Array[Vector2i],p_transform: Global.TileTransform = Global.TileTransform.None) -> void:
 		rotation = p_transform
 		resource_refrence = p_buildingresource
@@ -78,24 +80,33 @@ func _process(delta: float) -> void:
 			factory.can_get_input = false
 			factory.cur_time +=delta
 			if factory.cur_time > factory.resource_refrence.craft_time: 
-				if factory.resource_refrence.factory_type == Global.factory_type.Combine:
-					if combine_items(factory):
-						factory.cur_time = 0
-						factory.can_get_input = true
-					continue
-				if factory.resource_refrence.factory_type == Global.factory_type.Upgrader:
-					if upgrade_items(factory):
-						factory.cur_time = 0
-						factory.can_get_input = true
-					continue
-				if factory.resource_refrence.factory_type == Global.factory_type.Aliver:
-					if alive(factory):
-						factory.cur_time = 0
-						factory.can_get_input = true
-					continue
-				if output_items(factory):
-					factory.cur_time = 0
-					factory.can_get_input = true
+				match factory.resource_refrence.factory_type:
+					Global.factory_type.Combine:
+						if combine_items(factory):
+							factory.cur_time = 0
+							factory.can_get_input = true
+						continue
+					Global.factory_type.Upgrader:
+						if upgrade_items(factory):
+							factory.cur_time = 0
+							factory.can_get_input = true
+						continue
+					Global.factory_type.Aliver:
+						if alive(factory):
+							factory.cur_time = 0
+							factory.can_get_input = true
+						continue
+					Global.factory_type.Emit_Signal:
+						if not factory.already_emited:
+							factory.already_emited = true
+							emit_signal("maschin_finished")
+						continue
+					_:
+						if output_items(factory):
+							factory.cur_time = 0
+							factory.can_get_input = true
+	
+	
 
 func alive(factory:BuildData)-> bool:
 	var result: Creature = null
