@@ -2,23 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://c4uvcr8un6oyy" path="res://Levels/Enemies/Grunt_Hut.tscn" id="1_jdfxv"]
 [ext_resource type="PackedScene" uid="uid://dlyg7svl3faxm" path="res://Levels/Enemies/Grunt.tscn" id="2_he781"]
-[ext_resource type="Texture2D" uid="uid://d1nv5c1vgdg3v" path="res://assets/Sprites/RoughPlan.png" id="3_he781"]
 
 [node name="TestSettlement" type="Node2D" unique_id=1731217481]
 
 [node name="GruntHut" parent="." unique_id=1843378386 instance=ExtResource("1_jdfxv")]
-position = Vector2(1927, -3042)
+position = Vector2(46, -67)
 
 [node name="Grunt" parent="." unique_id=233829948 instance=ExtResource("2_he781")]
-position = Vector2(2557, -3315)
+position = Vector2(676, -340)
 
 [node name="Grunt2" parent="." unique_id=1383277508 instance=ExtResource("2_he781")]
-position = Vector2(1270, -3337)
+position = Vector2(-611, -362)
 
 [node name="Grunt3" parent="." unique_id=360318503 instance=ExtResource("2_he781")]
-position = Vector2(2032, -2425)
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=95839012]
-position = Vector2(577.00006, -154.00002)
-scale = Vector2(0.2989258, 0.2989258)
-texture = ExtResource("3_he781")
+position = Vector2(151, 550)

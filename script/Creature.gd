@@ -22,6 +22,14 @@ var is_alive: bool = false:
 		for point in _connection_points:
 			if point.connected_part != null:
 				point.connected_part.is_alive = value
+		
+		if is_alive:
+			if hp <= 0:
+				Die()
+				return
+			self.add_to_group("units")
+		else:
+			self.remove_from_group("units")
 
 @export var hp: int = 0
 @export var lives: int = 0
