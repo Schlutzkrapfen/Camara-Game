@@ -82,12 +82,12 @@ func _process(delta: float) -> void:
 		return
 	
 	## Confirm target
-	if target == null:
-		target = SearchForTarget()
-		timeUntilSelfDestruct -= delta
-		if timeUntilSelfDestruct <= 0:
-			Die()
-		return
+	#if target == null:
+	#	target = SearchForTarget()
+	#	timeUntilSelfDestruct -= delta
+	#	if timeUntilSelfDestruct <= 0:
+	#		Die()
+	#	return
 	
 	curAttackCooldown -= delta
 	
@@ -138,7 +138,7 @@ func Die() -> void:
 	self.visible = false
 	self.process_mode = Node.PROCESS_MODE_DISABLED
 	is_alive = false
-	self.position = Vector2(1000,1000)
+	self.position = Vector2(100000,100000)
 	self.remove_from_group("units")
 	for parts in attached_parts:
 		parts.remove_from_group("units")

@@ -6,6 +6,8 @@ extends TileMapLayer
 
 var current_builds: Dictionary[Vector2i, BuildData]
 var occupied_tiles: Dictionary[Vector2i, Vector2i] = {}
+var _building:bool
+var _deleting:bool
 signal maschin_finished
 
 var is_okay_to_build:bool = true
@@ -67,9 +69,9 @@ func check_building(is_okay:bool):
 
 ## Each frame, runs every building: passes items through, crafts, and outputs results.
 func _process(delta: float) -> void:
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and is_okay_to_build:
+	if _building and is_okay_to_build:
 		spawn()
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+	if _deleting:
 		delete()
 	for key in current_builds: # or current_builds.items()
 		var factory:BuildData = current_builds[key]
@@ -106,7 +108,15 @@ func _process(delta: float) -> void:
 							factory.cur_time = 0
 							factory.can_get_input = true
 	
-	
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("build_place") and is_okay_to_build:
+		_building = true
+	elif event.is_action_released("build_place"):
+		_building = false
+	if event.is_action_pressed("build_delete") and is_okay_to_build:
+		_deleting = true
+	elif event.is_action_released("build_delete"):
+		_deleting = false
 
 func alive(factory:BuildData)-> bool:
 	var result: Creature = null
@@ -171,7 +181,6 @@ func output_input(factory)->bool:
 		if not flowfield.is_cell_free(factory.output_position[factory.last_output]):
 			full_output+=1
 			continue
-		
 		item.process_mode = Node.AUTO_TRANSLATE_MODE_INHERIT
 		item.global_position = tilemap.to_global(
 		tilemap.map_to_local(factory.output_position[factory.last_output])
