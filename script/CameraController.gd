@@ -198,8 +198,8 @@ func _edge_scroll(delta: float, limits: Rect2) -> void:
 ## any zoom level, and diagonals are normalised so they aren't faster.
 func _keyboard_move(delta: float) -> void:
 	var dir := Vector2.ZERO
-	# Don't steal keys while the player is typing in a LineEdit etc.
-	if keyboard_enabled and get_viewport().gui_get_focus_owner() == null:
+	# Don't steal keys while the player is typing in a text field.
+	if keyboard_enabled and not _is_typing():
 		dir = Vector2(
 			int(Input.is_physical_key_pressed(KEY_D)) - int(Input.is_physical_key_pressed(KEY_A)),
 			int(Input.is_physical_key_pressed(KEY_S)) - int(Input.is_physical_key_pressed(KEY_W)))
@@ -210,6 +210,14 @@ func _keyboard_move(delta: float) -> void:
 	if _key_velocity.length_squared() < 0.01:
 		_key_velocity = Vector2.ZERO
 	global_position += _key_velocity * delta
+
+
+## True only when a text-entry control has focus (LineEdit, TextEdit/CodeEdit).
+## Buttons and other focusable controls must NOT block WASD. SpinBox is covered
+## because its focus goes to its inner LineEdit.
+func _is_typing() -> bool:
+	var focus := get_viewport().gui_get_focus_owner()
+	return focus is LineEdit or focus is TextEdit
 
 
 ## Smoothly moves zoom toward the (bounds-aware) target zoom.
