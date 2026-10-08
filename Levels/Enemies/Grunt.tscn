@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dlyg7svl3faxm"]
 
 [ext_resource type="Script" uid="uid://cymwleeug0qjq" path="res://script/enemy.gd" id="1_0ic64"]
-[ext_resource type="Texture2D" uid="uid://dlhrbx8jgdx6a" path="res://icon.svg" id="1_jh61n"]
+[ext_resource type="Texture2D" uid="uid://ju8pm1kwgxnf" path="res://assets/Sprites/Enemies/Grunt.png" id="2_avifw"]
 
 [node name="Grunt" type="Node2D" unique_id=1843378386 groups=["enemies"]]
 script = ExtResource("1_0ic64")
@@ -9,4 +9,5 @@ speed = 150.0
 attackCooldown = 0.2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=780132004]
-texture = ExtResource("1_jh61n")
+position = Vector2(0, -203)
+texture = ExtResource("2_avifw")

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dxhh21i31w2eo" path="res://assets/Sprites/ModularCharacter/Accessories/Spikes/Spike_Large.png" id="2_dv7ss"]
 [ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="3_8pdh6"]
 
-[node name="Spike" type="Node2D" unique_id=351333405 groups=["units"]]
+[node name="Spike" type="Node2D" unique_id=351333405]
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_yw5ed")
 type = 3

@@ -1,6 +1,7 @@
 extends Node2D
 class_name Enemy
 
+@export var searchDelayFrames: int = 20
 @export var hp: int = 20
 @export var speed: float = 50
 @export var attackDamage: int = 3
@@ -16,10 +17,11 @@ var target: Node2D
 var curTimeUntilNextSpawn: float
 var curAttackCooldown: float = 0.0
 var sprite: Sprite2D
-
+var searchCountDown: int
 
 
 func _ready() -> void:
+	searchCountDown = randi_range(0, searchDelayFrames)
 	sprite = find_children("*", "Sprite2D")[0]
 
 
@@ -36,8 +38,12 @@ func _process(delta: float) -> void:
 			newEnemy.global_position = self.global_position
 	
 	## Confirm target
+	
 	if speed > 0 and target == null: # speed = 0 means it's a building
-		target = SearchForTarget()
+		searchCountDown -= 1
+		if searchCountDown <= 0: 
+			target = SearchForTarget()
+			searchCountDown = searchDelayFrames
 		return
 	
 	curAttackCooldown -= delta

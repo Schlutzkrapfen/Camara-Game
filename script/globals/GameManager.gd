@@ -9,7 +9,7 @@ var curGameState: GameState = GameState.BUILDING
 @export_category("Raiding") 
 @export var settlements: Array[PackedScene] 
 var curSettlementIndex: int = 0
-
+var curSettlement: Node2D
 
 # --- Inputs -------------------------------------------------------------------
 
@@ -74,14 +74,17 @@ func StopRaid() -> void:
 func StartRaid() -> void:
 	if settlements == null:
 		return
-	if settlements.size() < curSettlementIndex:
+	if settlements.size() == curSettlementIndex:
 		GameWon()
 		return
 	
 	curGameState = GameState.RAIDING
 	cam.locked = false;
-	var newSettlement = settlements[curSettlementIndex]
-	get_tree().current_scene.add_child(newSettlement)
+	var newSettlement := settlements[curSettlementIndex].instantiate()
+	self.add_child(newSettlement)
+	if curSettlement != null:
+		curSettlement.queue_free()
+	curSettlement = newSettlement
 	curSettlementIndex += 1
 	# MISSING -> Set Producing Goo to ON!
 
