@@ -3,17 +3,28 @@ extends TileMapLayer
 @export var main_tileset:TileMapLayer
 @onready var tilemap:TileMapLayer = self
 @onready var rotation_tilemap= $Rotationbuild
-
+@onready var tl: Vector2i = Global.build_zone_size_top_left
+@onready var br: Vector2i = Global.build_zone_size_buttom_right
 signal is_okay_to_build(bool)
 func _ready() -> void:
 		process_priority = -2
+
+
+func _is_in_build_zone(tile: Vector2i) -> bool:
+	return tile.x >= tl.x and tile.y >= tl.y \
+		and tile.x <= br.x and tile.y <= br.y
+
+func _is_tile_free(pos: Vector2i) -> bool:
+	return main_tileset.get_cell_tile_data(pos) == null
+func has_enough_goo() -> bool:
+	return Global.curGoo -Global.factory_list[Global.current_house].buildcost  >0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func check_if_okay_to_build(tile)-> bool:
 	for x in Global.factory_list[Global.current_house].size.x:
 		for y in Global.factory_list[Global.current_house].size.y:
 			var tiles = Global.get_rotation_out_of_size(x,y)
 			var end_tile: Vector2i = tile + tiles
-			if tile.x < Global.build_zone_size_top_left.x or tile.y < Global.build_zone_size_top_left.y or end_tile.x > Global.build_zone_size_buttom_right.x or end_tile.y > Global.build_zone_size_buttom_right.y or main_tileset.get_cell_tile_data(end_tile) != null:
+			if not _is_tile_free(end_tile) or not _is_in_build_zone(end_tile) or not has_enough_goo() :
 				emit_signal("is_okay_to_build",false)
 				return false
 	emit_signal("is_okay_to_build",true)

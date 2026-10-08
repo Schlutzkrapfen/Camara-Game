@@ -1,6 +1,7 @@
 extends Node
 var build_zone_size_buttom_right:Vector2i = Vector2i(64,69)
 var build_zone_size_top_left:Vector2i = Vector2i(-62,-3)
+var curGoo: int = 50
 @onready var factory_list: Array[BuildingResource] = [
 	preload("res://Resourcen/goo_factory.tres"),
 	preload("res://Resourcen/conaer_belt.tres"),
