@@ -146,6 +146,7 @@ func Die() -> void:
 	for parts in attached_parts:
 		parts.remove_from_group("units")
 		parts.is_alive = false
+		parts.visible = false
 		parts.process_mode = Node.PROCESS_MODE_DISABLED
 	#self.queue_free()
 

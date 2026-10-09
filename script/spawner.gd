@@ -15,6 +15,7 @@ class BuildData:
 	var rotation: Global.TileTransform
 	var resource_refrence: BuildingResource
 	var cur_time: float = 0
+	var input_tile:Array[Vector2i]
 	var cur_items: Array[Node2D]
 	var last_output:int =0
 	var black_list:Dictionary[Node2D,bool]
@@ -34,14 +35,15 @@ func _ready() -> void:
 
 ## Stores an item inside the building at the given tile if it has room, returns whether it was accepted.
 func add_item_input(item:Node2D,positon:Vector2i)->bool:
-	var factory = current_builds[positon]
+	var factory = current_builds[occupied_tiles[positon]]
 	if len(factory.cur_items) < factory.resource_refrence.input_size and not factory.black_list.has(item):
 		if never_needs_item(factory,item):
 			factory.black_list[item] = true
 			return false
-		if not needs_item(factory,item):
+		if not needs_item(factory,item,positon):
 			return false
 		factory.cur_items.append(item)
+		factory.input_tile.append(positon)
 		item.visible = false
 		flowfield.delete_item(item)
 		item.process_mode = Node.PROCESS_MODE_DISABLED
@@ -56,9 +58,13 @@ func never_needs_item(factory: BuildData, item: Node2D) -> bool:
 			return false
 	return true
 ## Returns true if the building still needs an item of this item's type.
-func needs_item(factory: BuildData, item: Node2D) -> bool:
+func needs_item(factory: BuildData, item: Node2D,position) -> bool:
+	print(position)
+	print(factory.input_tile)
 	if len(factory.resource_refrence.input) == 0:
 		return true
+	if factory.input_tile.has(position):
+		return false
 	var still_needed: Array = factory.resource_refrence.input.duplicate()
 	# Cross off requirements already covered by stored items.
 	for stored in factory.cur_items:
@@ -94,18 +100,16 @@ func _process(delta: float) -> void:
 				match factory.resource_refrence.factory_type:
 					Global.factory_type.Combine:
 						if combine_items(factory):
-							factory.cur_time = 0
-							factory.can_get_input = true
+							clear_factory(factory)
+
 						continue
 					Global.factory_type.Upgrader:
 						if upgrade_items(factory):
-							factory.cur_time = 0
-							factory.can_get_input = true
+							clear_factory(factory)
 						continue
 					Global.factory_type.Aliver:
 						if alive(factory):
-							factory.cur_time = 0
-							factory.can_get_input = true
+							clear_factory(factory)
 						continue
 					Global.factory_type.Emit_Signal:
 						if not factory.already_emited:
@@ -114,8 +118,12 @@ func _process(delta: float) -> void:
 						continue
 					_:
 						if output_items(factory):
-							factory.cur_time = 0
-							factory.can_get_input = true
+							clear_factory(factory)
+
+func clear_factory(factory:BuildData):
+	factory.cur_time = 0
+	factory.can_get_input = true
+	factory.input_tile.clear()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("build_delete"):
