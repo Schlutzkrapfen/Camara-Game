@@ -125,44 +125,53 @@ position = Vector2(169, -125)
 script = ExtResource("4_w51f1")
 id = 201
 allowedBodyTypes = Array[int]([3])
-direction = 3
-attachmentRotation = -7.61
+attachmentRotation = 81.665
 
 [node name="ConnectionPoint_202" type="Marker2D" parent="." unique_id=1522758959]
 position = Vector2(199, -24)
 script = ExtResource("4_w51f1")
 id = 202
 allowedBodyTypes = Array[int]([3])
-direction = 3
+attachmentRotation = 87.145
 
 [node name="ConnectionPoint_203" type="Marker2D" parent="." unique_id=1650167569]
 position = Vector2(189, 84)
 script = ExtResource("4_w51f1")
 id = 203
 allowedBodyTypes = Array[int]([3])
-direction = 3
-attachmentRotation = 8.545
+attachmentRotation = 100.33
+
+[node name="ConnectionPoint_204" type="Marker2D" parent="." unique_id=1415530742]
+position = Vector2(160, 25)
+script = ExtResource("4_w51f1")
+id = 204
+allowedBodyTypes = Array[int]([3])
+attachmentRotation = 83.895
 
 [node name="ConnectionPoint_301" type="Marker2D" parent="." unique_id=2037888554]
 position = Vector2(-124, -89)
 script = ExtResource("4_w51f1")
 id = 301
 allowedBodyTypes = Array[int]([3])
-direction = 2
-attachmentRotation = 12.45
+attachmentRotation = -68.095
 
 [node name="ConnectionPoint_302" type="Marker2D" parent="." unique_id=72995844]
 position = Vector2(-179, 14)
 script = ExtResource("4_w51f1")
 id = 302
 allowedBodyTypes = Array[int]([3])
-direction = 2
-attachmentRotation = 9.525
+attachmentRotation = -78.595
 
 [node name="ConnectionPoint_303" type="Marker2D" parent="." unique_id=344551721]
 position = Vector2(-235, 113)
 script = ExtResource("4_w51f1")
 id = 303
 allowedBodyTypes = Array[int]([3])
-direction = 2
-attachmentRotation = -5.8
+attachmentRotation = -78.075
+
+[node name="ConnectionPoint_304" type="Marker2D" parent="." unique_id=587360905]
+position = Vector2(-150, 90)
+script = ExtResource("4_w51f1")
+id = 304
+allowedBodyTypes = Array[int]([3])
+attachmentRotation = -57.71

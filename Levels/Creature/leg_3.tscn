@@ -42,4 +42,4 @@ position = Vector2(37, 44)
 script = ExtResource("4_1efdp")
 id = 201
 allowedBodyTypes = Array[int]([3])
-direction = 3
+attachmentRotation = 56.76

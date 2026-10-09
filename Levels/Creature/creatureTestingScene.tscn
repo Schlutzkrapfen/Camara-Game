@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://c75yvoc3lhvdv" path="res://script/creature_testing.gd" id="1_qu1v0"]
 [ext_resource type="PackedScene" uid="uid://h4gm0w78c05t" path="res://Levels/Creature/head.tscn" id="2_kgn47"]
 [ext_resource type="PackedScene" uid="uid://te3wdjrwjvf3" path="res://Levels/Creature/torso.tscn" id="3_h1l0e"]
-[ext_resource type="PackedScene" uid="uid://br6rp8mmcsbyd" path="res://Levels/Creature/leg.tscn" id="4_wqga0"]
 [ext_resource type="PackedScene" uid="uid://dv3qwt1jtj1wt" path="res://Levels/Creature/torso_2.tscn" id="5_h1l0e"]
 [ext_resource type="PackedScene" uid="uid://dtcu05c44x3w8" path="res://Levels/Creature/torso_3.tscn" id="6_oyvla"]
 [ext_resource type="PackedScene" uid="uid://cg3y50e7rvs8o" path="res://Levels/Creature/torso_4.tscn" id="7_3c7w0"]
@@ -13,15 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://bw0t0tccsh34l" path="res://Levels/Creature/spike_1.tscn" id="11_85nhp"]
 [ext_resource type="PackedScene" uid="uid://2k4c1td3mkse" path="res://Levels/Creature/spike_2.tscn" id="12_258lo"]
 [ext_resource type="PackedScene" uid="uid://ffsnyxqu58mx" path="res://Levels/Creature/spike_3.tscn" id="13_0mljx"]
-[ext_resource type="PackedScene" uid="uid://dw5pxqw638q5j" path="res://Levels/Creature/spike_1_L.tscn" id="14_y1hec"]
-[ext_resource type="PackedScene" uid="uid://cmq7h1hqqp6fu" path="res://Levels/Creature/spike_2_L.tscn" id="15_xxkyx"]
-[ext_resource type="PackedScene" uid="uid://dw6c0y8w2v2j3" path="res://Levels/Creature/spike_3_L.tscn" id="16_ahytx"]
+[ext_resource type="PackedScene" uid="uid://bvncs3ckfetkl" path="res://Levels/Creature/leg_4.tscn" id="13_lnj6j"]
 [ext_resource type="PackedScene" uid="uid://dlyg7svl3faxm" path="res://Levels/Enemies/Grunt.tscn" id="17_xxkyx"]
 [ext_resource type="PackedScene" uid="uid://c4uvcr8un6oyy" path="res://Levels/Enemies/Grunt_Hut.tscn" id="18_ahytx"]
 
 [node name="CreatureTestingScene" type="Node2D" unique_id=1857987435]
 script = ExtResource("1_qu1v0")
-part_scenes = Array[PackedScene]([ExtResource("2_kgn47"), ExtResource("3_h1l0e"), ExtResource("5_h1l0e"), ExtResource("6_oyvla"), ExtResource("7_3c7w0"), ExtResource("8_3c7w0"), ExtResource("4_wqga0"), ExtResource("9_6q6ar"), ExtResource("10_85nhp"), ExtResource("11_85nhp"), ExtResource("12_258lo"), ExtResource("13_0mljx"), ExtResource("14_y1hec"), ExtResource("15_xxkyx"), ExtResource("16_ahytx")])
+part_scenes = Array[PackedScene]([ExtResource("2_kgn47"), ExtResource("3_h1l0e"), ExtResource("5_h1l0e"), ExtResource("6_oyvla"), ExtResource("7_3c7w0"), ExtResource("8_3c7w0"), ExtResource("9_6q6ar"), ExtResource("10_85nhp"), ExtResource("11_85nhp"), ExtResource("12_258lo"), ExtResource("13_0mljx"), ExtResource("13_lnj6j")])
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1101754663]
 position = Vector2(577, 324)

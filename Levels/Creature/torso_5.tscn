@@ -141,60 +141,53 @@ position = Vector2(137, -178)
 script = ExtResource("4_b4j5o")
 id = 201
 allowedBodyTypes = Array[int]([3])
-direction = 3
-attachmentRotation = -7.61
+attachmentRotation = 81.11
 
 [node name="ConnectionPoint_202" type="Marker2D" parent="." unique_id=1522758959]
 position = Vector2(187, 49)
 script = ExtResource("4_b4j5o")
 id = 202
 allowedBodyTypes = Array[int]([3])
-direction = 3
+attachmentRotation = 54.695
 
 [node name="ConnectionPoint_204" type="Marker2D" parent="." unique_id=924161160]
-position = Vector2(-31, -21)
+position = Vector2(-40, -99.99999)
 script = ExtResource("4_b4j5o")
 id = 204
 allowedBodyTypes = Array[int]([3])
-direction = 3
-attachmentRotation = -14.4
+attachmentRotation = 118.47
 
 [node name="ConnectionPoint_203" type="Marker2D" parent="." unique_id=1650167569]
-position = Vector2(265, 116)
+position = Vector2(265, 95)
 script = ExtResource("4_b4j5o")
 id = 203
 allowedBodyTypes = Array[int]([3])
-direction = 3
-attachmentRotation = 8.545
+attachmentRotation = 70.055
 
 [node name="ConnectionPoint_301" type="Marker2D" parent="." unique_id=2037888554]
 position = Vector2(-250, -156)
 script = ExtResource("4_b4j5o")
 id = 301
 allowedBodyTypes = Array[int]([3])
-direction = 2
-attachmentRotation = 12.45
+attachmentRotation = -57.38
 
 [node name="ConnectionPoint_302" type="Marker2D" parent="." unique_id=72995844]
 position = Vector2(-163, 64)
 script = ExtResource("4_b4j5o")
 id = 302
 allowedBodyTypes = Array[int]([3])
-direction = 2
-attachmentRotation = 9.525
+attachmentRotation = -84.58
 
 [node name="ConnectionPoint_303" type="Marker2D" parent="." unique_id=344551721]
 position = Vector2(-187, 174)
 script = ExtResource("4_b4j5o")
 id = 303
 allowedBodyTypes = Array[int]([3])
-direction = 2
-attachmentRotation = 0.96
+attachmentRotation = -83.775
 
 [node name="ConnectionPoint_304" type="Marker2D" parent="." unique_id=21376880]
 position = Vector2(-237, -38)
 script = ExtResource("4_b4j5o")
 id = 304
 allowedBodyTypes = Array[int]([3])
-direction = 2
-attachmentRotation = -28.055
+attachmentRotation = -116.98

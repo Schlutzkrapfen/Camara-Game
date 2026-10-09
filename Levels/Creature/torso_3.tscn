@@ -94,39 +94,39 @@ position = Vector2(122, -85)
 script = ExtResource("4_r20mw")
 id = 201
 allowedBodyTypes = Array[int]([3])
-direction = 3
+attachmentRotation = 57.565
 
 [node name="ConnectionPoint_202" type="Marker2D" parent="." unique_id=1522758959]
 position = Vector2(159, 11)
 script = ExtResource("4_r20mw")
 id = 202
 allowedBodyTypes = Array[int]([3])
-direction = 3
+attachmentRotation = 86.645
 
 [node name="ConnectionPoint_203" type="Marker2D" parent="." unique_id=1650167569]
 position = Vector2(145, 89)
 script = ExtResource("4_r20mw")
 id = 203
 allowedBodyTypes = Array[int]([3])
-direction = 3
+attachmentRotation = 123.61
 
 [node name="ConnectionPoint_301" type="Marker2D" parent="." unique_id=2037888554]
 position = Vector2(-135, -69)
 script = ExtResource("4_r20mw")
 id = 301
 allowedBodyTypes = Array[int]([3])
-direction = 2
+attachmentRotation = -53.41
 
 [node name="ConnectionPoint_302" type="Marker2D" parent="." unique_id=72995844]
 position = Vector2(-155, 2)
 script = ExtResource("4_r20mw")
 id = 302
 allowedBodyTypes = Array[int]([3])
-direction = 2
+attachmentRotation = -84.335
 
 [node name="ConnectionPoint_303" type="Marker2D" parent="." unique_id=344551721]
 position = Vector2(-152, 78)
 script = ExtResource("4_r20mw")
 id = 303
 allowedBodyTypes = Array[int]([3])
-direction = 2
+attachmentRotation = -115.125
