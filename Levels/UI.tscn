@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c0mcgbdmnmsld" path="res://assets/Sprites/UI/Upgrader.png" id="9_es3ur"]
 [ext_resource type="Texture2D" uid="uid://k5w5uhggcnt" path="res://assets/Sprites/UI/Aliveinator.png" id="10_1sn6u"]
 [ext_resource type="Texture2D" uid="uid://cd5llroculqao" path="res://assets/Sprites/UI/Tutorial.png" id="12_1j87n"]
+[ext_resource type="Texture2D" uid="uid://08nv7r4isnjx" path="res://assets/Sprites/UI/ButtonBase_disactived.png" id="12_mq2op"]
 
 [node name="UI" type="CanvasLayer" unique_id=1117017474]
 
@@ -268,6 +269,7 @@ expand_mode = 1
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 texture_normal = ExtResource("1_l0ruv")
+texture_disabled = ExtResource("12_mq2op")
 ignore_texture_size = true
 stretch_mode = 0
 

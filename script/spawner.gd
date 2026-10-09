@@ -59,8 +59,6 @@ func never_needs_item(factory: BuildData, item: Node2D) -> bool:
 	return true
 ## Returns true if the building still needs an item of this item's type.
 func needs_item(factory: BuildData, item: Node2D,position) -> bool:
-	print(position)
-	print(factory.input_tile)
 	if len(factory.resource_refrence.input) == 0:
 		return true
 	if factory.input_tile.has(position):

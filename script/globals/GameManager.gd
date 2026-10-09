@@ -99,6 +99,7 @@ func StartRaid() -> void:
 		curSettlement.queue_free()
 	curSettlement = newSettlement
 	curSettlementIndex += 1
+	btn_Raid.disabled = true
 	# MISSING -> Set Producing Goo to ON!
 
 func _input(event: InputEvent) -> void:
