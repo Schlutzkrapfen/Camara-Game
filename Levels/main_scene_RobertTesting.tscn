@@ -11,9 +11,7 @@
 [ext_resource type="Script" uid="uid://bko1gb6s0qt05" path="res://Levels/flow_field.gd" id="7_5mrl6"]
 [ext_resource type="Texture2D" uid="uid://cgnh8i2ap5c72" path="res://assets/Sprites/Factories/Aliver.png" id="7_7ioe8"]
 [ext_resource type="Texture2D" uid="uid://cox70khsxs566" path="res://assets/Sprites/Factories/HeadFactory.png" id="7_e6hx3"]
-[ext_resource type="Texture2D" uid="uid://cklbh2npgj3ln" path="res://assets/BuildingCheck/Right.png" id="8_e6hx3"]
 [ext_resource type="Texture2D" uid="uid://bjashyfv41cpn" path="res://assets/Sprites/Factories/Splitter.png" id="8_vv2xv"]
-[ext_resource type="Texture2D" uid="uid://d3ps21yld861w" path="res://assets/BuildingCheck/Wrong.png" id="9_4vxro"]
 [ext_resource type="Script" uid="uid://dw655442tyxqd" path="res://script/check_if_build.gd" id="10_kq7mr"]
 [ext_resource type="Texture2D" uid="uid://mcwipabtk0ga" path="res://assets/Sprites/Factories/GooFactory.png" id="10_vv2xv"]
 [ext_resource type="Texture2D" uid="uid://d1nv5c1vgdg3v" path="res://assets/Sprites/RoughPlan.png" id="12_2d3ho"]
@@ -23,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://ifvtipktctcg" path="res://Levels/UI.tscn" id="14_fo3dw"]
 [ext_resource type="PackedScene" uid="uid://b5dskihv6nlwm" path="res://Levels/Settlements/FirstEncounter.tscn" id="15_814nw"]
 [ext_resource type="Script" uid="uid://do8dom7rcdpjx" path="res://script/globals/GameManager.gd" id="15_sf7bd"]
+[ext_resource type="Texture2D" uid="uid://bsmqdfj1qx2kl" path="res://assets/BuildingCheck/Right_2.png" id="18_krsf2"]
+[ext_resource type="Texture2D" uid="uid://dk7ldpc8ttfo6" path="res://assets/BuildingCheck/Wrong_2.png" id="19_o4py4"]
 [ext_resource type="Texture2D" uid="uid://chnfiiflilo6y" path="res://assets/Sprites/Tutorial/Page1.png" id="24_vv2xv"]
 [ext_resource type="Texture2D" uid="uid://dv1cvv0chdhul" path="res://assets/Sprites/Tutorial/Page2.png" id="25_hmfgy"]
 [ext_resource type="PackedScene" uid="uid://lvjyiavoss3n" path="res://Levels/Settlements/FirstHut.tscn" id="25_krsf2"]
@@ -148,12 +148,12 @@ sources/10 = SubResource("TileSetAtlasSource_pvusm")
 sources/11 = SubResource("TileSetAtlasSource_u2hbt")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rkvs"]
-texture = ExtResource("8_e6hx3")
+texture = ExtResource("18_krsf2")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xnfqo"]
-texture = ExtResource("9_4vxro")
+texture = ExtResource("19_o4py4")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 
