@@ -126,7 +126,9 @@ func SpawnAttackVisual() -> void:
 	fx.global_position = global_position
 
 func TakeDamage(damage: int) -> void:
+	print(damage)
 	hp -= damage
+	print(hp)
 	DamageFlash()
 	
 	if hp <= 0:

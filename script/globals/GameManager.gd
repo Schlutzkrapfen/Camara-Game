@@ -12,7 +12,7 @@ var curGameState: GameState = GameState.BUILDING
 @export var settlements: Array[PackedScene] 
 var curSettlementIndex: int = 0
 var curSettlement: Node2D
-@export var goo_win_amount:Array[int]  = [0,20,40,100,140,200,200,200,
+@export var goo_win_amount:Array[int]  = [20,20,40,100,140,200,200,200,
 200,200,200,200,200,200,1000,1000,1000,1000,1000,1000,]
 
 @export_category("Tutorial")
@@ -116,7 +116,6 @@ func StartRaid() -> void:
 		curSettlement.queue_free()
 	curSettlement = newSettlement
 	curSettlementIndex += 1
-	# MISSING -> Set Producing Goo to ON!
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("build_delete") or event.is_action_released("build_place"):
