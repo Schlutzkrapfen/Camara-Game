@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bikmno2a35aqt"
-path="res://.godot/imported/Nose_CatHair.png-73762c8bd9f4791f1af83b58d9d1aee6.ctex"
+uid="uid://s0sd4aknkmn2"
+path="res://.godot/imported/Leg_ExtraLarge.png-b035ae273d66df607115672c122c627b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/ModularCharacter/Nose/Nose_CatHair.png"
-dest_files=["res://.godot/imported/Nose_CatHair.png-73762c8bd9f4791f1af83b58d9d1aee6.ctex"]
+source_file="res://assets/Sprites/ModularCharacter/Legs/Leg_ExtraLarge.png"
+dest_files=["res://.godot/imported/Leg_ExtraLarge.png-b035ae273d66df607115672c122c627b.ctex"]
 
 [params]
 
