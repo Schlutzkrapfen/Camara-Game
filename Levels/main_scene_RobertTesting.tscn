@@ -21,12 +21,22 @@
 [ext_resource type="Texture2D" uid="uid://c3ybt8onpq3yn" path="res://assets/Sprites/Factories/TorsoFactory.png" id="12_vv2xv"]
 [ext_resource type="Texture2D" uid="uid://drnamukdl1ch5" path="res://assets/Sprites/Factories/SpikeFactory.png" id="13_hmfgy"]
 [ext_resource type="PackedScene" uid="uid://ifvtipktctcg" path="res://Levels/UI.tscn" id="14_fo3dw"]
-[ext_resource type="PackedScene" uid="uid://b5dskihv6nlwm" path="res://Levels/Settlements/TestSettlement.tscn" id="15_814nw"]
+[ext_resource type="PackedScene" uid="uid://b5dskihv6nlwm" path="res://Levels/Settlements/FirstEncounter.tscn" id="15_814nw"]
 [ext_resource type="Script" uid="uid://do8dom7rcdpjx" path="res://script/globals/GameManager.gd" id="15_sf7bd"]
 [ext_resource type="Texture2D" uid="uid://chnfiiflilo6y" path="res://assets/Sprites/Tutorial/Page1.png" id="24_vv2xv"]
 [ext_resource type="Texture2D" uid="uid://dv1cvv0chdhul" path="res://assets/Sprites/Tutorial/Page2.png" id="25_hmfgy"]
+[ext_resource type="PackedScene" uid="uid://lvjyiavoss3n" path="res://Levels/Settlements/FirstHut.tscn" id="25_krsf2"]
 [ext_resource type="Texture2D" uid="uid://dd3gs8u7pxyk5" path="res://assets/Sprites/Tutorial/Page3.png" id="26_8pwl7"]
+[ext_resource type="PackedScene" uid="uid://cbqk3tmm32w4d" path="res://Levels/Settlements/GuardedHut.tscn" id="26_o4py4"]
+[ext_resource type="PackedScene" uid="uid://dtsb3rlg04lyy" path="res://Levels/Settlements/FirstGuardOutpost.tscn" id="27_0s4sc"]
 [ext_resource type="Texture2D" uid="uid://cbqqufh3erkib" path="res://assets/Sprites/Factories/Floor.png" id="27_vv2xv"]
+[ext_resource type="PackedScene" uid="uid://c8iy6vpl6co2q" path="res://Levels/Settlements/HutVillage.tscn" id="28_mxtv1"]
+[ext_resource type="PackedScene" uid="uid://cqisp6gbntsn3" path="res://Levels/Settlements/WatchTowers.tscn" id="29_yfkbv"]
+[ext_resource type="PackedScene" uid="uid://cjudoa67aq5a5" path="res://Levels/Settlements/FirstBastard.tscn" id="30_0i11v"]
+[ext_resource type="PackedScene" uid="uid://r8dyflu2phds" path="res://Levels/Settlements/FirstOutpost.tscn" id="31_4ax0c"]
+[ext_resource type="PackedScene" uid="uid://c73shjx8rmcap" path="res://Levels/Settlements/SmallVillage.tscn" id="32_g6w46"]
+[ext_resource type="PackedScene" uid="uid://bm7mbhlfu68eb" path="res://Levels/Settlements/LargeVillage.tscn" id="33_jgmq5"]
+[ext_resource type="PackedScene" uid="uid://cp1dcam88gwgc" path="res://Levels/Settlements/BossLevel.tscn" id="34_as7p5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mne4e"]
 texture = ExtResource("2_5mrl6")
@@ -206,7 +216,7 @@ tile_set = ExtResource("12_814nw")
 [node name="GameManager" type="Node2D" parent="." unique_id=1125035550 node_paths=PackedStringArray("cam")]
 script = ExtResource("15_sf7bd")
 cam = NodePath("../Camera2D")
-settlements = Array[PackedScene]([ExtResource("15_814nw")])
+settlements = Array[PackedScene]([ExtResource("15_814nw"), ExtResource("25_krsf2"), ExtResource("26_o4py4"), ExtResource("27_0s4sc"), ExtResource("28_mxtv1"), ExtResource("29_yfkbv"), ExtResource("30_0i11v"), ExtResource("31_4ax0c"), ExtResource("32_g6w46"), ExtResource("33_jgmq5"), ExtResource("34_as7p5")])
 tutorial_images = Array[Texture2D]([ExtResource("24_vv2xv"), ExtResource("25_hmfgy"), ExtResource("26_8pwl7")])
 metadata/_custom_type_script = "uid://do8dom7rcdpjx"
 

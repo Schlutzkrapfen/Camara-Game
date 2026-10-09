@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cjcejf36f00c5"]
+
+[ext_resource type="Script" uid="uid://cymwleeug0qjq" path="res://script/enemy.gd" id="1_ustfx"]
+[ext_resource type="PackedScene" uid="uid://fp33y2asyxkq" path="res://Levels/Enemies/Guard.tscn" id="2_ustfx"]
+[ext_resource type="Texture2D" uid="uid://crmds55crtkn4" path="res://assets/Sprites/Enemies/WatchTower.png" id="3_qwlci"]
+
+[node name="WatchTower" type="Node2D" unique_id=1843378386 groups=["enemies"]]
+script = ExtResource("1_ustfx")
+hp = 100
+speed = 0.0
+attackDamage = 5
+attackCooldown = 0.3
+attackRange = 500.0
+isSpawner = true
+spawn = ExtResource("2_ustfx")
+minSpawnTime = 5.0
+maxSpawnTime = 8.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=780132004]
+position = Vector2(5, -179)
+texture = ExtResource("3_qwlci")

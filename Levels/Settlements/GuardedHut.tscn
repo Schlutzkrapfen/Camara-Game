@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cbqk3tmm32w4d"]
+
+[ext_resource type="PackedScene" uid="uid://c4uvcr8un6oyy" path="res://Levels/Enemies/Grunt_Hut.tscn" id="1_ji0x4"]
+[ext_resource type="PackedScene" uid="uid://dlyg7svl3faxm" path="res://Levels/Enemies/Grunt.tscn" id="2_7vdgy"]
+[ext_resource type="PackedScene" uid="uid://fp33y2asyxkq" path="res://Levels/Enemies/Guard.tscn" id="3_7vdgy"]
+
+[node name="TestSettlement" type="Node2D" unique_id=1731217481]
+
+[node name="Grunt5" parent="." unique_id=792485516 instance=ExtResource("2_7vdgy")]
+position = Vector2(733, 72)
+
+[node name="Grunt4" parent="." unique_id=1612542934 instance=ExtResource("2_7vdgy")]
+position = Vector2(-543, 142)
+
+[node name="GruntHut" parent="." unique_id=1843378386 instance=ExtResource("1_ji0x4")]
+position = Vector2(46, -67)
+
+[node name="Grunt" parent="." unique_id=233829948 instance=ExtResource("2_7vdgy")]
+position = Vector2(676, -340)
+
+[node name="Grunt2" parent="." unique_id=1383277508 instance=ExtResource("2_7vdgy")]
+position = Vector2(-611, -362)
+
+[node name="Grunt3" parent="." unique_id=360318503 instance=ExtResource("2_7vdgy")]
+position = Vector2(151, 550)
+
+[node name="Guard" parent="." unique_id=289731116 instance=ExtResource("3_7vdgy")]
+position = Vector2(151, -682)

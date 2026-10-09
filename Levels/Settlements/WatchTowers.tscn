@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cqisp6gbntsn3"]
+
+[ext_resource type="PackedScene" uid="uid://c4uvcr8un6oyy" path="res://Levels/Enemies/Grunt_Hut.tscn" id="1_kwmg2"]
+[ext_resource type="PackedScene" uid="uid://cjcejf36f00c5" path="res://Levels/Enemies/Guard_WatchTower.tscn" id="2_xqi2e"]
+
+[node name="TestSettlement" type="Node2D" unique_id=1731217481]
+
+[node name="GruntHut" parent="." unique_id=1843378386 instance=ExtResource("1_kwmg2")]
+position = Vector2(72, -392)
+
+[node name="WatchTower" parent="." unique_id=378522026 instance=ExtResource("2_xqi2e")]
+position = Vector2(-14, 731)
+
+[node name="WatchTower2" parent="." unique_id=1995084482 instance=ExtResource("2_xqi2e")]
+position = Vector2(-776, 33)
+
+[node name="WatchTower3" parent="." unique_id=424858025 instance=ExtResource("2_xqi2e")]
+position = Vector2(886, -1)

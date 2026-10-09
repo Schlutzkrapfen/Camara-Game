@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cymwleeug0qjq" path="res://script/enemy.gd" id="1_hob36"]
 [ext_resource type="PackedScene" uid="uid://dlyg7svl3faxm" path="res://Levels/Enemies/Grunt.tscn" id="2_c2pg8"]
-[ext_resource type="Texture2D" uid="uid://b156hx6atwntv" path="res://assets/Protype Factory/OIP-3525223804.jpg" id="3_0uv1v"]
+[ext_resource type="Texture2D" uid="uid://bve0nh5wp61jy" path="res://assets/Sprites/Enemies/Hut.png" id="3_0uv1v"]
 
 [node name="GruntHut" type="Node2D" unique_id=1843378386 groups=["enemies"]]
 script = ExtResource("1_hob36")
@@ -13,6 +13,9 @@ attackCooldown = 0.0
 attackRange = 0.0
 isSpawner = true
 spawn = ExtResource("2_c2pg8")
+minSpawnTime = 2.0
+maxSpawnTime = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=780132004]
+position = Vector2(-2, -105)
 texture = ExtResource("3_0uv1v")

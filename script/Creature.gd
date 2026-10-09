@@ -107,7 +107,8 @@ func _process(delta: float) -> void:
 			SpawnAttackVisual()
 		else:
 			## Move towards target
-			position += (target.position - self.position).normalized() * delta * speed
+			if target != null:
+				position += (target.position - self.position).normalized() * delta * speed
 
 
 func SearchForTarget() -> Enemy:

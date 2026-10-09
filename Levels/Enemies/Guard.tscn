@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://fp33y2asyxkq"]
+
+[ext_resource type="Script" uid="uid://cymwleeug0qjq" path="res://script/enemy.gd" id="1_luroj"]
+[ext_resource type="Texture2D" uid="uid://dope6ipmp7frt" path="res://assets/Sprites/Enemies/Guard.png" id="2_luroj"]
+
+[node name="Guard" type="Node2D" unique_id=1843378386 groups=["enemies"]]
+script = ExtResource("1_luroj")
+hp = 30
+speed = 100.0
+attackDamage = 8
+attackCooldown = 0.3
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=780132004]
+position = Vector2(16, -202)
+texture = ExtResource("2_luroj")

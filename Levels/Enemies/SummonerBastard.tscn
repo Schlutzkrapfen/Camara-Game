@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cyepx062g68tf"]
+
+[ext_resource type="Script" uid="uid://cymwleeug0qjq" path="res://script/enemy.gd" id="1_dxub8"]
+[ext_resource type="PackedScene" uid="uid://dlyg7svl3faxm" path="res://Levels/Enemies/Grunt.tscn" id="2_564v5"]
+[ext_resource type="Texture2D" uid="uid://dk3nsdkmgoxy3" path="res://assets/Sprites/Enemies/FlagCarrier.png" id="3_e764o"]
+
+[node name="SummonerBastard" type="Node2D" unique_id=1843378386 groups=["enemies"]]
+script = ExtResource("1_dxub8")
+hp = 100
+speed = 20.0
+attackDamage = 50
+attackCooldown = 3.0
+attackRange = 50.0
+isSpawner = true
+spawn = ExtResource("2_564v5")
+minSpawnTime = 0.5
+maxSpawnTime = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=780132004]
+position = Vector2(16, -202)
+texture = ExtResource("3_e764o")

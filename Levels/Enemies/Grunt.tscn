@@ -5,9 +5,11 @@
 
 [node name="Grunt" type="Node2D" unique_id=1843378386 groups=["enemies"]]
 script = ExtResource("1_0ic64")
-speed = 150.0
-attackCooldown = 0.2
+hp = 10
+speed = 250.0
+attackDamage = 1
+attackRange = 150.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=780132004]
-position = Vector2(0, -203)
+position = Vector2(5, -100)
 texture = ExtResource("2_avifw")
