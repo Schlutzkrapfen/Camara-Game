@@ -95,6 +95,8 @@ func _process(delta: float) -> void:
 			factory.can_get_input = false
 			factory.cur_time +=delta
 			if factory.cur_time > factory.resource_refrence.craft_time:
+				if not is_output_free(factory):
+					continue
 				match factory.resource_refrence.factory_type:
 					Global.factory_type.Combine:
 						if combine_items(factory):
@@ -170,6 +172,7 @@ func upgrade_items(factory:BuildData)-> bool:
 	return false
 ## Stitches two stored Creature items together and sends the result out.
 func combine_items(factory:BuildData)-> bool:
+	
 	var two_creaturs:Array[Creature]
 	for item in factory.cur_items:
 		var typed_item := item as Creature
@@ -177,8 +180,9 @@ func combine_items(factory:BuildData)-> bool:
 			two_creaturs.append(typed_item)
 			if two_creaturs.size() == 2:
 				break
+	
 	var dic = two_creaturs[0].StitchBodyPart(two_creaturs[1])
-
+	
 	if output_one_item(factory,dic["host"]):
 		if dic["success"] == true:
 			two_creaturs[0].visible = true
@@ -186,10 +190,15 @@ func combine_items(factory:BuildData)-> bool:
 		return true
 	else:
 		return false
+func is_output_free(factory):
+	if not flowfield.is_cell_free(factory.output_position[factory.last_output]):
+		return false
+	return true
+	
 
 func output_one_item(factory,item)->bool:
 	factory.last_output = (factory.last_output +1)% len(factory.output_position)
-	if not flowfield.is_cell_free(factory.output_position[factory.last_output]):
+	if is_output_free(factory):
 		return false
 	item.process_mode = Node.AUTO_TRANSLATE_MODE_INHERIT
 	item.global_position = tilemap.to_global(

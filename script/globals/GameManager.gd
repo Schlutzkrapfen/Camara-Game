@@ -84,7 +84,15 @@ func StopRaid() -> void:
 	# curSettlementIndex += 1 evtl -> would even increase when the raid failed
 	cam.locked = true;
 
+var check_amount:float = 1
+func check_if_finished():
+	await get_tree().create_timer(check_amount).timeout
+	if get_tree().get_node_count_in_group("enemies") >= 1:
+		check_if_finished()
+	btn_Raid.disabled = false
+
 func StartRaid() -> void:
+	btn_Raid.disabled = true
 	if settlements == null:
 		return
 	if settlements.size() == curSettlementIndex:
@@ -99,7 +107,6 @@ func StartRaid() -> void:
 		curSettlement.queue_free()
 	curSettlement = newSettlement
 	curSettlementIndex += 1
-	btn_Raid.disabled = true
 	# MISSING -> Set Producing Goo to ON!
 
 func _input(event: InputEvent) -> void:
