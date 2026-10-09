@@ -222,3 +222,5 @@ tutorial_images = Array[Texture2D]([ExtResource("24_vv2xv"), ExtResource("25_hmf
 metadata/_custom_type_script = "uid://do8dom7rcdpjx"
 
 [connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]
+
+[editable path="UI"]

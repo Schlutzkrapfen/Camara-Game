@@ -35,7 +35,7 @@ var _tutorial_was_paused: bool = false
 @onready var btn_Aliver: TextureButton = $"../UI/Margin/HBox/Aliver"
 @onready var btn_Raid: TextureButton = $"../UI/Margin/HBox/RAID"
 @onready var btn_Tutorial: TextureButton = $"../UI/Margin2/Tutorial"
-
+@onready var label_cookie_counter: Label = $"../UI/MarginContainer/TextureRect/Label"
 func _ready() -> void:
 	btn_GooFactory.pressed.connect(func(): Global.current_house = 0)
 	btn_Conveyor.pressed.connect(func(): Global.current_house = 1)
@@ -49,6 +49,7 @@ func _ready() -> void:
 	btn_Aliver.pressed.connect(func(): Global.current_house = 9) 
 	btn_Raid.pressed.connect(func(): StartRaid())
 	btn_Tutorial.pressed.connect(func(): ShowTutorial())
+	label_cookie_counter.text = str(Global.curGoo)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("Goo_maker"):
@@ -99,6 +100,10 @@ func StartRaid() -> void:
 	curSettlement = newSettlement
 	curSettlementIndex += 1
 	# MISSING -> Set Producing Goo to ON!
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_released("build_delete") or event.is_action_released("build_place"):
+		label_cookie_counter.text = str(Global.curGoo)
 
 func GameWon() -> void:
 	print("You beat the entire game!")
