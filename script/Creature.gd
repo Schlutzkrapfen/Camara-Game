@@ -218,13 +218,13 @@ func _on_stitched() -> void:
 
 # --- Swapping & Reattachment ------------------------------------------------
 
-func UpgradeCreature() -> bool:
+func UpgradeCreature() -> Creature:
 	if upgrade == null:
-		return false
+		return self
 	
 	var newVersion = upgrade.instantiate()
 	SwapCreature(newVersion as Creature)
-	return true
+	return newVersion
 
 ## Swaps this creature out for a new creature in the chain, matching connection points by ID.
 func SwapCreature(new_creature: Creature) -> void:

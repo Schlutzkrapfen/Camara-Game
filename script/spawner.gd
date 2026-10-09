@@ -15,7 +15,7 @@ class BuildData:
 	var rotation: Global.TileTransform
 	var resource_refrence: BuildingResource
 	var cur_time: float = 0
-	var cur_items: Array[Node2D] 
+	var cur_items: Array[Node2D]
 	var last_output:int =0
 	var black_list:Dictionary[Node2D,bool]
 	var output_position:Array[Vector2i]
@@ -36,8 +36,10 @@ func _ready() -> void:
 func add_item_input(item:Node2D,positon:Vector2i)->bool:
 	var factory = current_builds[positon]
 	if len(factory.cur_items) < factory.resource_refrence.input_size and not factory.black_list.has(item):
-		if not needs_item(factory,item):
+		if never_needs_item(factory,item):
 			factory.black_list[item] = true
+			return false
+		if not needs_item(factory,item):
 			return false
 		factory.cur_items.append(item)
 		item.visible = false
@@ -46,6 +48,13 @@ func add_item_input(item:Node2D,positon:Vector2i)->bool:
 		return true
 	return false
 
+func never_needs_item(factory: BuildData, item: Node2D) -> bool:
+	if len(factory.resource_refrence.input) == 0:
+		return false
+	for type in factory.resource_refrence.input:
+		if is_instance_of(item, type):
+			return false
+	return true
 ## Returns true if the building still needs an item of this item's type.
 func needs_item(factory: BuildData, item: Node2D) -> bool:
 	if len(factory.resource_refrence.input) == 0:
@@ -81,7 +90,7 @@ func _process(delta: float) -> void:
 		if check_input(factory):
 			factory.can_get_input = false
 			factory.cur_time +=delta
-			if factory.cur_time > factory.resource_refrence.craft_time: 
+			if factory.cur_time > factory.resource_refrence.craft_time:
 				match factory.resource_refrence.factory_type:
 					Global.factory_type.Combine:
 						if combine_items(factory):
@@ -107,19 +116,19 @@ func _process(delta: float) -> void:
 						if output_items(factory):
 							factory.cur_time = 0
 							factory.can_get_input = true
-	
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("build_delete"):
 		_deleting = true
 	elif event.is_action_released("build_delete"):
 		_deleting = false
-	
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("build_place") and is_okay_to_build:
 		_building = true
 	elif event.is_action_released("build_place"):
 		_building = false
-	
+
 
 func alive(factory:BuildData)-> bool:
 	var result: Creature = null
@@ -134,16 +143,21 @@ func alive(factory:BuildData)-> bool:
 
 func upgrade_items(factory:BuildData)-> bool:
 	var result: Creature = null
+	print(factory.cur_items)
 	for item in factory.cur_items:
 		var creature := item as Creature
 		if creature == null:
 			continue
-		creature.UpgradeCreature()
-		
 		result = creature
 	if result == null:
+		factory.cur_items.clear()
 		return false
-	return output_one_item(factory,result)
+	if output_one_item(factory,result):
+		flowfield.append_list_items(result.UpgradeCreature())
+		flowfield.delete_item(result)
+		factory.cur_items.clear()
+		return true
+	return false
 ## Stitches two stored Creature items together and sends the result out.
 func combine_items(factory:BuildData)-> bool:
 	var two_creaturs:Array[Creature]
@@ -154,7 +168,7 @@ func combine_items(factory:BuildData)-> bool:
 			if two_creaturs.size() == 2:
 				break
 	var dic = two_creaturs[0].StitchBodyPart(two_creaturs[1])
-	
+
 	if output_one_item(factory,dic["host"]):
 		if dic["success"] == true:
 			two_creaturs[0].visible = true
@@ -164,9 +178,9 @@ func combine_items(factory:BuildData)-> bool:
 		return false
 
 func output_one_item(factory,item)->bool:
-	factory.last_output = (factory.last_output +1)% len(factory.output_position) 
+	factory.last_output = (factory.last_output +1)% len(factory.output_position)
 	if not flowfield.is_cell_free(factory.output_position[factory.last_output]):
-		return false 
+		return false
 	item.process_mode = Node.AUTO_TRANSLATE_MODE_INHERIT
 	item.global_position = tilemap.to_global(
 	tilemap.map_to_local(factory.output_position[factory.last_output])
@@ -180,7 +194,7 @@ func output_input(factory)->bool:
 	var full_output:int = 0
 	for i in range(factory.cur_items.size() - 1, -1, -1):
 		var item = factory.cur_items[i]
-		factory.last_output = (factory.last_output +1)% len(factory.output_position) 
+		factory.last_output = (factory.last_output +1)% len(factory.output_position)
 		if not flowfield.is_cell_free(factory.output_position[factory.last_output]):
 			full_output+=1
 			continue
@@ -217,7 +231,7 @@ func check_input(factory:BuildData) ->bool:
 ## Spawns the building's output items on a free output cell and clears the inputs, returns whether it succeeded.
 func output_items(factory:BuildData)-> bool:
 	for item_resource in factory.resource_refrence.output:
-		factory.last_output = (factory.last_output +1)% len(factory.output_position) 
+		factory.last_output = (factory.last_output +1)% len(factory.output_position)
 		if not flowfield.is_cell_free(factory.output_position[factory.last_output]):
 			return false
 		var item = item_resource.instantiate()
@@ -234,7 +248,7 @@ func output_items(factory:BuildData)-> bool:
 ## Removes the building under the mouse and frees all the tiles it covered.
 func delete():
 	var mouse_position = get_global_mouse_position()
-	
+
 	var local_position:Vector2 = tilemap.to_local(mouse_position)
 	var tile:Vector2i = tilemap.local_to_map(local_position)
 	if not occupied_tiles.has(tile):
@@ -256,7 +270,7 @@ func spawn():
 	var mouse_position = get_global_mouse_position()
 	var tile = tilemap.local_to_map(tilemap.to_local(mouse_position))
 	var current_house = Global.factory_list[Global.current_house]
-	var output_postion:Array[Vector2i] 
+	var output_postion:Array[Vector2i]
 	for x in current_house.size.x:
 		for y in current_house.size.y:
 			var local_tile =  Vector2i(x,y)
