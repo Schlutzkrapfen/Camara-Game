@@ -39,6 +39,7 @@ var _tutorial_was_paused: bool = false
 @onready var btn_Raid: TextureButton = $"../UI/Margin/HBox/RAID"
 @onready var btn_Tutorial: TextureButton = $"../UI/Margin2/Tutorial"
 @onready var label_cookie_counter: Label = $"../UI/MarginContainer/TextureRect/Label"
+@onready var rotate_output:AudioStreamPlayer =$"../Audiomanager/Rotate"
 func _ready() -> void:
 	btn_GooFactory.pressed.connect(func(): Global.current_house = 0)
 	btn_Conveyor.pressed.connect(func(): Global.current_house = 1)
@@ -79,6 +80,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		var rotations = Global.TileTransform.values()
 		var index = rotations.find(Global.currentrotation)
 		Global.currentrotation = rotations[(index + 1) % (rotations.size()-1)]
+		rotate_output.play()
 
 
 # --- Raids --------------------------------------------------------------------

@@ -37,7 +37,13 @@
 [ext_resource type="PackedScene" uid="uid://c73shjx8rmcap" path="res://Levels/Settlements/SmallVillage.tscn" id="32_g6w46"]
 [ext_resource type="PackedScene" uid="uid://bm7mbhlfu68eb" path="res://Levels/Settlements/LargeVillage.tscn" id="33_jgmq5"]
 [ext_resource type="PackedScene" uid="uid://cp1dcam88gwgc" path="res://Levels/Settlements/BossLevel.tscn" id="34_as7p5"]
+[ext_resource type="Script" uid="uid://c82qmlqgj1tbk" path="res://Levels/audiomanager.gd" id="38_0s4sc"]
 [ext_resource type="AudioStream" uid="uid://cul6eqprga863" path="res://assets/Soundeffects/Rotate_Building.wav" id="38_o4py4"]
+[ext_resource type="AudioStream" uid="uid://cnpsnit4575h1" path="res://assets/Soundeffects/Menu_ButtonPress.wav" id="40_g6w46"]
+[ext_resource type="AudioStream" uid="uid://dkat1rxiys844" path="res://assets/Soundeffects/Unable_Building.wav" id="40_jgmq5"]
+[ext_resource type="AudioStream" uid="uid://cly4d026tyibn" path="res://assets/Soundeffects/Start_Production.wav" id="42_4ax0c"]
+[ext_resource type="AudioStream" uid="uid://d12fqer1ywd0d" path="res://assets/Soundeffects/Place_Building.wav" id="42_g6w46"]
+[ext_resource type="AudioStream" uid="uid://de6ckpw6sabxc" path="res://assets/Soundeffects/Goo_Place_3.wav" id="42_jgmq5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mne4e"]
 texture = ExtResource("2_5mrl6")
@@ -163,9 +169,39 @@ tile_size = Vector2i(100, 100)
 sources/0 = SubResource("TileSetAtlasSource_8rkvs")
 sources/1 = SubResource("TileSetAtlasSource_xnfqo")
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nacyp"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yfkbv"]
+random_pitch = 1.005793
+random_volume_offset_db = 0.1
 streams_count = 1
 stream_0/stream = ExtResource("38_o4py4")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_g6w46"]
+random_pitch = 1.0233738
+random_volume_offset_db = 0.1
+streams_count = 1
+stream_0/stream = ExtResource("40_g6w46")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0i11v"]
+random_pitch = 1.005793
+random_volume_offset_db = 0.1
+streams_count = 1
+stream_0/stream = ExtResource("42_jgmq5")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jgmq5"]
+random_pitch = 1.005793
+random_volume_offset_db = 0.1
+streams_count = 1
+stream_0/stream = ExtResource("42_g6w46")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4ax0c"]
+random_pitch = 1.0233738
+random_volume_offset_db = 0.1
+streams_count = 1
+stream_0/stream = ExtResource("42_g6w46")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nacyp"]
+streams_count = 1
+stream_0/stream = ExtResource("42_4ax0c")
 
 [node name="Main Scene" type="Node2D" unique_id=1857987435]
 
@@ -226,12 +262,36 @@ settlements = Array[PackedScene]([ExtResource("15_814nw"), ExtResource("25_krsf2
 tutorial_images = Array[Texture2D]([ExtResource("24_vv2xv"), ExtResource("25_hmfgy"), ExtResource("26_8pwl7")])
 metadata/_custom_type_script = "uid://do8dom7rcdpjx"
 
-[node name="Audiomanager" type="Node" parent="." unique_id=1811397297]
+[node name="Audiomanager" type="Node" parent="." unique_id=1811397297 node_paths=PackedStringArray("buildstream")]
+script = ExtResource("38_0s4sc")
+buildstream = {
+0: NodePath("Build_normal"),
+1: NodePath("Build_combiner"),
+2: NodePath("Build_upgrader"),
+3: NodePath("Build_aliver"),
+4: NodePath("Build_noBuild")
+}
 
 [node name="Rotate" type="AudioStreamPlayer" parent="Audiomanager" unique_id=1009209331]
-stream = SubResource("AudioStreamRandomizer_nacyp")
+stream = SubResource("AudioStreamRandomizer_yfkbv")
 
-[node name="Build" type="AudioStreamPlayer" parent="Audiomanager" unique_id=2112053350]
+[node name="no_Build" type="AudioStreamPlayer" parent="Audiomanager" unique_id=459582255]
+stream = ExtResource("40_jgmq5")
+
+[node name="Build_noBuild" type="AudioStreamPlayer" parent="Audiomanager" unique_id=2112053350]
+stream = SubResource("AudioStreamRandomizer_g6w46")
+
+[node name="Build_normal" type="AudioStreamPlayer" parent="Audiomanager" unique_id=1758318343]
+stream = SubResource("AudioStreamRandomizer_0i11v")
+
+[node name="Build_combiner" type="AudioStreamPlayer" parent="Audiomanager" unique_id=1100566056]
+stream = SubResource("AudioStreamRandomizer_jgmq5")
+
+[node name="Build_upgrader" type="AudioStreamPlayer" parent="Audiomanager" unique_id=856957539]
+stream = SubResource("AudioStreamRandomizer_4ax0c")
+pitch_scale = 0.8
+
+[node name="Build_aliver" type="AudioStreamPlayer" parent="Audiomanager" unique_id=608858523]
 stream = SubResource("AudioStreamRandomizer_nacyp")
 
 [connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]

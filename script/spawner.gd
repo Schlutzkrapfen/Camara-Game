@@ -3,7 +3,7 @@ extends TileMapLayer
 
 @onready var tilemap:TileMapLayer =  self
 @onready var flowfield:FlowField = $FlowField
-
+@onready var audio_manager:AudioManager = $"../Audiomanager"
 var current_builds: Dictionary[Vector2i, BuildData]
 var occupied_tiles: Dictionary[Vector2i, Vector2i] = {}
 var _building:bool
@@ -84,6 +84,9 @@ func check_building(is_okay:bool):
 func _process(delta: float) -> void:
 	if _building and is_okay_to_build:
 		spawn()
+	elif _building and not is_okay_to_build:
+		audio_manager.play_failed_build()
+		
 	if _deleting:
 		delete()
 	for key in current_builds: # or current_builds.items()
@@ -303,3 +306,4 @@ func spawn():
 	var buildings:BuildData = BuildData.new(current_house,output_postion,Global.currentrotation)
 	current_builds[tile] =buildings
 	Global.curGoo -= current_house.buildcost
+	audio_manager._play_build(buildings.resource_refrence.factory_type)
