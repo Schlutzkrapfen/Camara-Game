@@ -108,15 +108,18 @@ func _process(delta: float) -> void:
 							factory.cur_time = 0
 							factory.can_get_input = true
 	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("build_delete"):
+		_deleting = true
+	elif event.is_action_released("build_delete"):
+		_deleting = false
+	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("build_place") and is_okay_to_build:
 		_building = true
 	elif event.is_action_released("build_place"):
 		_building = false
-	if event.is_action_pressed("build_delete") and is_okay_to_build:
-		_deleting = true
-	elif event.is_action_released("build_delete"):
-		_deleting = false
+	
 
 func alive(factory:BuildData)-> bool:
 	var result: Creature = null
