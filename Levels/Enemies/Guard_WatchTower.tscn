@@ -8,7 +8,7 @@
 script = ExtResource("1_ustfx")
 hp = 300
 speed = 0.0
-attackDamage = 5
+attackDamage = 15
 attackCooldown = 10.0
 attackRange = 500.0
 isSpawner = true

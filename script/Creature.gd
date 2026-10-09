@@ -121,6 +121,7 @@ func SpawnAttackVisual() -> void:
 
 func TakeDamage(damage: int) -> void:
 	hp -= damage
+	print(hp)
 	DamageFlash()
 	print(hp)
 	if hp <= 0:

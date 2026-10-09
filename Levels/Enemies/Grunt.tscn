@@ -7,7 +7,7 @@
 script = ExtResource("1_0ic64")
 hp = 10
 speed = 250.0
-attackDamage = 1
+attackDamage = 5
 attackCooldown = 1.0
 attackRange = 70.0
 
