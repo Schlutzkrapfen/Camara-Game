@@ -6,7 +6,7 @@
 
 [node name="GruntHut" type="Node2D" unique_id=1843378386 groups=["enemies"]]
 script = ExtResource("1_hob36")
-hp = 50
+hp = 100
 speed = 0.0
 attackDamage = 0
 attackCooldown = 0.0

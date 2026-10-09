@@ -7,8 +7,9 @@
 script = ExtResource("1_luroj")
 hp = 30
 speed = 100.0
-attackDamage = 8
+attackDamage = 4
 attackCooldown = 0.3
+attackRange = 150.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=780132004]
 position = Vector2(16, -202)

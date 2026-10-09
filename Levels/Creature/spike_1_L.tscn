@@ -37,7 +37,7 @@ _bundled = {
 }
 
 [node name="Spike" type="Node2D" unique_id=351333405]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_84ksh")
 type = 3
 upgrade = SubResource("PackedScene_pfgmu")

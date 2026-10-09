@@ -6,9 +6,9 @@
 
 [node name="SummonerBastard" type="Node2D" unique_id=1843378386 groups=["enemies"]]
 script = ExtResource("1_dxub8")
-hp = 100
+hp = 1000
 speed = 20.0
-attackDamage = 50
+attackDamage = 10
 attackCooldown = 3.0
 attackRange = 50.0
 isSpawner = true

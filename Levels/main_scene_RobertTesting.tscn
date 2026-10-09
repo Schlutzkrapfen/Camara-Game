@@ -221,4 +221,6 @@ settlements = Array[PackedScene]([ExtResource("15_814nw"), ExtResource("25_krsf2
 tutorial_images = Array[Texture2D]([ExtResource("24_vv2xv"), ExtResource("25_hmfgy"), ExtResource("26_8pwl7")])
 metadata/_custom_type_script = "uid://do8dom7rcdpjx"
 
+[node name="Audiomanager" type="Node" parent="." unique_id=1811397297]
+
 [connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]

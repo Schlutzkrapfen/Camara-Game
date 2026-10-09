@@ -13,7 +13,7 @@ var curGameState: GameState = GameState.BUILDING
 var curSettlementIndex: int = 0
 var curSettlement: Node2D
 @export var goo_win_amount:Array[int]  = [0,20,40,100,140,200,200,200,
-200,200,200,200,200,200,1000,1000,1000,1000,1000,1000,]
+200,200,200,200,200,200,1000,1000,1000,1000,1000,1000]
 
 @export_category("Tutorial")
 @export var tutorial_images: Array[Texture2D] = []

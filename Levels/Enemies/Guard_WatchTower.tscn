@@ -6,10 +6,10 @@
 
 [node name="WatchTower" type="Node2D" unique_id=1843378386 groups=["enemies"]]
 script = ExtResource("1_ustfx")
-hp = 100
+hp = 300
 speed = 0.0
 attackDamage = 5
-attackCooldown = 0.3
+attackCooldown = 10.0
 attackRange = 500.0
 isSpawner = true
 spawn = ExtResource("2_ustfx")
