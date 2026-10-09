@@ -24,7 +24,7 @@ var is_alive: bool = false:
 				point.connected_part.is_alive = value
 		
 		if is_alive:
-			if hp <= 0:
+			if hp <= 0 and not is_stitched:
 				Die()
 				return
 			self.add_to_group("units")
