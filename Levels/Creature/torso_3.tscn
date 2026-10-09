@@ -12,7 +12,7 @@ script = ExtResource("1_26ja6")
 type = 1
 stitch_priority = 500
 upgrade = ExtResource("2_et5v6")
-hp = 30
+hp = 40
 attackCooldown = 0.3
 attackRange = 10.0
 

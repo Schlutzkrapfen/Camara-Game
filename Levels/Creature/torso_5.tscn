@@ -10,7 +10,7 @@ scale = Vector2(0.2, 0.2)
 script = ExtResource("1_l0quv")
 type = 1
 stitch_priority = 500
-hp = 50
+hp = 100
 attackCooldown = 0.3
 attackRange = 10.0
 

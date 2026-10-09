@@ -6,9 +6,9 @@
 
 [node name="Outpost" type="Node2D" unique_id=1843378386 groups=["enemies"]]
 script = ExtResource("1_nl67y")
-hp = 3000
+hp = 30000
 speed = 0.0
-attackDamage = 50
+attackDamage = 5
 attackCooldown = 2.0
 attackRange = 3000.0
 isSpawner = true
