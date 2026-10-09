@@ -25,15 +25,15 @@ part_scenes = Array[PackedScene]([ExtResource("2_kgn47"), ExtResource("3_h1l0e")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1101754663]
 position = Vector2(577, 324)
-zoom = Vector2(0.175, 0.175)
+zoom = Vector2(0.385, 0.385)
 
 [node name="Enemy1" parent="." unique_id=1843378386 instance=ExtResource("17_xxkyx")]
-position = Vector2(-1245, -595)
+position = Vector2(-761, -58)
 scale = Vector2(1.9811211, 2.053041)
 
 [node name="Enemy2" parent="." unique_id=1860689096 instance=ExtResource("17_xxkyx")]
-position = Vector2(1342, -999)
+position = Vector2(1611.0001, -220)
 scale = Vector2(1.9811211, 2.053041)
 
 [node name="Enemy" parent="." unique_id=1823851156 instance=ExtResource("18_ahytx")]
-position = Vector2(-2158, 1773)
+position = Vector2(-806, 1084)

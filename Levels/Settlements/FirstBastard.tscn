@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cjudoa67aq5a5"]
+
+[ext_resource type="PackedScene" uid="uid://cyepx062g68tf" path="res://Levels/Enemies/SummonerBastard.tscn" id="1_5qrhu"]
+
+[node name="TestSettlement" type="Node2D" unique_id=1731217481]
+
+[node name="SummonerBastard" parent="." unique_id=1843378386 instance=ExtResource("1_5qrhu")]
+position = Vector2(-44, -1887)

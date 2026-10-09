@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c73shjx8rmcap"]
+
+[ext_resource type="PackedScene" uid="uid://c4uvcr8un6oyy" path="res://Levels/Enemies/Grunt_Hut.tscn" id="1_yx4b7"]
+[ext_resource type="PackedScene" uid="uid://c843iaw07rxam" path="res://Levels/Enemies/Elite_Outpost.tscn" id="2_prssc"]
+[ext_resource type="PackedScene" uid="uid://cjcejf36f00c5" path="res://Levels/Enemies/Guard_WatchTower.tscn" id="3_prssc"]
+
+[node name="TestSettlement" type="Node2D" unique_id=1731217481]
+
+[node name="GruntHut" parent="." unique_id=1843378386 instance=ExtResource("1_yx4b7")]
+position = Vector2(235, 2043)
+
+[node name="GruntHut2" parent="." unique_id=2033059713 instance=ExtResource("1_yx4b7")]
+position = Vector2(799, -357)
+
+[node name="GruntHut3" parent="." unique_id=16035368 instance=ExtResource("1_yx4b7")]
+position = Vector2(-1455, 305)
+
+[node name="Outpost" parent="." unique_id=1425538073 instance=ExtResource("2_prssc")]
+position = Vector2(-955, -445)
+
+[node name="Outpost2" parent="." unique_id=1138562725 instance=ExtResource("2_prssc")]
+position = Vector2(1668, 586)
+
+[node name="WatchTower" parent="." unique_id=107985343 instance=ExtResource("3_prssc")]
+position = Vector2(-263, 1373)

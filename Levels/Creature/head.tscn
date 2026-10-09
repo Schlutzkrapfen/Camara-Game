@@ -5,7 +5,16 @@
 [ext_resource type="Script" uid="uid://o2vmc3hwnjnl" path="res://script/ProceduralAnimation.gd" id="3_lvnpa"]
 [ext_resource type="Texture2D" uid="uid://2230ftck7foe" path="res://assets/Sprites/ModularCharacter/Eyes/Eyes_LargeOpen.png" id="3_xq6yg"]
 [ext_resource type="Texture2D" uid="uid://ym1142h52ph7" path="res://assets/Sprites/ModularCharacter/Mouth/Mouth_Worried.png" id="4_lvnpa"]
+[ext_resource type="Script" uid="uid://b8hgqvb5k5kpo" path="res://Levels/Creature/RandomSprite.gd" id="5_s4pts"]
 [ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="5_xq6yg"]
+[ext_resource type="Texture2D" uid="uid://b7gk3uhnqqw44" path="res://assets/Sprites/ModularCharacter/Eyes/Eyes_Dead.png" id="6_cw5ti"]
+[ext_resource type="Texture2D" uid="uid://b4texiffgff1s" path="res://assets/Sprites/ModularCharacter/Eyes/Eyes_Dots.png" id="7_d3aq1"]
+[ext_resource type="Texture2D" uid="uid://cdfhog3c63n8s" path="res://assets/Sprites/ModularCharacter/Eyes/Eyes_Standard.png" id="8_wlx17"]
+[ext_resource type="Texture2D" uid="uid://dkg1yohmjh7ya" path="res://assets/Sprites/ModularCharacter/Eyes/Eyes_Stoic.png" id="9_cw4f7"]
+[ext_resource type="Texture2D" uid="uid://u03yvblbiurv" path="res://assets/Sprites/ModularCharacter/Eyes/Eyes_TriangleUp.png" id="10_nneoc"]
+[ext_resource type="Texture2D" uid="uid://o8n442wadt5o" path="res://assets/Sprites/ModularCharacter/Mouth/Mouth_OpenSmiling.png" id="12_cw4f7"]
+[ext_resource type="Texture2D" uid="uid://dd0s6ikfq1neu" path="res://assets/Sprites/ModularCharacter/Mouth/Mouth_Snout.png" id="13_nneoc"]
+[ext_resource type="Texture2D" uid="uid://clp2musr7wfqy" path="res://assets/Sprites/ModularCharacter/Mouth/Mouth_Unhappy.png" id="14_erpam"]
 
 [node name="Head" type="Node2D" unique_id=351333405]
 scale = Vector2(0.2, 0.2)
@@ -24,11 +33,13 @@ isBobbing = true
 
 [node name="Eyes" type="Sprite2D" parent="BodyPart/Face" unique_id=1295316946]
 texture = ExtResource("3_xq6yg")
-
-[node name="Nose" type="Sprite2D" parent="BodyPart/Face" unique_id=1923180672]
+script = ExtResource("5_s4pts")
+sprites = Array[Texture2D]([ExtResource("6_cw5ti"), ExtResource("7_d3aq1"), ExtResource("3_xq6yg"), ExtResource("8_wlx17"), ExtResource("9_cw4f7"), ExtResource("10_nneoc")])
 
 [node name="Mouth" type="Sprite2D" parent="BodyPart/Face" unique_id=70172397]
 texture = ExtResource("4_lvnpa")
+script = ExtResource("5_s4pts")
+sprites = Array[Texture2D]([ExtResource("12_cw4f7"), ExtResource("13_nneoc"), ExtResource("14_erpam"), ExtResource("4_lvnpa")])
 
 [node name="ConnectionPoint_1" type="Marker2D" parent="." unique_id=1485094818]
 position = Vector2(-1, -122)

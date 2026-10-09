@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c8iy6vpl6co2q"]
+
+[ext_resource type="PackedScene" uid="uid://c4uvcr8un6oyy" path="res://Levels/Enemies/Grunt_Hut.tscn" id="1_0c5g2"]
+
+[node name="TestSettlement" type="Node2D" unique_id=1731217481]
+
+[node name="GruntHut4" parent="." unique_id=1843378386 instance=ExtResource("1_0c5g2")]
+position = Vector2(-420, 574)
+
+[node name="GruntHut" parent="." unique_id=1730373582 instance=ExtResource("1_0c5g2")]
+position = Vector2(46, -67)
+
+[node name="GruntHut3" parent="." unique_id=1098282598 instance=ExtResource("1_0c5g2")]
+position = Vector2(-673, -636)
+
+[node name="GruntHut2" parent="." unique_id=1164924304 instance=ExtResource("1_0c5g2")]
+position = Vector2(941, -577)

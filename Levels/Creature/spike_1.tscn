@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="4_1tl2a"]
 
 [node name="Spike" type="Node2D" unique_id=351333405]
-scale = Vector2(0.2, 0.2)
 script = ExtResource("1_qk38o")
 type = 3
 upgrade = ExtResource("2_qk38o")

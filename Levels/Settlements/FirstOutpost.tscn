@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://r8dyflu2phds"]
+
+[ext_resource type="PackedScene" uid="uid://c4uvcr8un6oyy" path="res://Levels/Enemies/Grunt_Hut.tscn" id="1_ya7va"]
+[ext_resource type="PackedScene" uid="uid://c843iaw07rxam" path="res://Levels/Enemies/Elite_Outpost.tscn" id="2_ya7va"]
+
+[node name="TestSettlement" type="Node2D" unique_id=1731217481]
+
+[node name="GruntHut" parent="." unique_id=1843378386 instance=ExtResource("1_ya7va")]
+position = Vector2(16, 573)
+
+[node name="Outpost" parent="." unique_id=1425538073 instance=ExtResource("2_ya7va")]

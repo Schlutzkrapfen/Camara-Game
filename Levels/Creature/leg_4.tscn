@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bvncs3ckfetkl"]
+
+[ext_resource type="Script" uid="uid://02teojrlf8xw" path="res://script/Creature.gd" id="1_2cbmv"]
+[ext_resource type="Script" uid="uid://o2vmc3hwnjnl" path="res://script/ProceduralAnimation.gd" id="2_8hmvi"]
+[ext_resource type="Texture2D" uid="uid://s0sd4aknkmn2" path="res://assets/Sprites/ModularCharacter/Legs/Leg_ExtraLarge.png" id="3_2cbmv"]
+[ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="4_726ns"]
+
+[node name="Leg" type="Node2D" unique_id=351333405]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_2cbmv")
+type = 2
+stitch_priority = 100
+speed = 45.0
+attackDamage = 3
+attackCooldown = -0.05
+
+[node name="Pivot" type="Marker2D" parent="." unique_id=325312056]
+script = ExtResource("2_8hmvi")
+isRotating = true
+
+[node name="BodyPart" type="Sprite2D" parent="Pivot" unique_id=685628172]
+position = Vector2(-2, 90)
+texture = ExtResource("3_2cbmv")
+
+[node name="ConnectionPoint_1" type="Marker2D" parent="." unique_id=1485094818]
+position = Vector2(1, 1)
+script = ExtResource("4_726ns")
+id = 1
+allowedBodyTypes = Array[int]([0, 1])
+
+[node name="ConnectionPoint_101" type="Marker2D" parent="." unique_id=1105117741]
+script = ExtResource("4_726ns")
+id = 101
+allowedBodyTypes = Array[int]([2])
+direction = 1
+attachmentRotation = 141.255
+
+[node name="ConnectionPoint_2" type="Marker2D" parent="." unique_id=1761924640]
+position = Vector2(36, 116)
+script = ExtResource("4_726ns")
+id = 2
+allowedBodyTypes = Array[int]([3])
+attachmentRotation = 52.495
+
+[node name="ConnectionPoint_3" type="Marker2D" parent="." unique_id=1378250946]
+position = Vector2(26, 226)
+script = ExtResource("4_726ns")
+id = 3
+allowedBodyTypes = Array[int]([3])
+attachmentRotation = 109.005

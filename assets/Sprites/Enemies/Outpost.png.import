@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfjjq7jjiooc8"
-path="res://.godot/imported/Nose_Mustache.png-6a28ed21b9c77a4f86c79ff6aa7b9b05.ctex"
+uid="uid://cymuipn0xl084"
+path="res://.godot/imported/Outpost.png-53d98db6607930920eae31d259cb6d4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/ModularCharacter/Nose/Nose_Mustache.png"
-dest_files=["res://.godot/imported/Nose_Mustache.png-6a28ed21b9c77a4f86c79ff6aa7b9b05.ctex"]
+source_file="res://assets/Sprites/Enemies/Outpost.png"
+dest_files=["res://.godot/imported/Outpost.png-53d98db6607930920eae31d259cb6d4d.ctex"]
 
 [params]
 

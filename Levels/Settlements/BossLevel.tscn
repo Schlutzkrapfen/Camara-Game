@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cp1dcam88gwgc"]
+
+[ext_resource type="PackedScene" uid="uid://c4uvcr8un6oyy" path="res://Levels/Enemies/Grunt_Hut.tscn" id="1_hgcbw"]
+[ext_resource type="PackedScene" uid="uid://bptjgw36ysxlb" path="res://Levels/Enemies/Castle.tscn" id="1_tfkhk"]
+[ext_resource type="PackedScene" uid="uid://c843iaw07rxam" path="res://Levels/Enemies/Elite_Outpost.tscn" id="2_tfkhk"]
+[ext_resource type="PackedScene" uid="uid://cjcejf36f00c5" path="res://Levels/Enemies/Guard_WatchTower.tscn" id="3_iqknn"]
+
+[node name="TestSettlement" type="Node2D" unique_id=1731217481]
+
+[node name="Outpost2" parent="." unique_id=1843378386 instance=ExtResource("1_tfkhk")]
+
+[node name="GruntHut" parent="." unique_id=32346167 instance=ExtResource("1_hgcbw")]
+position = Vector2(-1156, 1692)
+
+[node name="GruntHut2" parent="." unique_id=235034136 instance=ExtResource("1_hgcbw")]
+position = Vector2(-757, 1692)
+
+[node name="GruntHut3" parent="." unique_id=1387011291 instance=ExtResource("1_hgcbw")]
+position = Vector2(-391, 1684)
+
+[node name="GruntHut4" parent="." unique_id=580596825 instance=ExtResource("1_hgcbw")]
+position = Vector2(-65, 1676)
+
+[node name="GruntHut5" parent="." unique_id=1575398876 instance=ExtResource("1_hgcbw")]
+position = Vector2(220, 1635)
+
+[node name="GruntHut6" parent="." unique_id=1105187167 instance=ExtResource("1_hgcbw")]
+position = Vector2(578, 1668)
+
+[node name="GruntHut7" parent="." unique_id=1932151703 instance=ExtResource("1_hgcbw")]
+position = Vector2(-195, 2498)
+
+[node name="GruntHut8" parent="." unique_id=318149361 instance=ExtResource("1_hgcbw")]
+position = Vector2(163, 2001)
+
+[node name="GruntHut9" parent="." unique_id=487123227 instance=ExtResource("1_hgcbw")]
+position = Vector2(-251, 2058)
+
+[node name="GruntHut10" parent="." unique_id=265873444 instance=ExtResource("1_hgcbw")]
+position = Vector2(-748, 2009)
+
+[node name="Outpost" parent="." unique_id=1425538073 instance=ExtResource("2_tfkhk")]
+position = Vector2(-358, 21)
+
+[node name="WatchTower" parent="." unique_id=107985343 instance=ExtResource("3_iqknn")]
+position = Vector2(-1240, 827)
+
+[node name="WatchTower3" parent="." unique_id=2026144327 instance=ExtResource("3_iqknn")]
+position = Vector2(-345, 884)
+
+[node name="WatchTower4" parent="." unique_id=737435697 instance=ExtResource("3_iqknn")]
+position = Vector2(648, 835)
+
+[node name="WatchTower5" parent="." unique_id=196708152 instance=ExtResource("3_iqknn")]
+position = Vector2(1332, 501)
+
+[node name="WatchTower6" parent="." unique_id=375759870 instance=ExtResource("3_iqknn")]
+position = Vector2(1812, 102)
+
+[node name="WatchTower2" parent="." unique_id=931251742 instance=ExtResource("3_iqknn")]
+position = Vector2(-1842, 420)
+
+[node name="Outpost3" parent="." unique_id=468052191 instance=ExtResource("2_tfkhk")]
+position = Vector2(358, 4)

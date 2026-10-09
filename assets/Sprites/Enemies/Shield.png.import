@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgvmgnfsjs0k"
-path="res://.godot/imported/Nose_ShortUpperMustache.png-7eb3800226829cb6e04f60d168261f53.ctex"
+uid="uid://dt7h3q5w21gfd"
+path="res://.godot/imported/Shield.png-ed797d4135998a4b8bfd6e28c3d13ab9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/ModularCharacter/Nose/Nose_ShortUpperMustache.png"
-dest_files=["res://.godot/imported/Nose_ShortUpperMustache.png-7eb3800226829cb6e04f60d168261f53.ctex"]
+source_file="res://assets/Sprites/Enemies/Shield.png"
+dest_files=["res://.godot/imported/Shield.png-ed797d4135998a4b8bfd6e28c3d13ab9.ctex"]
 
 [params]
 
