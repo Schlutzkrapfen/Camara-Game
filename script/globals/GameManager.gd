@@ -7,10 +7,13 @@ var curGameState: GameState = GameState.BUILDING
 @export var cam: CameraController
 @export var tilemap: FlowField
 
+
 @export_category("Raiding") 
 @export var settlements: Array[PackedScene] 
 var curSettlementIndex: int = 0
 var curSettlement: Node2D
+@export var goo_win_amount:Array[int]  = [0,20,40,100,140,200,200,200,
+200,200,200,200,200,200,1000,1000,1000,1000,1000,1000,]
 
 @export_category("Tutorial")
 @export var tutorial_images: Array[Texture2D] = []
@@ -84,15 +87,19 @@ func StopRaid() -> void:
 	# curSettlementIndex += 1 evtl -> would even increase when the raid failed
 	cam.locked = true;
 
+
 var check_amount:float = 1
-func check_if_finished():
-	await get_tree().create_timer(check_amount).timeout
-	if get_tree().get_node_count_in_group("enemies") >= 1:
-		check_if_finished()
+func check_if_finished() -> void:
+	while get_tree().get_node_count_in_group("enemies") >= 1:
+		await get_tree().create_timer(check_amount).timeout
 	btn_Raid.disabled = false
+	Global.curGoo += goo_win_amount[curSettlementIndex]
+	
+	
 
 func StartRaid() -> void:
 	btn_Raid.disabled = true
+	check_if_finished()
 	if settlements == null:
 		return
 	if settlements.size() == curSettlementIndex:
