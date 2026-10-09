@@ -21,7 +21,7 @@ script = ExtResource("2_gfw1k")
 isRotating = true
 
 [node name="BodyPart" type="Sprite2D" parent="Pivot" unique_id=685628172]
-position = Vector2(12.805, 73.335)
+position = Vector2(10, 85)
 texture = ExtResource("3_0mvr4")
 
 [node name="ConnectionPoint_1" type="Marker2D" parent="." unique_id=1485094818]

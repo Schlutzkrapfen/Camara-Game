@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://okfpuqgbojjs"]
 
-[ext_resource type="Texture2D" uid="uid://b156hx6atwntv" path="res://assets/Protype Factory/OIP-3525223804.jpg" id="1_kyumw"]
+[ext_resource type="Texture2D" uid="uid://dxujr32fnvr63" path="res://assets/Sprites/ModularCharacter/Goo.png" id="1_ear6l"]
 [ext_resource type="Script" uid="uid://4rxcymabsf8u" path="res://script/goo.gd" id="2_ear6l"]
 
 [node name="goo" type="Sprite2D" unique_id=2078084850]
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_kyumw")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ear6l")
 script = ExtResource("2_ear6l")

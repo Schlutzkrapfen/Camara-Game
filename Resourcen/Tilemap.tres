@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://ctv77pkrn66by" path="res://assets/Sprites/Factories/ConveyorBelt.png" id="1_pjlse"]
 [ext_resource type="Texture2D" uid="uid://dab8ry1vc6pti" path="res://assets/Protype Factory/factory.png" id="2_a150c"]
-[ext_resource type="Texture2D" uid="uid://b5w0sxaixnlhk" path="res://assets/Protype Factory/splitter.png" id="3_bcu6u"]
 [ext_resource type="Texture2D" uid="uid://fnxol2v3v8jk" path="res://assets/Sprites/Factories/Upgrader.png" id="3_talwf"]
 [ext_resource type="Texture2D" uid="uid://cgnh8i2ap5c72" path="res://assets/Sprites/Factories/Aliver.png" id="4_660bf"]
 [ext_resource type="Texture2D" uid="uid://d27i4qnwa0txv" path="res://assets/Protype Factory/headfactory.png" id="4_rtxov"]
-[ext_resource type="Texture2D" uid="uid://cjxdymamhuqj0" path="res://assets/Protype Factory/goofactory.png" id="5_ypk7q"]
+[ext_resource type="Texture2D" uid="uid://bjashyfv41cpn" path="res://assets/Sprites/Factories/Splitter.png" id="5_pjlse"]
+[ext_resource type="Texture2D" uid="uid://mcwipabtk0ga" path="res://assets/Sprites/Factories/GooFactory.png" id="7_pjlse"]
 [ext_resource type="Texture2D" uid="uid://cox70khsxs566" path="res://assets/Sprites/Factories/HeadFactory.png" id="8_3i84h"]
 [ext_resource type="Texture2D" uid="uid://c3ybt8onpq3yn" path="res://assets/Sprites/Factories/TorsoFactory.png" id="9_3re27"]
 [ext_resource type="Texture2D" uid="uid://drnamukdl1ch5" path="res://assets/Sprites/Factories/SpikeFactory.png" id="10_it4xu"]
@@ -49,7 +49,7 @@ texture_region_size = Vector2i(100, 100)
 3:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mc1i1"]
-texture = ExtResource("3_bcu6u")
+texture = ExtResource("5_pjlse")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 0:1/0 = 0
@@ -63,12 +63,17 @@ texture_region_size = Vector2i(100, 100)
 1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qs7lm"]
-texture = ExtResource("5_ypk7q")
+texture = ExtResource("7_pjlse")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 1:0/0 = 0
 1:1/0 = 0
 0:1/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v8h58"]
 texture = ExtResource("8_3i84h")
