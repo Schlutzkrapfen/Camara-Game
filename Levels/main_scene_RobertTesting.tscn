@@ -228,7 +228,10 @@ metadata/_custom_type_script = "uid://do8dom7rcdpjx"
 
 [node name="Audiomanager" type="Node" parent="." unique_id=1811397297]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audiomanager" unique_id=1009209331]
+[node name="Rotate" type="AudioStreamPlayer" parent="Audiomanager" unique_id=1009209331]
+stream = SubResource("AudioStreamRandomizer_nacyp")
+
+[node name="Build" type="AudioStreamPlayer" parent="Audiomanager" unique_id=2112053350]
 stream = SubResource("AudioStreamRandomizer_nacyp")
 
 [connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]
