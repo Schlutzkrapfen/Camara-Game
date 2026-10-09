@@ -37,6 +37,7 @@
 [ext_resource type="PackedScene" uid="uid://c73shjx8rmcap" path="res://Levels/Settlements/SmallVillage.tscn" id="32_g6w46"]
 [ext_resource type="PackedScene" uid="uid://bm7mbhlfu68eb" path="res://Levels/Settlements/LargeVillage.tscn" id="33_jgmq5"]
 [ext_resource type="PackedScene" uid="uid://cp1dcam88gwgc" path="res://Levels/Settlements/BossLevel.tscn" id="34_as7p5"]
+[ext_resource type="AudioStream" uid="uid://cul6eqprga863" path="res://assets/Soundeffects/Rotate_Building.wav" id="38_o4py4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mne4e"]
 texture = ExtResource("2_5mrl6")
@@ -162,6 +163,10 @@ tile_size = Vector2i(100, 100)
 sources/0 = SubResource("TileSetAtlasSource_8rkvs")
 sources/1 = SubResource("TileSetAtlasSource_xnfqo")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nacyp"]
+streams_count = 1
+stream_0/stream = ExtResource("38_o4py4")
+
 [node name="Main Scene" type="Node2D" unique_id=1857987435]
 
 [node name="BG" type="Sprite2D" parent="." unique_id=1431995615]
@@ -222,5 +227,8 @@ tutorial_images = Array[Texture2D]([ExtResource("24_vv2xv"), ExtResource("25_hmf
 metadata/_custom_type_script = "uid://do8dom7rcdpjx"
 
 [node name="Audiomanager" type="Node" parent="." unique_id=1811397297]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audiomanager" unique_id=1009209331]
+stream = SubResource("AudioStreamRandomizer_nacyp")
 
 [connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]
