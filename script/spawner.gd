@@ -139,11 +139,15 @@ func alive(factory:BuildData)-> bool:
 		creature.is_alive = true
 		result = creature
 		break
-	return output_one_item(factory,result)
+	
+	if output_one_item(factory,result):
+		if get_tree().get_node_count_in_group("enemies") >= 1:
+			flowfield.delete_item(result)
+		return true
+	return false
 
 func upgrade_items(factory:BuildData)-> bool:
 	var result: Creature = null
-	print(factory.cur_items)
 	for item in factory.cur_items:
 		var creature := item as Creature
 		if creature == null:

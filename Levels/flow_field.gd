@@ -24,6 +24,14 @@ func append_list_items(node:Node2D):
 func delete_item(node:Node2D):
 	list_items.erase(node)
 
+func remove_alive_items_flowfied():
+	for i in range(list_items.size() - 1, -1, -1):
+		var creature := list_items[i] as Creature
+		if creature ==null:
+			continue
+		if creature.is_alive:
+			list_items.erase(creature) 
+
 func _process(delta: float) -> void:
 	item_moved.clear()
 	grid_pos_array.clear()

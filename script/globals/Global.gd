@@ -14,6 +14,8 @@ var curGoo: int = 150
 	preload("res://Resourcen/upgrader.tres"),
 	preload("res://Resourcen/aliver.tres"),
 ]
+func raid_happening():
+	return 
 var current_house: int = 1
 enum TileTransform {
 	ROTATE_0 = 0,

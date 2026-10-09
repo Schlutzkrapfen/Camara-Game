@@ -5,6 +5,7 @@ enum GameState { BUILDING, RAIDING }
 var curGameState: GameState = GameState.BUILDING
 @export_category("General")
 @export var cam: CameraController
+@export var tilemap: FlowField
 
 @export_category("Raiding") 
 @export var settlements: Array[PackedScene] 
@@ -88,7 +89,7 @@ func StartRaid() -> void:
 	if settlements.size() == curSettlementIndex:
 		GameWon()
 		return
-	
+	tilemap.remove_alive_items_flowfied()
 	curGameState = GameState.RAIDING
 	cam.locked = false;
 	var newSettlement := settlements[curSettlementIndex].instantiate()

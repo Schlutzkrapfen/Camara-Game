@@ -109,6 +109,8 @@ func _process(delta: float) -> void:
 			## Move towards target
 			if target != null:
 				position += (target.position - self.position).normalized() * delta * speed
+			else:
+				target = SearchForTarget()
 
 
 func SearchForTarget() -> Enemy:
