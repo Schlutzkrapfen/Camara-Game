@@ -39,6 +39,8 @@ folder_colors={
 "res://Levels/items/": "pink",
 "res://Resourcen/": "green",
 "res://assets/": "orange",
+"res://assets/Soundeffects/": "red",
+"res://assets/music/": "red",
 "res://script/": "blue"
 }
 
