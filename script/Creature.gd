@@ -17,12 +17,6 @@ var is_alive: bool = false:
 		if is_alive == value:
 			return # stops infinite loop
 		is_alive = value
-		
-		_ensure_connection_points()
-		for point in _connection_points:
-			if point.connected_part != null:
-				point.connected_part.is_alive = value
-		
 		if is_alive:
 			if hp <= 0 and not is_stitched:
 				Die()
@@ -126,11 +120,9 @@ func SpawnAttackVisual() -> void:
 	fx.global_position = global_position
 
 func TakeDamage(damage: int) -> void:
-	print(damage)
 	hp -= damage
-	print(hp)
 	DamageFlash()
-	
+	print(hp)
 	if hp <= 0:
 		Die()
 
@@ -176,8 +168,9 @@ func StitchBodyPart(part: Creature, myExtraPriority: int=0, otherExtraPriority: 
 	theirs.connected_part = self
 
 	if part.get_parent():
-		part.get_parent().remove_child(part)
-	add_child(part)
+		part.reparent(self)
+	else:
+		add_child(part)
 	
 	var newScale = mine.attachmentScale + randf_range(-randomAttachmentScaleOffset, randomAttachmentScaleOffset)
 	part.scale = Vector2(newScale, newScale)
