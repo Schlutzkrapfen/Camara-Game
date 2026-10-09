@@ -200,6 +200,7 @@ script = ExtResource("6_814nw")
 [node name="FlowField" type="Node" parent="MainTailMap" unique_id=20738206 node_paths=PackedStringArray("main_tile_map")]
 script = ExtResource("7_5mrl6")
 main_tile_map = NodePath("..")
+speed = 500
 
 [node name="CheckIfBuild" type="TileMapLayer" parent="." unique_id=1360988074 node_paths=PackedStringArray("main_tileset")]
 tile_set = SubResource("TileSet_mne4e")
