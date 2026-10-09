@@ -101,7 +101,6 @@ func _process(delta: float) -> void:
 					Global.factory_type.Combine:
 						if combine_items(factory):
 							clear_factory(factory)
-
 						continue
 					Global.factory_type.Upgrader:
 						if upgrade_items(factory):
@@ -198,7 +197,7 @@ func is_output_free(factory):
 
 func output_one_item(factory,item)->bool:
 	factory.last_output = (factory.last_output +1)% len(factory.output_position)
-	if is_output_free(factory):
+	if not is_output_free(factory):
 		return false
 	item.process_mode = Node.AUTO_TRANSLATE_MODE_INHERIT
 	item.global_position = tilemap.to_global(

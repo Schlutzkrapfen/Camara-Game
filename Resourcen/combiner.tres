@@ -13,5 +13,5 @@ output_tile = Dictionary[Vector2i, int]({
 Vector2i(1, 1): 0
 })
 input_size = 2
-buildcost = 3
+buildcost = 5
 factory_type = 1

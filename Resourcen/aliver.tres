@@ -12,5 +12,5 @@ input = Array[Script]([ExtResource("1_n0qn3")])
 output_tile = Dictionary[Vector2i, int]({
 Vector2i(3, 1): 0
 })
-buildcost = 5
+buildcost = 10
 factory_type = 3
