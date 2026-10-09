@@ -2,14 +2,29 @@
 
 [ext_resource type="Script" uid="uid://02teojrlf8xw" path="res://script/Creature.gd" id="1_q7y10"]
 [ext_resource type="Texture2D" uid="uid://jy0e00irmuh2" path="res://assets/Sprites/ModularCharacter/Accessories/Spikes/Spike_Medium.png" id="2_bs7yy"]
-[ext_resource type="PackedScene" uid="uid://dw6c0y8w2v2j3" path="res://Levels/Creature/spike_3_L.tscn" id="2_l070q"]
+[ext_resource type="Texture2D" uid="uid://dxhh21i31w2eo" path="res://assets/Sprites/ModularCharacter/Accessories/Spikes/Spike_Large.png" id="2_l070q"]
 [ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="3_l070q"]
+
+[sub_resource type="PackedScene" id="PackedScene_xkbge"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [],
+"names": PackedStringArray("Spike", "scale", "script", "type", "attackDamage", "Node2D", "Pivot", "Marker2D", "BodyPart", "z_index", "position", "texture", "Sprite2D", "ConnectionPoint_1", "id", "allowedBodyTypes", "direction"),
+"node_count": 4,
+"node_ids": PackedInt32Array(351333405, 325312056, 685628172, 1485094818),
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 5, 0, -1, 4, 1, 0, 2, 1, 3, 2, 4, 3, 0, 0, 0, 7, 6, -1, 0, 0, 1, 0, 12, 8, -1, 4, 9, 4, 10, 5, 1, 6, 11, 7, 0, 0, 0, 7, 13, -1, 5, 10, 8, 2, 9, 14, 10, 15, 11, 16, 2, 0),
+"variants": [Vector2(0.2, 0.2), ExtResource("1_q7y10"), 3, 15, -10, Vector2(-27, -35), Vector2(-0.5, 0.5), ExtResource("2_l070q"), Vector2(1, 1), ExtResource("3_l070q"), 1, Array[int]([0, 1, 2])],
+"version": 3
+}
 
 [node name="Spike" type="Node2D" unique_id=351333405]
 scale = Vector2(0.2, 0.2)
 script = ExtResource("1_q7y10")
 type = 3
-upgrade = ExtResource("2_l070q")
+upgrade = SubResource("PackedScene_xkbge")
 attackDamage = 10
 
 [node name="Pivot" type="Marker2D" parent="." unique_id=325312056]

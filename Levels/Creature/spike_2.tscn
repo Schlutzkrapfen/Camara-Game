@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dq1c3eqgdtbie" path="res://script/ConnectionPoint.gd" id="4_axj70"]
 
 [node name="Spike" type="Node2D" unique_id=351333405]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_srp3w")
 type = 3
 upgrade = ExtResource("2_srp3w")
@@ -15,8 +15,8 @@ attackDamage = 10
 [node name="Pivot" type="Marker2D" parent="." unique_id=325312056]
 
 [node name="BodyPart" type="Sprite2D" parent="Pivot" unique_id=685628172]
-z_index = -10
-position = Vector2(27, -34)
+position = Vector2(6.000001, -46)
+rotation = -0.5809195
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_srp3w")
 
@@ -24,5 +24,4 @@ texture = ExtResource("3_srp3w")
 position = Vector2(1, 1)
 script = ExtResource("4_axj70")
 id = 1
-allowedBodyTypes = Array[int]([0, 1, 2])
-direction = 2
+direction = 1

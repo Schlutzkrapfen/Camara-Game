@@ -88,15 +88,15 @@ direction = 1
 attachmentRotation = -28.985
 
 [node name="ConnectionPoint_201" type="Marker2D" parent="." unique_id=1367141123]
-position = Vector2(96, -71)
+position = Vector2(95, -70)
 script = ExtResource("5_xq6yg")
 id = 201
 allowedBodyTypes = Array[int]([3])
-direction = 3
+attachmentRotation = 50.78
 
 [node name="ConnectionPoint_301" type="Marker2D" parent="." unique_id=1794841693]
 position = Vector2(-106, -66)
 script = ExtResource("5_xq6yg")
 id = 301
 allowedBodyTypes = Array[int]([3])
-direction = 2
+attachmentRotation = -49.505
