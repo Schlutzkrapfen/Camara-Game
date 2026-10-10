@@ -23,4 +23,4 @@ position = Vector2(1, 1)
 script = ExtResource("4_1tl2a")
 id = 1
 allowedBodyTypes = Array[int]([0, 1, 2])
-direction = 2
+direction = 1

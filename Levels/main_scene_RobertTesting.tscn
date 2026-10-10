@@ -236,3 +236,5 @@ buildstream = {
 }
 
 [connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]
+
+[editable path="UI"]

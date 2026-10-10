@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://k5w5uhggcnt" path="res://assets/Sprites/UI/Aliveinator.png" id="10_1sn6u"]
 [ext_resource type="Texture2D" uid="uid://cd5llroculqao" path="res://assets/Sprites/UI/Tutorial.png" id="12_1j87n"]
 [ext_resource type="Texture2D" uid="uid://08nv7r4isnjx" path="res://assets/Sprites/UI/ButtonBase_disactived.png" id="12_mq2op"]
+[ext_resource type="Texture2D" uid="uid://p3wpryonxedl" path="res://assets/Sprites/UI/restart.png" id="14_b2745"]
 
 [node name="UI" type="CanvasLayer" unique_id=1117017474]
 
@@ -386,4 +387,33 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_1j87n")
+expand_mode = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=550190273]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 8.0
+offset_top = 12.0
+offset_right = 48.0
+offset_bottom = 52.0
+
+[node name="Restart" type="TextureButton" parent="MarginContainer2" unique_id=1098496447]
+layout_mode = 2
+texture_normal = ExtResource("1_l0ruv")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2/Restart" unique_id=2053379870]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_b2745")
 expand_mode = 1

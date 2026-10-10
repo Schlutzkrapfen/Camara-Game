@@ -155,11 +155,11 @@ func StitchBodyPart(part: Creature, myExtraPriority: int=0, otherExtraPriority: 
 	
 	# Higher priority becomes the host. Equal priority: the caller is the host.
 	if part.stitch_priority + otherExtraPriority > stitch_priority + myExtraPriority:
-		print("Swapperoooo")
 		return part.StitchBodyPart(self, otherExtraPriority, myExtraPriority)
 	
 	var pair := _find_matching_points(part)
 	if pair.is_empty():
+		print("failed?")
 		return {"success": false, "host": self, "otherPart": part}
 
 	var mine: ConnectionPoint = pair[0]

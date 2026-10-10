@@ -44,6 +44,7 @@ var _tutorial_was_paused: bool = false
 @onready var btn_Aliver: TextureButton = $"../UI/Margin/HBox/Aliver"
 @onready var btn_Raid: TextureButton = $"../UI/Margin/HBox/RAID"
 @onready var btn_Tutorial: TextureButton = $"../UI/Margin2/Tutorial"
+@onready var btn_restart: TextureButton = $"../UI/MarginContainer2/Restart"
 @onready var label_cookie_counter: Label = $"../UI/MarginContainer/TextureRect/Label"
 @onready var rotate_output:AudioStreamPlayer =$"../Audiomanager/Rotate"
 func _ready() -> void:
@@ -59,6 +60,7 @@ func _ready() -> void:
 	btn_Aliver.pressed.connect(func(): Global.current_house = 9) 
 	btn_Raid.pressed.connect(func(): StartRaid())
 	btn_Tutorial.pressed.connect(func(): ShowTutorial())
+	btn_restart.pressed.connect(func(): restart())
 	label_cookie_counter.text = str(Global.curGoo)
 	for item in level_res.building.keys():
 		main_tilemap.spawn_at_place_and_building(item,level_res.building[item])
@@ -67,6 +69,9 @@ func _ready() -> void:
 	if tutorial_bool:
 		ShowTutorial()
 	Global.curGoo = level_res.start_goo
+	
+func restart():
+	get_tree().reload_current_scene()
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("roration"):
 		var rotations = Global.TileTransform.values()
