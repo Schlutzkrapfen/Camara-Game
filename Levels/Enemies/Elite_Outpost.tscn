@@ -1,17 +1,18 @@
 [gd_scene format=3 uid="uid://c843iaw07rxam"]
 
 [ext_resource type="Script" uid="uid://cymwleeug0qjq" path="res://script/enemy.gd" id="1_8ye4o"]
-[ext_resource type="PackedScene" uid="uid://fp33y2asyxkq" path="res://Levels/Enemies/Guard.tscn" id="2_buqpm"]
+[ext_resource type="PackedScene" uid="uid://cpddsgpqnymaa" path="res://Levels/Enemies/Elite.tscn" id="2_8ye4o"]
 [ext_resource type="Texture2D" uid="uid://cymuipn0xl084" path="res://assets/Sprites/Enemies/Outpost.png" id="3_4db82"]
 
 [node name="Outpost" type="Node2D" unique_id=1843378386 groups=["enemies"]]
 script = ExtResource("1_8ye4o")
 hp = 1000
 speed = 0.0
-attackCooldown = 10.0
+attackDamage = 10
+attackCooldown = 1.0
 attackRange = 1000.0
 isSpawner = true
-spawn = ExtResource("2_buqpm")
+spawn = ExtResource("2_8ye4o")
 minSpawnTime = 15.0
 maxSpawnTime = 20.0
 

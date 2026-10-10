@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dt7h3q5w21gfd" path="res://assets/Sprites/Enemies/Shield.png" id="2_rucra"]
 
 [node name="Elite" type="Node2D" unique_id=1843378386 groups=["enemies"]]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_rucra")
 hp = 300
 attackDamage = 20

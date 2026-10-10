@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dope6ipmp7frt" path="res://assets/Sprites/Enemies/Guard.png" id="2_luroj"]
 
 [node name="Guard" type="Node2D" unique_id=1843378386 groups=["enemies"]]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_luroj")
 hp = 30
 speed = 100.0

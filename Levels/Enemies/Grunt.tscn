@@ -13,4 +13,5 @@ attackRange = 70.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=780132004]
 position = Vector2(5, -100)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_avifw")

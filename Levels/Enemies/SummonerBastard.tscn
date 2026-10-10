@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cyepx062g68tf"]
 
 [ext_resource type="Script" uid="uid://cymwleeug0qjq" path="res://script/enemy.gd" id="1_dxub8"]
-[ext_resource type="PackedScene" uid="uid://dlyg7svl3faxm" path="res://Levels/Enemies/Grunt.tscn" id="2_564v5"]
+[ext_resource type="PackedScene" uid="uid://fp33y2asyxkq" path="res://Levels/Enemies/Guard.tscn" id="2_e764o"]
 [ext_resource type="Texture2D" uid="uid://dk3nsdkmgoxy3" path="res://assets/Sprites/Enemies/FlagCarrier.png" id="3_e764o"]
 
 [node name="SummonerBastard" type="Node2D" unique_id=1843378386 groups=["enemies"]]
@@ -12,7 +12,7 @@ attackDamage = 20
 attackCooldown = 2.0
 attackRange = 250.0
 isSpawner = true
-spawn = ExtResource("2_564v5")
+spawn = ExtResource("2_e764o")
 minSpawnTime = 0.5
 maxSpawnTime = 2.0
 
