@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="LevelResource" format=3 uid="uid://b7mlut1ru7uee"]
+
+[ext_resource type="Script" uid="uid://c46u5wpm1rwce" path="res://Resourcen/building_resource.gd" id="1_pnfm4"]
+[ext_resource type="Script" uid="uid://d0lomd1hwdhi" path="res://Resourcen/level_resource.gd" id="2_4pokh"]
+
+[resource]
+script = ExtResource("2_4pokh")

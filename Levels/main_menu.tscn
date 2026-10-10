@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://qd2q56dbmfki"]
+
+[ext_resource type="Script" uid="uid://ejqe80o6gp7k" path="res://Levels/main_menu.gd" id="1_6ucrw"]
+
+[node name="Main Menu" type="Control" unique_id=219666548]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = 10.0
+offset_right = -21.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6ucrw")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1791347777]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.5
+offset_top = -76.0
+offset_right = 86.5
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1907160907]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Tutorial" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1312882997]
+layout_mode = 2
+text = "Tutorial"
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1921571660]
+layout_mode = 2
+text = "Start Game"
+
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Tutorial" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_button_up"]

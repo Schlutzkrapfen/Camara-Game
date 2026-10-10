@@ -1,0 +1,302 @@
+[gd_scene format=3 uid="uid://dr2as2u2law4f"]
+
+[ext_resource type="Texture2D" uid="uid://cbqqufh3erkib" path="res://assets/Sprites/Factories/Floor.png" id="1_aijsb"]
+[ext_resource type="Texture2D" uid="uid://dqbee7b13vdb3" path="res://assets/Sprites/Building.png" id="2_qcsq8"]
+[ext_resource type="Script" uid="uid://qc7ohwp5cnrk" path="res://script/CameraController.gd" id="3_pacoq"]
+[ext_resource type="Texture2D" uid="uid://ctv77pkrn66by" path="res://assets/Sprites/Factories/ConveyorBelt.png" id="4_jgmqc"]
+[ext_resource type="Texture2D" uid="uid://dab8ry1vc6pti" path="res://assets/Protype Factory/factory.png" id="5_8gqak"]
+[ext_resource type="Texture2D" uid="uid://fnxol2v3v8jk" path="res://assets/Sprites/Factories/Upgrader.png" id="6_i01ab"]
+[ext_resource type="Texture2D" uid="uid://cgnh8i2ap5c72" path="res://assets/Sprites/Factories/Aliver.png" id="7_832d0"]
+[ext_resource type="Texture2D" uid="uid://bjashyfv41cpn" path="res://assets/Sprites/Factories/Splitter.png" id="8_mtjfp"]
+[ext_resource type="Texture2D" uid="uid://d27i4qnwa0txv" path="res://assets/Protype Factory/headfactory.png" id="9_mb6db"]
+[ext_resource type="Texture2D" uid="uid://mcwipabtk0ga" path="res://assets/Sprites/Factories/GooFactory.png" id="10_m1dpo"]
+[ext_resource type="Texture2D" uid="uid://cox70khsxs566" path="res://assets/Sprites/Factories/HeadFactory.png" id="11_xji3g"]
+[ext_resource type="Texture2D" uid="uid://c3ybt8onpq3yn" path="res://assets/Sprites/Factories/TorsoFactory.png" id="12_5t771"]
+[ext_resource type="Texture2D" uid="uid://drnamukdl1ch5" path="res://assets/Sprites/Factories/SpikeFactory.png" id="13_u87tn"]
+[ext_resource type="Texture2D" uid="uid://ctqwdm2fila7h" path="res://assets/Sprites/Factories/LegFactory.png" id="14_reh51"]
+[ext_resource type="Texture2D" uid="uid://dfakgxksy5s5i" path="res://assets/Sprites/Factories/Combiner.png" id="15_xinov"]
+[ext_resource type="Script" uid="uid://b7r4n585kvy5" path="res://script/spawner.gd" id="16_0gkba"]
+[ext_resource type="Script" uid="uid://bko1gb6s0qt05" path="res://Levels/flow_field.gd" id="17_ywyjf"]
+[ext_resource type="Texture2D" uid="uid://bsmqdfj1qx2kl" path="res://assets/BuildingCheck/Right_2.png" id="18_1vx2h"]
+[ext_resource type="Texture2D" uid="uid://dk7ldpc8ttfo6" path="res://assets/BuildingCheck/Wrong_2.png" id="19_4hd80"]
+[ext_resource type="Script" uid="uid://dw655442tyxqd" path="res://script/check_if_build.gd" id="20_wnr1f"]
+[ext_resource type="TileSet" uid="uid://dfd14baga48q4" path="res://Resourcen/Tilemap.tres" id="21_wmtmc"]
+[ext_resource type="Texture2D" uid="uid://dalccafnwdot3" path="res://assets/Sprites/UI/ButtonBase.png" id="22_5t771"]
+[ext_resource type="Script" uid="uid://d18488becbp0n" path="res://script/globals/GameManagerLevel0.gd" id="25_vqiug"]
+[ext_resource type="Texture2D" uid="uid://cd5llroculqao" path="res://assets/Sprites/UI/Tutorial.png" id="33_6tvxy"]
+[ext_resource type="PackedScene" uid="uid://12viga72ue0v" path="res://Levels/audiomanager.tscn" id="39_yycif"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mne4e"]
+texture = ExtResource("4_jgmqc")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_72q2g"]
+texture = ExtResource("5_8gqak")
+texture_region_size = Vector2i(200, 200)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvusm"]
+texture = ExtResource("6_i01ab")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u2hbt"]
+texture = ExtResource("7_832d0")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mc1i1"]
+texture = ExtResource("8_mtjfp")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kumpi"]
+texture = ExtResource("9_mb6db")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qs7lm"]
+texture = ExtResource("10_m1dpo")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5mrl6"]
+texture = ExtResource("11_xji3g")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ylpvw"]
+texture = ExtResource("12_5t771")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t8v6m"]
+texture = ExtResource("13_u87tn")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pwl7"]
+texture = ExtResource("14_reh51")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbg0h"]
+texture = ExtResource("15_xinov")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_nacyp"]
+tile_size = Vector2i(100, 100)
+sources/1 = SubResource("TileSetAtlasSource_72q2g")
+sources/0 = SubResource("TileSetAtlasSource_mne4e")
+sources/2 = SubResource("TileSetAtlasSource_mc1i1")
+sources/4 = SubResource("TileSetAtlasSource_qs7lm")
+sources/3 = SubResource("TileSetAtlasSource_kumpi")
+sources/5 = SubResource("TileSetAtlasSource_5mrl6")
+sources/6 = SubResource("TileSetAtlasSource_ylpvw")
+sources/7 = SubResource("TileSetAtlasSource_t8v6m")
+sources/8 = SubResource("TileSetAtlasSource_8pwl7")
+sources/9 = SubResource("TileSetAtlasSource_pbg0h")
+sources/10 = SubResource("TileSetAtlasSource_pvusm")
+sources/11 = SubResource("TileSetAtlasSource_u2hbt")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rkvs"]
+texture = ExtResource("18_1vx2h")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xnfqo"]
+texture = ExtResource("19_4hd80")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mne4e"]
+tile_size = Vector2i(100, 100)
+sources/0 = SubResource("TileSetAtlasSource_8rkvs")
+sources/1 = SubResource("TileSetAtlasSource_xnfqo")
+
+[node name="Main Scene" type="Node2D" unique_id=1857987435]
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1431995615]
+texture_repeat = 2
+texture = ExtResource("1_aijsb")
+region_enabled = true
+region_rect = Rect2(0, 0, 40000, 40000)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=9532409]
+position = Vector2(-13.9, 3246.495)
+scale = Vector2(4.02, 4.02)
+texture = ExtResource("2_qcsq8")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1101754663]
+script = ExtResource("3_pacoq")
+locked = true
+edge_scrolling_enabled = false
+min_zoom = 0.0
+max_zoom = 0.7
+zoom_step = 1.15
+min_y = -14000.0
+max_y = 7300.0
+min_x = -7600.0
+max_x = 7600.0
+locked_min_y = -900.0
+locked_max_y = 7300.0
+locked_min_x = -7600.0
+locked_max_x = 7600.0
+show_gizmos = false
+
+[node name="MainTailMap" type="TileMapLayer" parent="." unique_id=271784119]
+tile_set = SubResource("TileSet_nacyp")
+script = ExtResource("16_0gkba")
+
+[node name="FlowField" type="Node" parent="MainTailMap" unique_id=20738206 node_paths=PackedStringArray("main_tile_map")]
+script = ExtResource("17_ywyjf")
+main_tile_map = NodePath("..")
+speed = 500
+
+[node name="CheckIfBuild" type="TileMapLayer" parent="." unique_id=1360988074 node_paths=PackedStringArray("main_tileset")]
+tile_set = SubResource("TileSet_mne4e")
+physics_quadrant_size = 100
+script = ExtResource("20_wnr1f")
+main_tileset = NodePath("../MainTailMap")
+
+[node name="Rotationbuild" type="TileMapLayer" parent="CheckIfBuild" unique_id=2075015813]
+modulate = Color(1, 1, 1, 0.3019608)
+tile_set = ExtResource("21_wmtmc")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1117017474]
+
+[node name="Margin" type="MarginContainer" parent="UI" unique_id=395873661]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBox" type="HBoxContainer" parent="UI/Margin" unique_id=42983778]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_constants/separation = 10
+accessibility_region = true
+
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=472492297]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_bottom = 50.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer" unique_id=219077417]
+layout_mode = 2
+texture = ExtResource("22_5t771")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="UI/MarginContainer/TextureRect" unique_id=1852356092]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Margin2" type="MarginContainer" parent="UI" unique_id=1348734156]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = -70.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Tutorial" type="TextureButton" parent="UI/Margin2" unique_id=1986609009]
+layout_mode = 2
+texture_normal = ExtResource("22_5t771")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureRect" type="TextureRect" parent="UI/Margin2/Tutorial" unique_id=177781497]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("33_6tvxy")
+expand_mode = 1
+
+[node name="Audiomanager" parent="." unique_id=702756718 node_paths=PackedStringArray("buildstream") instance=ExtResource("39_yycif")]
+buildstream = {
+0: null,
+1: null,
+2: null,
+3: null,
+4: null
+}
+
+[node name="Level0" type="Node" parent="." unique_id=2103952728]
+script = ExtResource("25_vqiug")
+
+[connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://12viga72ue0v"]
+
+[ext_resource type="Script" uid="uid://c82qmlqgj1tbk" path="res://Levels/audiomanager.gd" id="1_rx7qh"]
+[ext_resource type="AudioStream" uid="uid://cul6eqprga863" path="res://assets/Soundeffects/Rotate_Building.wav" id="2_gjoeh"]
+[ext_resource type="AudioStream" uid="uid://dkat1rxiys844" path="res://assets/Soundeffects/Unable_Building.wav" id="3_n1lv2"]
+[ext_resource type="AudioStream" uid="uid://cnpsnit4575h1" path="res://assets/Soundeffects/Menu_ButtonPress.wav" id="4_t37dv"]
+[ext_resource type="AudioStream" uid="uid://de6ckpw6sabxc" path="res://assets/Soundeffects/Goo_Place_3.wav" id="5_58b13"]
+[ext_resource type="AudioStream" uid="uid://d12fqer1ywd0d" path="res://assets/Soundeffects/Place_Building.wav" id="6_uvo4s"]
+[ext_resource type="AudioStream" uid="uid://cly4d026tyibn" path="res://assets/Soundeffects/Start_Production.wav" id="7_dqeq2"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yfkbv"]
+random_pitch = 1.005793
+random_volume_offset_db = 0.1
+streams_count = 1
+stream_0/stream = ExtResource("2_gjoeh")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_g6w46"]
+random_pitch = 1.0233738
+random_volume_offset_db = 0.1
+streams_count = 1
+stream_0/stream = ExtResource("4_t37dv")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0i11v"]
+random_pitch = 1.005793
+random_volume_offset_db = 0.1
+streams_count = 1
+stream_0/stream = ExtResource("5_58b13")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jgmq5"]
+random_pitch = 1.005793
+random_volume_offset_db = 0.1
+streams_count = 1
+stream_0/stream = ExtResource("6_uvo4s")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4ax0c"]
+random_pitch = 1.0233738
+random_volume_offset_db = 0.1
+streams_count = 1
+stream_0/stream = ExtResource("6_uvo4s")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nacyp"]
+streams_count = 1
+stream_0/stream = ExtResource("7_dqeq2")
+
+[node name="Audiomanager" type="Node" unique_id=702756718 node_paths=PackedStringArray("buildstream")]
+script = ExtResource("1_rx7qh")
+buildstream = {
+0: NodePath("Build_normal"),
+1: NodePath("Build_combiner"),
+2: NodePath("Build_upgrader"),
+3: NodePath("Build_aliver"),
+4: NodePath("no_Build")
+}
+
+[node name="Rotate" type="AudioStreamPlayer" parent="." unique_id=1550523991]
+stream = SubResource("AudioStreamRandomizer_yfkbv")
+
+[node name="no_Build" type="AudioStreamPlayer" parent="." unique_id=503478781]
+stream = ExtResource("3_n1lv2")
+
+[node name="Build_noBuild" type="AudioStreamPlayer" parent="." unique_id=392589234]
+stream = SubResource("AudioStreamRandomizer_g6w46")
+
+[node name="Build_normal" type="AudioStreamPlayer" parent="." unique_id=2047514083]
+stream = SubResource("AudioStreamRandomizer_0i11v")
+
+[node name="Build_combiner" type="AudioStreamPlayer" parent="." unique_id=789450372]
+stream = SubResource("AudioStreamRandomizer_jgmq5")
+
+[node name="Build_upgrader" type="AudioStreamPlayer" parent="." unique_id=2081297925]
+stream = SubResource("AudioStreamRandomizer_4ax0c")
+pitch_scale = 0.8
+
+[node name="Build_aliver" type="AudioStreamPlayer" parent="." unique_id=1751623401]
+stream = SubResource("AudioStreamRandomizer_nacyp")

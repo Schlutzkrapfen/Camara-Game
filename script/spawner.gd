@@ -11,21 +11,6 @@ var _deleting:bool
 signal maschin_finished
 
 var is_okay_to_build:bool = true
-class BuildData:
-	var rotation: Global.TileTransform
-	var resource_refrence: BuildingResource
-	var cur_time: float = 0
-	var input_tile:Array[Vector2i]
-	var cur_items: Array[Node2D]
-	var last_output:int =0
-	var black_list:Dictionary[Node2D,bool]
-	var output_position:Array[Vector2i]
-	var can_get_input:bool
-	var already_emited:bool
-	func _init( p_buildingresource: BuildingResource ,p_outputpostion:Array[Vector2i],p_transform: Global.TileTransform = Global.TileTransform.None) -> void:
-		rotation = p_transform
-		resource_refrence = p_buildingresource
-		output_position = p_outputpostion
 
 
 ## Sets processing priority so this runs before other nodes each frame.
@@ -287,6 +272,25 @@ func delete():
 	Global.curGoo += build_data.resource_refrence.buildcost
 
 ## Places the selected building at the mouse tile, registers its tiles, flowfield, and output cells.
+func spawn_at_place_and_building(position,factory_number):
+	var tile = position
+	var current_house = Global.factory_list[factory_number]
+	var output_postion:Array[Vector2i]
+	for x in current_house.size.x:
+		for y in current_house.size.y:
+			var local_tile =  Vector2i(x,y)
+			var tiles = tile + Global.get_rotation_out_of_size(x ,y)
+			if current_house.output_tile.has(local_tile):
+				flowfield.append_flowfield(tiles,Global.currentrotation)
+				output_postion.append(Vector2i(tiles.x+Global.ROTATE_DIRECTION[Global.currentrotation].x,tiles.y+Global.ROTATE_DIRECTION[Global.currentrotation].y))
+			else:
+				flowfield.append_flowfield(tiles,Global.TileTransform.None)
+			occupied_tiles[tiles] = tile
+			tilemap.set_cell(tiles,current_house.tilemap_id,current_house.position_tilemap+local_tile,Global.currentrotation)
+	var buildings:BuildData = BuildData.new(current_house,output_postion,Global.currentrotation)
+	current_builds[tile] =buildings
+	Global.curGoo -= current_house.buildcost
+	audio_manager._play_build(buildings.resource_refrence.factory_type)
 func spawn():
 	var mouse_position = get_global_mouse_position()
 	var tile = tilemap.local_to_map(tilemap.to_local(mouse_position))
