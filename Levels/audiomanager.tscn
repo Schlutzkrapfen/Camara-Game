@@ -79,7 +79,3 @@ stream = SubResource("AudioStreamRandomizer_nacyp")
 
 [node name="Winsound" type="AudioStreamPlayer" parent="." unique_id=1606265864]
 stream = ExtResource("7_dqeq2")
-
-[node name="Timer" type="Timer" parent="." unique_id=317695005]
-wait_time = 0.5
-one_shot = true
