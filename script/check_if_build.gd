@@ -17,7 +17,7 @@ func _is_in_build_zone(tile: Vector2i) -> bool:
 func _is_tile_free(pos: Vector2i) -> bool:
 	return main_tileset.get_cell_tile_data(pos) == null
 func has_enough_goo() -> bool:
-	return Global.curGoo -Global.factory_list[Global.current_house].buildcost  >0
+	return Global.curGoo -Global.factory_list[Global.current_house].buildcost  >=0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func check_if_okay_to_build(tile)-> bool:
 	for x in Global.factory_list[Global.current_house].size.x:

@@ -101,7 +101,6 @@ func check_if_finished() -> void:
 
 func StartRaid() -> void:
 	btn_Raid.disabled = true
-	check_if_finished()
 	if settlements == null:
 		return
 	if settlements.size() == curSettlementIndex:
@@ -112,6 +111,7 @@ func StartRaid() -> void:
 	cam.locked = false;
 	var newSettlement := settlements[curSettlementIndex].instantiate()
 	self.add_child(newSettlement)
+	check_if_finished()
 	if curSettlement != null:
 		curSettlement.queue_free()
 	curSettlement = newSettlement
