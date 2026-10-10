@@ -1,0 +1,246 @@
+[gd_scene format=3 uid="uid://ptqjmu6thc27"]
+
+[ext_resource type="Texture2D" uid="uid://cbqqufh3erkib" path="res://assets/Sprites/Factories/Floor.png" id="1_yt3tv"]
+[ext_resource type="Texture2D" uid="uid://dqbee7b13vdb3" path="res://assets/Sprites/Building.png" id="2_8akuo"]
+[ext_resource type="Script" uid="uid://qc7ohwp5cnrk" path="res://script/CameraController.gd" id="3_psiyx"]
+[ext_resource type="Texture2D" uid="uid://ctv77pkrn66by" path="res://assets/Sprites/Factories/ConveyorBelt.png" id="4_o2wf5"]
+[ext_resource type="Texture2D" uid="uid://dab8ry1vc6pti" path="res://assets/Protype Factory/factory.png" id="5_v55yx"]
+[ext_resource type="Texture2D" uid="uid://fnxol2v3v8jk" path="res://assets/Sprites/Factories/Upgrader.png" id="6_nyefb"]
+[ext_resource type="Texture2D" uid="uid://cgnh8i2ap5c72" path="res://assets/Sprites/Factories/Aliver.png" id="7_1eyq4"]
+[ext_resource type="Texture2D" uid="uid://c16172lknfrr0" path="res://assets/Sprites/Factories/confetti.png" id="8_lyga6"]
+[ext_resource type="Texture2D" uid="uid://bjashyfv41cpn" path="res://assets/Sprites/Factories/Splitter.png" id="9_83qfw"]
+[ext_resource type="Texture2D" uid="uid://d27i4qnwa0txv" path="res://assets/Protype Factory/headfactory.png" id="10_kvcgk"]
+[ext_resource type="Texture2D" uid="uid://mcwipabtk0ga" path="res://assets/Sprites/Factories/GooFactory.png" id="11_1h837"]
+[ext_resource type="Texture2D" uid="uid://cox70khsxs566" path="res://assets/Sprites/Factories/HeadFactory.png" id="12_kx8pc"]
+[ext_resource type="Texture2D" uid="uid://c3ybt8onpq3yn" path="res://assets/Sprites/Factories/TorsoFactory.png" id="13_uv2vu"]
+[ext_resource type="Texture2D" uid="uid://drnamukdl1ch5" path="res://assets/Sprites/Factories/SpikeFactory.png" id="14_ssgp4"]
+[ext_resource type="Texture2D" uid="uid://ctqwdm2fila7h" path="res://assets/Sprites/Factories/LegFactory.png" id="15_f0s4q"]
+[ext_resource type="Texture2D" uid="uid://dfakgxksy5s5i" path="res://assets/Sprites/Factories/Combiner.png" id="16_mn6aj"]
+[ext_resource type="Script" uid="uid://b7r4n585kvy5" path="res://script/spawner.gd" id="17_e26ci"]
+[ext_resource type="Script" uid="uid://bko1gb6s0qt05" path="res://Levels/flow_field.gd" id="18_0k3bu"]
+[ext_resource type="Texture2D" uid="uid://bsmqdfj1qx2kl" path="res://assets/BuildingCheck/Right_2.png" id="19_u5lnn"]
+[ext_resource type="Texture2D" uid="uid://dk7ldpc8ttfo6" path="res://assets/BuildingCheck/Wrong_2.png" id="20_rb3te"]
+[ext_resource type="Script" uid="uid://dw655442tyxqd" path="res://script/check_if_build.gd" id="21_2ywif"]
+[ext_resource type="TileSet" uid="uid://dfd14baga48q4" path="res://Resourcen/Tilemap.tres" id="22_u7w7g"]
+[ext_resource type="PackedScene" uid="uid://12viga72ue0v" path="res://Levels/audiomanager.tscn" id="23_8auhq"]
+[ext_resource type="Script" uid="uid://do8dom7rcdpjx" path="res://script/globals/GameManager.gd" id="24_33ung"]
+[ext_resource type="PackedScene" uid="uid://b5dskihv6nlwm" path="res://Levels/Settlements/FirstEncounter.tscn" id="25_8akuo"]
+[ext_resource type="Resource" uid="uid://ddnvtxogyvq56" path="res://Resourcen/tutorial2.tres" id="25_yt3tv"]
+[ext_resource type="Texture2D" uid="uid://chnfiiflilo6y" path="res://assets/Sprites/Tutorial/Page1.png" id="26_v6x73"]
+[ext_resource type="Texture2D" uid="uid://dv1cvv0chdhul" path="res://assets/Sprites/Tutorial/Page2.png" id="27_yogl4"]
+[ext_resource type="Texture2D" uid="uid://dd3gs8u7pxyk5" path="res://assets/Sprites/Tutorial/Page3.png" id="28_yt3tv"]
+[ext_resource type="PackedScene" uid="uid://ifvtipktctcg" path="res://Levels/UI.tscn" id="29_om3bu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mne4e"]
+texture = ExtResource("4_o2wf5")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_72q2g"]
+texture = ExtResource("5_v55yx")
+texture_region_size = Vector2i(200, 200)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pvusm"]
+texture = ExtResource("6_nyefb")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u2hbt"]
+texture = ExtResource("7_1eyq4")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sovsu"]
+texture = ExtResource("8_lyga6")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mc1i1"]
+texture = ExtResource("9_83qfw")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kumpi"]
+texture = ExtResource("10_kvcgk")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qs7lm"]
+texture = ExtResource("11_1h837")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5mrl6"]
+texture = ExtResource("12_kx8pc")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ylpvw"]
+texture = ExtResource("13_uv2vu")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t8v6m"]
+texture = ExtResource("14_ssgp4")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pwl7"]
+texture = ExtResource("15_f0s4q")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbg0h"]
+texture = ExtResource("16_mn6aj")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_nacyp"]
+tile_size = Vector2i(100, 100)
+sources/1 = SubResource("TileSetAtlasSource_72q2g")
+sources/0 = SubResource("TileSetAtlasSource_mne4e")
+sources/2 = SubResource("TileSetAtlasSource_mc1i1")
+sources/4 = SubResource("TileSetAtlasSource_qs7lm")
+sources/3 = SubResource("TileSetAtlasSource_kumpi")
+sources/5 = SubResource("TileSetAtlasSource_5mrl6")
+sources/6 = SubResource("TileSetAtlasSource_ylpvw")
+sources/7 = SubResource("TileSetAtlasSource_t8v6m")
+sources/8 = SubResource("TileSetAtlasSource_8pwl7")
+sources/9 = SubResource("TileSetAtlasSource_pbg0h")
+sources/10 = SubResource("TileSetAtlasSource_pvusm")
+sources/11 = SubResource("TileSetAtlasSource_u2hbt")
+sources/12 = SubResource("TileSetAtlasSource_sovsu")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rkvs"]
+texture = ExtResource("19_u5lnn")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xnfqo"]
+texture = ExtResource("20_rb3te")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mne4e"]
+tile_size = Vector2i(100, 100)
+sources/0 = SubResource("TileSetAtlasSource_8rkvs")
+sources/1 = SubResource("TileSetAtlasSource_xnfqo")
+
+[node name="Main Scene" type="Node2D" unique_id=1857987435]
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1431995615]
+texture_repeat = 2
+texture = ExtResource("1_yt3tv")
+region_enabled = true
+region_rect = Rect2(0, 0, 40000, 40000)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=9532409]
+position = Vector2(-13.9, 3246.495)
+scale = Vector2(4.02, 4.02)
+texture = ExtResource("2_8akuo")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1101754663]
+script = ExtResource("3_psiyx")
+locked = true
+edge_scrolling_enabled = false
+min_zoom = 0.0
+max_zoom = 0.7
+zoom_step = 1.15
+min_y = -14000.0
+max_y = 7300.0
+min_x = -7600.0
+max_x = 7600.0
+locked_min_y = -900.0
+locked_max_y = 7300.0
+locked_min_x = -7600.0
+locked_max_x = 7600.0
+show_gizmos = false
+
+[node name="MainTailMap" type="TileMapLayer" parent="." unique_id=271784119]
+tile_set = SubResource("TileSet_nacyp")
+script = ExtResource("17_e26ci")
+
+[node name="FlowField" type="Node" parent="MainTailMap" unique_id=20738206 node_paths=PackedStringArray("main_tile_map")]
+script = ExtResource("18_0k3bu")
+main_tile_map = NodePath("..")
+speed = 500
+
+[node name="CheckIfBuild" type="TileMapLayer" parent="." unique_id=1360988074 node_paths=PackedStringArray("main_tileset")]
+tile_set = SubResource("TileSet_mne4e")
+physics_quadrant_size = 100
+script = ExtResource("21_2ywif")
+main_tileset = NodePath("../MainTailMap")
+
+[node name="Rotationbuild" type="TileMapLayer" parent="CheckIfBuild" unique_id=2075015813]
+modulate = Color(1, 1, 1, 0.3019608)
+tile_set = ExtResource("22_u7w7g")
+
+[node name="Audiomanager" parent="." unique_id=702756718 node_paths=PackedStringArray("buildstream") instance=ExtResource("23_8auhq")]
+buildstream = {
+0: NodePath("Build_normal"),
+1: NodePath("Build_combiner"),
+2: NodePath("Build_upgrader"),
+3: NodePath("Build_aliver"),
+4: NodePath("no_Build")
+}
+
+[node name="Level2" type="Node" parent="." unique_id=2103952728 node_paths=PackedStringArray("cam", "tilemap", "main_tilemap", "soundManager")]
+script = ExtResource("24_33ung")
+cam = NodePath("../Camera2D")
+tilemap = NodePath("../MainTailMap/FlowField")
+main_tilemap = NodePath("../MainTailMap")
+soundManager = NodePath("../Audiomanager")
+settlements = Array[PackedScene]([ExtResource("25_8akuo")])
+disable_shortcuts = true
+level_res = ExtResource("25_yt3tv")
+tutorial_images = Array[Texture2D]([ExtResource("26_v6x73"), ExtResource("27_yogl4"), ExtResource("28_yt3tv")])
+start_first_raid_automatic = true
+
+[node name="UI" parent="." unique_id=1117017474 instance=ExtResource("29_om3bu")]
+
+[node name="Aliver" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="9" unique_id=1932181829]
+visible = false
+
+[node name="RAID" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="10" unique_id=2077756194]
+visible = false
+
+[connection signal="maschin_finished" from="MainTailMap" to="Level2" method="_tutorial_level"]
+[connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]
+
+[editable path="UI"]

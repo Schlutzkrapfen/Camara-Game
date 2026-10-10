@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://chnfiiflilo6y" path="res://assets/Sprites/Tutorial/Page1.png" id="25_a2uew"]
 [ext_resource type="PackedScene" uid="uid://ifvtipktctcg" path="res://Levels/UI.tscn" id="26_678uv"]
 [ext_resource type="Resource" uid="uid://b7mlut1ru7uee" path="res://Resourcen/tutorial0.tres" id="26_a2uew"]
+[ext_resource type="Texture2D" uid="uid://ddrm82tspql1l" path="res://assets/Sprites/Tutorial/Page2_tut.png" id="27_sovsu"]
 [ext_resource type="PackedScene" uid="uid://12viga72ue0v" path="res://Levels/audiomanager.tscn" id="39_yycif"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mne4e"]
@@ -225,7 +226,7 @@ main_tilemap = NodePath("../MainTailMap")
 soundManager = NodePath("../Audiomanager")
 disable_shortcuts = true
 level_res = ExtResource("26_a2uew")
-tutorial_images = Array[Texture2D]([ExtResource("25_a2uew")])
+tutorial_images = Array[Texture2D]([ExtResource("25_a2uew"), ExtResource("27_sovsu")])
 
 [node name="UI" parent="." unique_id=1117017474 instance=ExtResource("26_678uv")]
 

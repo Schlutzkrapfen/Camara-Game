@@ -24,9 +24,11 @@
 [ext_resource type="TileSet" uid="uid://dfd14baga48q4" path="res://Resourcen/Tilemap.tres" id="22_ktgoh"]
 [ext_resource type="PackedScene" uid="uid://12viga72ue0v" path="res://Levels/audiomanager.tscn" id="23_30kjg"]
 [ext_resource type="Script" uid="uid://do8dom7rcdpjx" path="res://script/globals/GameManager.gd" id="24_i6un8"]
+[ext_resource type="Resource" uid="uid://csu8no44plhgh" path="res://Resourcen/tutorial1.tres" id="25_x3vdc"]
 [ext_resource type="Texture2D" uid="uid://chnfiiflilo6y" path="res://assets/Sprites/Tutorial/Page1.png" id="26_44f6s"]
 [ext_resource type="Texture2D" uid="uid://dv1cvv0chdhul" path="res://assets/Sprites/Tutorial/Page2.png" id="26_ngb4t"]
 [ext_resource type="PackedScene" uid="uid://ifvtipktctcg" path="res://Levels/UI.tscn" id="27_sxfsk"]
+[ext_resource type="Texture2D" uid="uid://2tk2pnu47vyf" path="res://assets/Sprites/Tutorial/Page3_tut.png" id="28_of3w8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mne4e"]
 texture = ExtResource("4_ynq0l")
@@ -217,19 +219,17 @@ buildstream = {
 4: NodePath("no_Build")
 }
 
-[node name="Level0" type="Node" parent="." unique_id=2103952728 node_paths=PackedStringArray("cam", "tilemap", "main_tilemap", "soundManager")]
+[node name="Level1" type="Node" parent="." unique_id=2103952728 node_paths=PackedStringArray("cam", "tilemap", "main_tilemap", "soundManager")]
 script = ExtResource("24_i6un8")
 cam = NodePath("../Camera2D")
 tilemap = NodePath("../MainTailMap/FlowField")
 main_tilemap = NodePath("../MainTailMap")
 soundManager = NodePath("../Audiomanager")
 disable_shortcuts = true
-tutorial_images = Array[Texture2D]([ExtResource("26_44f6s"), ExtResource("26_ngb4t")])
+level_res = ExtResource("25_x3vdc")
+tutorial_images = Array[Texture2D]([ExtResource("26_44f6s"), ExtResource("26_ngb4t"), ExtResource("28_of3w8")])
 
 [node name="UI" parent="." unique_id=1117017474 instance=ExtResource("27_sxfsk")]
-
-[node name="Splitter" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="2" unique_id=1798367615]
-visible = false
 
 [node name="TorsoFactory" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="4" unique_id=165883831]
 visible = false
@@ -252,7 +252,7 @@ visible = false
 [node name="RAID" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="10" unique_id=2077756194]
 visible = false
 
-[connection signal="maschin_finished" from="MainTailMap" to="Level0" method="_tutorial_level"]
+[connection signal="maschin_finished" from="MainTailMap" to="Level1" method="_tutorial_level"]
 [connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]
 
 [editable path="UI"]

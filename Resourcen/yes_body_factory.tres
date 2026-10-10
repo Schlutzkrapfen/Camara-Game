@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BuildingResource" format=3 uid="uid://infhlyn1bl57"]
 
-[ext_resource type="Script" uid="uid://4rxcymabsf8u" path="res://script/goo.gd" id="1_mba8u"]
+[ext_resource type="Script" uid="uid://02teojrlf8xw" path="res://script/Creature.gd" id="1_mba8u"]
 [ext_resource type="Script" uid="uid://c46u5wpm1rwce" path="res://Resourcen/building_resource.gd" id="2_6ivic"]
 
 [resource]

@@ -22,6 +22,7 @@ var curSettlement: Node2D
 @export var disable_shortcuts:bool = false
 @export var level_res:LevelResource 
 @export var tutorial_images: Array[Texture2D] = []
+@export var start_first_raid_automatic:bool = false
 var tutorial 
 var _tutorial_layer: CanvasLayer
 var _tutorial_picture: TextureRect
@@ -61,7 +62,8 @@ func _ready() -> void:
 	label_cookie_counter.text = str(Global.curGoo)
 	for item in level_res.building.keys():
 		main_tilemap.spawn_at_place_and_building(item,level_res.building[item])
-
+	if start_first_raid_automatic:
+		StartRaid()
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("roration"):
 		var rotations = Global.TileTransform.values()
@@ -133,7 +135,8 @@ func _input(event: InputEvent) -> void:
 
 func GameWon() -> void:
 	print("You beat the entire game!")
-	
+	await soundManager.play_win_sound()
+	get_tree().change_scene_to_packed(level_res.next_level)
 	
 # --- Tutorial -----------------------------------------------------------------
 	
