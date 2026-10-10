@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://de6ckpw6sabxc" path="res://assets/Soundeffects/Goo_Place_3.wav" id="5_58b13"]
 [ext_resource type="AudioStream" uid="uid://d12fqer1ywd0d" path="res://assets/Soundeffects/Place_Building.wav" id="6_uvo4s"]
 [ext_resource type="AudioStream" uid="uid://cly4d026tyibn" path="res://assets/Soundeffects/Start_Production.wav" id="7_dqeq2"]
+[ext_resource type="AudioStream" uid="uid://cys46j4iucqmd" path="res://assets/Soundeffects/ChimeraDeath.wav" id="7_n1lv2"]
+[ext_resource type="AudioStream" uid="uid://b63osfucvyf37" path="res://assets/Soundeffects/ChimeraGroan.wav" id="8_t37dv"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yfkbv"]
 random_pitch = 1.005793
@@ -39,8 +41,9 @@ streams_count = 1
 stream_0/stream = ExtResource("6_uvo4s")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nacyp"]
-streams_count = 1
-stream_0/stream = ExtResource("7_dqeq2")
+streams_count = 2
+stream_0/stream = ExtResource("7_n1lv2")
+stream_1/stream = ExtResource("8_t37dv")
 
 [node name="Audiomanager" type="Node" unique_id=702756718 node_paths=PackedStringArray("buildstream")]
 script = ExtResource("1_rx7qh")
@@ -76,3 +79,7 @@ stream = SubResource("AudioStreamRandomizer_nacyp")
 
 [node name="Winsound" type="AudioStreamPlayer" parent="." unique_id=1606265864]
 stream = ExtResource("7_dqeq2")
+
+[node name="Timer" type="Timer" parent="." unique_id=317695005]
+wait_time = 0.5
+one_shot = true
