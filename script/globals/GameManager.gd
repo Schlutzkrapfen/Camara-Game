@@ -148,6 +148,7 @@ func GameWon() -> void:
 	await soundManager.play_win_sound()
 	
 	get_tree().change_scene_to_packed(level_res.next_level)
+	Global.curGoo = level_res.start_goo
 
 	
 # --- Tutorial -----------------------------------------------------------------
