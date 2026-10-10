@@ -15,3 +15,11 @@ func play_win_sound():
 	winscreen.play()
 	await winscreen.finished
 	return true
+
+
+
+
+
+
+func play_delete() -> void:
+	$Delete.play()

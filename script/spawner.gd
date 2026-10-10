@@ -70,7 +70,9 @@ func _process(delta: float) -> void:
 	if _building and is_okay_to_build:
 		spawn()
 	if _deleting:
+		
 		delete()
+		
 	for key in current_builds: # or current_builds.items()
 		var factory:BuildData = current_builds[key]
 		if factory.resource_refrence.factory_type == Global.factory_type.No_builder:
@@ -112,6 +114,7 @@ func clear_factory(factory:BuildData):
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("build_delete"):
 		_deleting = true
+		
 	elif event.is_action_released("build_delete"):
 		_deleting = false
 
@@ -271,6 +274,7 @@ func delete():
 			flowfield.delete_flowfield(factory_position)
 			occupied_tiles.erase(factory_position)
 	Global.curGoo += build_data.resource_refrence.buildcost
+	audio_manager.play_delete()
 
 ## Places the selected building at the mouse tile, registers its tiles, flowfield, and output cells.
 func spawn_at_place_and_building(positions,current_house):
