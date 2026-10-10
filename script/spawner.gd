@@ -259,6 +259,7 @@ func delete():
 
 	var local_position:Vector2 = tilemap.to_local(mouse_position)
 	var tile:Vector2i = tilemap.local_to_map(local_position)
+	flowfield.delete_items_from_tile(tile)
 	if not occupied_tiles.has(tile):
 		return
 	var factory_start_position:Vector2i = occupied_tiles[tile]
@@ -275,6 +276,7 @@ func delete():
 			occupied_tiles.erase(factory_position)
 	Global.curGoo += build_data.resource_refrence.buildcost
 	audio_manager.play_delete()
+	
 
 ## Places the selected building at the mouse tile, registers its tiles, flowfield, and output cells.
 func spawn_at_place_and_building(positions,current_house):

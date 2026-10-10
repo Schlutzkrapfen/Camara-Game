@@ -9,9 +9,6 @@ var item_used:Dictionary[Node2D,Vector2]
 var item_moved:Dictionary[Vector2,bool]
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
 func append_flowfield(vec:Vector2, Rotation:Global.TileTransform):
 	var test = flowfield.get_or_add(vec,Rotation)
@@ -31,7 +28,17 @@ func remove_alive_items_flowfied():
 			continue
 		if creature.is_alive:
 			list_items.erase(creature) 
+func delete_items_from_tile(tile_pos):
+	for item in list_items:
+		if item == null:
+			continue
+		var grid_pos =main_tile_map.local_to_map(item.global_position)
+		if grid_pos == tile_pos:
+			list_items.erase(item)
+			item.queue_free()
 
+
+		
 func _process(delta: float) -> void:
 	item_moved.clear()
 	grid_pos_array.clear()
