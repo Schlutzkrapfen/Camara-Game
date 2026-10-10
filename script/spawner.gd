@@ -102,8 +102,8 @@ func _process(delta: float) -> void:
 						if not factory.already_emited:
 							factory.already_emited = true
 							emit_signal("maschin_finished")
-							output_input(factory)
-							clear_factory(factory)
+							#output_input(factory)
+							#clear_factory(factory)
 							
 						continue
 					_:
@@ -293,7 +293,6 @@ func spawn_at_place_and_building(positions,current_house):
 			tilemap.set_cell(tiles,current_house.tilemap_id,current_house.position_tilemap+local_tile,Global.currentrotation)
 	var buildings:BuildData = BuildData.new(current_house,output_postion,Global.currentrotation)
 	current_builds[tile] =buildings
-	Global.curGoo -= current_house.buildcost
 func spawn():
 	var mouse_position = get_global_mouse_position()
 	var tile = tilemap.local_to_map(tilemap.to_local(mouse_position))

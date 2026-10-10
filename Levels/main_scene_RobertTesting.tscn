@@ -215,11 +215,12 @@ tile_set = ExtResource("12_814nw")
 
 [node name="UI" parent="." unique_id=1117017474 instance=ExtResource("14_fo3dw")]
 
-[node name="GameManager" type="Node2D" parent="." unique_id=1125035550 node_paths=PackedStringArray("cam", "tilemap", "main_tilemap")]
+[node name="GameManager" type="Node2D" parent="." unique_id=1125035550 node_paths=PackedStringArray("cam", "tilemap", "main_tilemap", "soundManager")]
 script = ExtResource("15_sf7bd")
 cam = NodePath("../Camera2D")
 tilemap = NodePath("../MainTailMap/FlowField")
 main_tilemap = NodePath("../MainTailMap")
+soundManager = NodePath("../Audiomanager")
 settlements = Array[PackedScene]([ExtResource("15_814nw"), ExtResource("25_krsf2"), ExtResource("26_o4py4"), ExtResource("27_0s4sc"), ExtResource("28_mxtv1"), ExtResource("29_yfkbv"), ExtResource("30_0i11v"), ExtResource("31_4ax0c"), ExtResource("32_g6w46"), ExtResource("33_jgmq5"), ExtResource("34_as7p5")])
 level_res = ExtResource("35_0s4sc")
 tutorial_images = Array[Texture2D]([ExtResource("24_vv2xv"), ExtResource("25_hmfgy"), ExtResource("26_8pwl7")])

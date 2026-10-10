@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BuildingResource" format=3 uid="uid://bswtb4wawyvjs"]
+
+[ext_resource type="Script" uid="uid://c46u5wpm1rwce" path="res://Resourcen/building_resource.gd" id="2_8546i"]
+
+[resource]
+script = ExtResource("2_8546i")
+size = Vector2i(2, 1)
+tilemap_id = 12
+output_tile = Dictionary[Vector2i, int]({
+Vector2i(1, 0): 0
+})
+buildcost = 300
+can_not_deleted = true
+factory_type = 5

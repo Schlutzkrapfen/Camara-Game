@@ -13,3 +13,4 @@ Vector2i(1, 0): 0
 })
 buildcost = 300
 can_not_deleted = true
+factory_type = 5

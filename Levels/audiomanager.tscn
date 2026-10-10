@@ -73,3 +73,6 @@ pitch_scale = 0.8
 
 [node name="Build_aliver" type="AudioStreamPlayer" parent="." unique_id=1751623401]
 stream = SubResource("AudioStreamRandomizer_nacyp")
+
+[node name="Winsound" type="AudioStreamPlayer" parent="." unique_id=1606265864]
+stream = ExtResource("7_dqeq2")

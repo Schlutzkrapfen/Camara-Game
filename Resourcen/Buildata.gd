@@ -10,7 +10,7 @@ var last_output: int = 0
 var black_list: Dictionary[Node2D, bool]
 var output_position: Array[Vector2i]
 var can_get_input: bool
-var already_emited: bool
+var already_emited: bool = false
 
 func _init(p_buildingresource: BuildingResource, p_outputpostion: Array[Vector2i], p_transform: Global.TileTransform = Global.TileTransform.None) -> void:
 	rotation = p_transform

@@ -7,6 +7,7 @@ var curGameState: GameState = GameState.BUILDING
 @export var cam: CameraController
 @export var tilemap: FlowField
 @export var main_tilemap: MainTileMap
+@export var soundManager: AudioManager
 
 
 
@@ -62,6 +63,13 @@ func _ready() -> void:
 		main_tilemap.spawn_at_place_and_building(item,level_res.building[item])
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("roration"):
+		var rotations = Global.TileTransform.values()
+		var index = rotations.find(Global.currentrotation)
+		Global.currentrotation = rotations[(index + 1) % (rotations.size()-1)]
+		rotate_output.play()
+	if disable_shortcuts:
+		return
 	if event.is_action_released("Goo_maker"):
 		Global.current_house = 0
 	if event.is_action_released("Belt"):
@@ -82,11 +90,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Global.current_house = 8
 	if event.is_action_released("Aliver"):
 		Global.current_house = 9
-	if event.is_action_pressed("roration"):
-		var rotations = Global.TileTransform.values()
-		var index = rotations.find(Global.currentrotation)
-		Global.currentrotation = rotations[(index + 1) % (rotations.size()-1)]
-		rotate_output.play()
+	
 
 
 # --- Raids --------------------------------------------------------------------
@@ -196,3 +200,7 @@ func _close_tutorial() -> void:
 		_tutorial_layer.queue_free()
 		_tutorial_layer = null
 	get_tree().paused = _tutorial_was_paused
+
+func _tutorial_level() -> void:
+	await soundManager.play_win_sound()
+	get_tree().change_scene_to_packed(level_res.next_level)

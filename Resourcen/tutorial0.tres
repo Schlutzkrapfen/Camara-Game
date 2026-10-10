@@ -3,9 +3,13 @@
 [ext_resource type="Script" uid="uid://c46u5wpm1rwce" path="res://Resourcen/building_resource.gd" id="1_pnfm4"]
 [ext_resource type="Script" uid="uid://d0lomd1hwdhi" path="res://Resourcen/level_resource.gd" id="2_4pokh"]
 [ext_resource type="Resource" uid="uid://dm7rfndkmyk8g" path="res://Resourcen/goo_factory_tut.tres" id="2_gjuy4"]
+[ext_resource type="Resource" uid="uid://b1ix42gmquv24" path="res://Resourcen/yes_factory.tres" id="3_gjuy4"]
+[ext_resource type="PackedScene" uid="uid://bue4gi08030qp" path="res://Levels/Tutorial1.tscn" id="4_hhl4e"]
 
 [resource]
 script = ExtResource("2_4pokh")
+next_level = ExtResource("4_hhl4e")
 building = Dictionary[Vector2i, ExtResource("1_pnfm4")]({
-Vector2i(0, 30): ExtResource("2_gjuy4")
+Vector2i(0, 30): ExtResource("2_gjuy4"),
+Vector2i(7, 32): ExtResource("3_gjuy4")
 })

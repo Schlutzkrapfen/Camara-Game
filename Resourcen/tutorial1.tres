@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="LevelResource" format=3 uid="uid://csu8no44plhgh"]
+
+[ext_resource type="Script" uid="uid://c46u5wpm1rwce" path="res://Resourcen/building_resource.gd" id="1_bq6ub"]
+[ext_resource type="Resource" uid="uid://dm7rfndkmyk8g" path="res://Resourcen/goo_factory_tut.tres" id="2_ig50r"]
+[ext_resource type="Resource" uid="uid://b1ix42gmquv24" path="res://Resourcen/yes_factory.tres" id="3_cu1xi"]
+[ext_resource type="PackedScene" uid="uid://bue4gi08030qp" path="res://Levels/Tutorial1.tscn" id="4_51vvt"]
+[ext_resource type="Script" uid="uid://d0lomd1hwdhi" path="res://Resourcen/level_resource.gd" id="5_oa26c"]
+
+[resource]
+script = ExtResource("5_oa26c")
+next_level = ExtResource("4_51vvt")
+building = Dictionary[Vector2i, ExtResource("1_bq6ub")]({
+Vector2i(0, 30): ExtResource("2_ig50r"),
+Vector2i(7, 32): ExtResource("3_cu1xi")
+})
