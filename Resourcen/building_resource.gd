@@ -12,5 +12,5 @@ extends Resource
 @export var output_tile:Dictionary[Vector2i,Global.TileTransform]
 @export var input_size:int = 1
 @export var buildcost:int = 1
-@export var can_be_deleted:bool = false
+@export var can_not_deleted:bool = false
 @export var factory_type:Global.factory_type = 0

@@ -17,7 +17,7 @@ var curSettlement: Node2D
 
 @export_category("Tutorial")
 @export var tutorial_images: Array[Texture2D] = []
-
+@export var level_data: LevelResource 
  
 var _tutorial_layer: CanvasLayer
 var _tutorial_picture: TextureRect
@@ -32,7 +32,8 @@ var _tutorial_was_paused: bool = false
 @onready var label_cookie_counter: Label = $"../UI/MarginContainer/TextureRect/Label"
 @onready var rotate_output:AudioStreamPlayer =$"../Audiomanager/Rotate"
 func _ready() -> void:
-
+	for item in level_data.building.keys():
+		main_tilemap.spawn_at_place_and_building(item,level_data.building[item])
 	btn_Tutorial.pressed.connect(func(): ShowTutorial())
 	label_cookie_counter.text = str(Global.curGoo)
 

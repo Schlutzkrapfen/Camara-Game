@@ -23,6 +23,7 @@
 [ext_resource type="TileSet" uid="uid://dfd14baga48q4" path="res://Resourcen/Tilemap.tres" id="21_wmtmc"]
 [ext_resource type="Texture2D" uid="uid://dalccafnwdot3" path="res://assets/Sprites/UI/ButtonBase.png" id="22_5t771"]
 [ext_resource type="Script" uid="uid://d18488becbp0n" path="res://script/globals/GameManagerLevel0.gd" id="25_vqiug"]
+[ext_resource type="Resource" uid="uid://b7mlut1ru7uee" path="res://Resourcen/level0.tres" id="26_a2uew"]
 [ext_resource type="Texture2D" uid="uid://cd5llroculqao" path="res://assets/Sprites/UI/Tutorial.png" id="33_6tvxy"]
 [ext_resource type="PackedScene" uid="uid://12viga72ue0v" path="res://Levels/audiomanager.tscn" id="39_yycif"]
 
@@ -289,14 +290,18 @@ expand_mode = 1
 
 [node name="Audiomanager" parent="." unique_id=702756718 node_paths=PackedStringArray("buildstream") instance=ExtResource("39_yycif")]
 buildstream = {
-0: null,
-1: null,
-2: null,
-3: null,
-4: null
+0: NodePath("Build_normal"),
+1: NodePath("Build_combiner"),
+2: NodePath("Build_upgrader"),
+3: NodePath("Build_aliver"),
+4: NodePath("no_Build")
 }
 
-[node name="Level0" type="Node" parent="." unique_id=2103952728]
+[node name="Level0" type="Node" parent="." unique_id=2103952728 node_paths=PackedStringArray("cam", "tilemap", "main_tilemap")]
 script = ExtResource("25_vqiug")
+cam = NodePath("../Camera2D")
+tilemap = NodePath("../MainTailMap/FlowField")
+main_tilemap = NodePath("../MainTailMap")
+level_data = ExtResource("26_a2uew")
 
 [connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]

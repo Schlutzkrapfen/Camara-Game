@@ -43,10 +43,10 @@ func never_needs_item(factory: BuildData, item: Node2D) -> bool:
 			return false
 	return true
 ## Returns true if the building still needs an item of this item's type.
-func needs_item(factory: BuildData, item: Node2D,position) -> bool:
+func needs_item(factory: BuildData, item: Node2D,positions) -> bool:
 	if len(factory.resource_refrence.input) == 0:
 		return true
-	if factory.input_tile.has(position):
+	if factory.input_tile.has(positions):
 		return false
 	var still_needed: Array = factory.resource_refrence.input.duplicate()
 	# Cross off requirements already covered by stored items.
@@ -272,9 +272,8 @@ func delete():
 	Global.curGoo += build_data.resource_refrence.buildcost
 
 ## Places the selected building at the mouse tile, registers its tiles, flowfield, and output cells.
-func spawn_at_place_and_building(position,factory_number):
-	var tile = position
-	var current_house = Global.factory_list[factory_number]
+func spawn_at_place_and_building(positions,current_house):
+	var tile = positions
 	var output_postion:Array[Vector2i]
 	for x in current_house.size.x:
 		for y in current_house.size.y:
@@ -290,7 +289,6 @@ func spawn_at_place_and_building(position,factory_number):
 	var buildings:BuildData = BuildData.new(current_house,output_postion,Global.currentrotation)
 	current_builds[tile] =buildings
 	Global.curGoo -= current_house.buildcost
-	audio_manager._play_build(buildings.resource_refrence.factory_type)
 func spawn():
 	var mouse_position = get_global_mouse_position()
 	var tile = tilemap.local_to_map(tilemap.to_local(mouse_position))
