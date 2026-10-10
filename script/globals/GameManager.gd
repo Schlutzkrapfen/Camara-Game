@@ -19,7 +19,7 @@ var curSettlement: Node2D
 200,200,200,200,200,200,1000,1000,1000,1000,1000,1000,]
 
 @export_category("Tutorial")
-@export var disable_shortcuts:bool = false
+@export var tutorial_bool:bool = false
 @export var level_res:LevelResource 
 @export var tutorial_images: Array[Texture2D] = []
 @export var start_first_raid_automatic:bool = false
@@ -64,13 +64,16 @@ func _ready() -> void:
 		main_tilemap.spawn_at_place_and_building(item,level_res.building[item])
 	if start_first_raid_automatic:
 		StartRaid()
+	if tutorial_bool:
+		ShowTutorial()
+	Global.curGoo = level_res.start_goo
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("roration"):
 		var rotations = Global.TileTransform.values()
 		var index = rotations.find(Global.currentrotation)
 		Global.currentrotation = rotations[(index + 1) % (rotations.size()-1)]
 		rotate_output.play()
-	if disable_shortcuts:
+	if tutorial_bool:
 		return
 	if event.is_action_released("Goo_maker"):
 		Global.current_house = 0
@@ -109,6 +112,8 @@ func check_if_finished() -> void:
 	btn_Raid.disabled = false
 	Global.curGoo += goo_win_amount[curSettlementIndex]
 	label_cookie_counter.text = str(Global.curGoo)
+	if curSettlementIndex == settlements.size():
+		GameWon()
 	
 
 func StartRaid() -> void:
@@ -136,7 +141,9 @@ func _input(event: InputEvent) -> void:
 func GameWon() -> void:
 	print("You beat the entire game!")
 	await soundManager.play_win_sound()
+	
 	get_tree().change_scene_to_packed(level_res.next_level)
+
 	
 # --- Tutorial -----------------------------------------------------------------
 	

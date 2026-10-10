@@ -69,9 +69,6 @@ func check_building(is_okay:bool):
 func _process(delta: float) -> void:
 	if _building and is_okay_to_build:
 		spawn()
-	elif _building and not is_okay_to_build:
-		audio_manager.play_failed_build()
-		
 	if _deleting:
 		delete()
 	for key in current_builds: # or current_builds.items()
@@ -102,9 +99,6 @@ func _process(delta: float) -> void:
 						if not factory.already_emited:
 							factory.already_emited = true
 							emit_signal("maschin_finished")
-							#output_input(factory)
-							#clear_factory(factory)
-							
 						continue
 					_:
 						if output_items(factory):
@@ -124,6 +118,8 @@ func _input(event: InputEvent) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("build_place") and is_okay_to_build:
 		_building = true
+	elif event.is_action_pressed("build_place") and not is_okay_to_build:
+		audio_manager.play_failed_build()
 	elif event.is_action_released("build_place"):
 		_building = false
 

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://qd2q56dbmfki"]
 
 [ext_resource type="Script" uid="uid://ejqe80o6gp7k" path="res://Levels/main_menu.gd" id="1_6ucrw"]
+[ext_resource type="PackedScene" uid="uid://dsmrf3r26mbjx" path="res://Levels/main_scene_RobertTesting.tscn" id="2_3es34"]
+[ext_resource type="PackedScene" uid="uid://dr2as2u2law4f" path="res://Levels/Tutorial0.tscn" id="3_8md67"]
 
 [node name="Main Menu" type="Control" unique_id=219666548]
 layout_mode = 3
@@ -29,6 +31,8 @@ offset_bottom = 76.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6ucrw")
+game = ExtResource("2_3es34")
+tutorail = ExtResource("3_8md67")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1907160907]
 layout_mode = 2

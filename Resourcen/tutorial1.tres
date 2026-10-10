@@ -12,6 +12,30 @@
 [ext_resource type="PackedScene" uid="uid://te3wdjrwjvf3" path="res://Levels/Creature/torso.tscn" id="9_ir5fp"]
 [ext_resource type="PackedScene" uid="uid://ptqjmu6thc27" path="res://Levels/Tutorial2.tscn" id="10_ir5fp"]
 
+[sub_resource type="Resource" id="Resource_oa26c"]
+script = ExtResource("1_bq6ub")
+size = Vector2i(1, 2)
+tilemap_id = 2
+output_tile = Dictionary[Vector2i, int]({
+Vector2i(0, 0): 0,
+Vector2i(0, 1): 0
+})
+can_not_deleted = true
+factory_type = 4
+
+[sub_resource type="Resource" id="Resource_gnba1"]
+script = ExtResource("1_bq6ub")
+size = Vector2i(2, 1)
+tilemap_id = 6
+craft_time = 1.0
+input = Array[Script]([ExtResource("8_erm0v")])
+output = Array[PackedScene]([ExtResource("9_ir5fp")])
+output_tile = Dictionary[Vector2i, int]({
+Vector2i(1, 0): 0
+})
+buildcost = 3
+can_not_deleted = true
+
 [sub_resource type="Resource" id="Resource_cu1xi"]
 script = ExtResource("1_bq6ub")
 size = Vector2i(2, 2)
@@ -39,30 +63,6 @@ input_size = 2
 buildcost = 5
 can_not_deleted = true
 factory_type = 1
-
-[sub_resource type="Resource" id="Resource_oa26c"]
-script = ExtResource("1_bq6ub")
-size = Vector2i(1, 2)
-tilemap_id = 2
-output_tile = Dictionary[Vector2i, int]({
-Vector2i(0, 0): 0,
-Vector2i(0, 1): 0
-})
-can_not_deleted = true
-factory_type = 4
-
-[sub_resource type="Resource" id="Resource_gnba1"]
-script = ExtResource("1_bq6ub")
-size = Vector2i(2, 1)
-tilemap_id = 6
-craft_time = 1.0
-input = Array[Script]([ExtResource("8_erm0v")])
-output = Array[PackedScene]([ExtResource("9_ir5fp")])
-output_tile = Dictionary[Vector2i, int]({
-Vector2i(1, 0): 0
-})
-buildcost = 3
-can_not_deleted = true
 
 [resource]
 script = ExtResource("5_oa26c")

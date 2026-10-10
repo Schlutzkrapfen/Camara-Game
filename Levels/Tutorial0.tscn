@@ -224,7 +224,7 @@ cam = NodePath("../Camera2D")
 tilemap = NodePath("../MainTailMap/FlowField")
 main_tilemap = NodePath("../MainTailMap")
 soundManager = NodePath("../Audiomanager")
-disable_shortcuts = true
+tutorial_bool = true
 level_res = ExtResource("26_a2uew")
 tutorial_images = Array[Texture2D]([ExtResource("25_a2uew"), ExtResource("27_sovsu")])
 
