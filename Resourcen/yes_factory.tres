@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BuildingResource" format=3 uid="uid://b1ix42gmquv24"]
+
+[ext_resource type="Script" uid="uid://4rxcymabsf8u" path="res://script/goo.gd" id="1_xrrkq"]
+[ext_resource type="Script" uid="uid://c46u5wpm1rwce" path="res://Resourcen/building_resource.gd" id="3_gehy2"]
+
+[resource]
+script = ExtResource("3_gehy2")
+size = Vector2i(2, 1)
+tilemap_id = 12
+input = Array[Script]([ExtResource("1_xrrkq")])
+output_tile = Dictionary[Vector2i, int]({
+Vector2i(1, 0): 0
+})
+buildcost = 300
+can_not_deleted = true

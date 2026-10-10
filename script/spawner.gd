@@ -102,6 +102,9 @@ func _process(delta: float) -> void:
 						if not factory.already_emited:
 							factory.already_emited = true
 							emit_signal("maschin_finished")
+							output_input(factory)
+							clear_factory(factory)
+							
 						continue
 					_:
 						if output_items(factory):
@@ -261,6 +264,8 @@ func delete():
 		return
 	var factory_start_position:Vector2i = occupied_tiles[tile]
 	var build_data:BuildData = current_builds[factory_start_position]
+	if build_data.resource_refrence.can_not_deleted:
+		return
 	var size:Vector2i = build_data.resource_refrence.size
 	current_builds.erase(factory_start_position)
 	for x in size.x:

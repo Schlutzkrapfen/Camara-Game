@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dab8ry1vc6pti" path="res://assets/Protype Factory/factory.png" id="5_8gqak"]
 [ext_resource type="Texture2D" uid="uid://fnxol2v3v8jk" path="res://assets/Sprites/Factories/Upgrader.png" id="6_i01ab"]
 [ext_resource type="Texture2D" uid="uid://cgnh8i2ap5c72" path="res://assets/Sprites/Factories/Aliver.png" id="7_832d0"]
+[ext_resource type="Texture2D" uid="uid://c16172lknfrr0" path="res://assets/Sprites/Factories/confetti.png" id="8_678uv"]
 [ext_resource type="Texture2D" uid="uid://bjashyfv41cpn" path="res://assets/Sprites/Factories/Splitter.png" id="8_mtjfp"]
 [ext_resource type="Texture2D" uid="uid://d27i4qnwa0txv" path="res://assets/Protype Factory/headfactory.png" id="9_mb6db"]
 [ext_resource type="Texture2D" uid="uid://mcwipabtk0ga" path="res://assets/Sprites/Factories/GooFactory.png" id="10_m1dpo"]
@@ -21,10 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://dk7ldpc8ttfo6" path="res://assets/BuildingCheck/Wrong_2.png" id="19_4hd80"]
 [ext_resource type="Script" uid="uid://dw655442tyxqd" path="res://script/check_if_build.gd" id="20_wnr1f"]
 [ext_resource type="TileSet" uid="uid://dfd14baga48q4" path="res://Resourcen/Tilemap.tres" id="21_wmtmc"]
-[ext_resource type="Texture2D" uid="uid://dalccafnwdot3" path="res://assets/Sprites/UI/ButtonBase.png" id="22_5t771"]
-[ext_resource type="Script" uid="uid://d18488becbp0n" path="res://script/globals/GameManagerLevel0.gd" id="25_vqiug"]
-[ext_resource type="Resource" uid="uid://b7mlut1ru7uee" path="res://Resourcen/level0.tres" id="26_a2uew"]
-[ext_resource type="Texture2D" uid="uid://cd5llroculqao" path="res://assets/Sprites/UI/Tutorial.png" id="33_6tvxy"]
+[ext_resource type="Script" uid="uid://do8dom7rcdpjx" path="res://script/globals/GameManager.gd" id="24_vqiug"]
+[ext_resource type="PackedScene" uid="uid://ifvtipktctcg" path="res://Levels/UI.tscn" id="26_678uv"]
 [ext_resource type="PackedScene" uid="uid://12viga72ue0v" path="res://Levels/audiomanager.tscn" id="39_yycif"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mne4e"]
@@ -61,6 +60,12 @@ texture_region_size = Vector2i(100, 100)
 1:2/0 = 0
 2:2/0 = 0
 3:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sovsu"]
+texture = ExtResource("8_678uv")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mc1i1"]
 texture = ExtResource("8_mtjfp")
@@ -135,6 +140,7 @@ sources/8 = SubResource("TileSetAtlasSource_8pwl7")
 sources/9 = SubResource("TileSetAtlasSource_pbg0h")
 sources/10 = SubResource("TileSetAtlasSource_pvusm")
 sources/11 = SubResource("TileSetAtlasSource_u2hbt")
+sources/12 = SubResource("TileSetAtlasSource_sovsu")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rkvs"]
 texture = ExtResource("18_1vx2h")
@@ -200,94 +206,6 @@ main_tileset = NodePath("../MainTailMap")
 modulate = Color(1, 1, 1, 0.3019608)
 tile_set = ExtResource("21_wmtmc")
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1117017474]
-
-[node name="Margin" type="MarginContainer" parent="UI" unique_id=395873661]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -50.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="HBox" type="HBoxContainer" parent="UI/Margin" unique_id=42983778]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-theme_override_constants/separation = 10
-accessibility_region = true
-
-[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=472492297]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -100.0
-offset_bottom = 50.0
-grow_horizontal = 0
-
-[node name="TextureRect" type="TextureRect" parent="UI/MarginContainer" unique_id=219077417]
-layout_mode = 2
-texture = ExtResource("22_5t771")
-expand_mode = 1
-
-[node name="Label" type="Label" parent="UI/MarginContainer/TextureRect" unique_id=1852356092]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Margin2" type="MarginContainer" parent="UI" unique_id=1348734156]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -70.0
-offset_top = -70.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="Tutorial" type="TextureButton" parent="UI/Margin2" unique_id=1986609009]
-layout_mode = 2
-texture_normal = ExtResource("22_5t771")
-ignore_texture_size = true
-stretch_mode = 4
-
-[node name="TextureRect" type="TextureRect" parent="UI/Margin2/Tutorial" unique_id=177781497]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("33_6tvxy")
-expand_mode = 1
-
 [node name="Audiomanager" parent="." unique_id=702756718 node_paths=PackedStringArray("buildstream") instance=ExtResource("39_yycif")]
 buildstream = {
 0: NodePath("Build_normal"),
@@ -297,11 +215,45 @@ buildstream = {
 4: NodePath("no_Build")
 }
 
-[node name="Level0" type="Node" parent="." unique_id=2103952728 node_paths=PackedStringArray("cam", "tilemap", "main_tilemap")]
-script = ExtResource("25_vqiug")
-cam = NodePath("../Camera2D")
-tilemap = NodePath("../MainTailMap/FlowField")
-main_tilemap = NodePath("../MainTailMap")
-level_data = ExtResource("26_a2uew")
+[node name="Level0" type="Node" parent="." unique_id=2103952728]
+script = ExtResource("24_vqiug")
 
+[node name="UI" parent="." unique_id=1117017474 instance=ExtResource("26_678uv")]
+
+[node name="GooFactory" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="0" unique_id=69694232]
+visible = false
+
+[node name="ConveyorBelt" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="1" unique_id=1778342489]
+visible = false
+
+[node name="Splitter" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="2" unique_id=1798367615]
+visible = false
+
+[node name="HeadFactory" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="3" unique_id=445236347]
+visible = false
+
+[node name="TorsoFactory" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="4" unique_id=165883831]
+visible = false
+
+[node name="SpikeFactory" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="5" unique_id=1194546142]
+visible = false
+
+[node name="LegFactory" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="6" unique_id=494071228]
+visible = false
+
+[node name="Combiner" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="7" unique_id=1863150022]
+visible = false
+
+[node name="Upgrader" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="8" unique_id=107674569]
+visible = false
+
+[node name="Aliver" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="9" unique_id=1932181829]
+visible = false
+
+[node name="RAID" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="10" unique_id=2077756194]
+visible = false
+
+[connection signal="maschin_finished" from="MainTailMap" to="Level0" method="_on_main_tail_map_maschin_finished"]
 [connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]
+
+[editable path="UI"]

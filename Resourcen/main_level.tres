@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LevelResource" format=3 uid="uid://ds1h07h3kqhtq"]
+
+[ext_resource type="Script" uid="uid://c46u5wpm1rwce" path="res://Resourcen/building_resource.gd" id="1_3dtb2"]
+[ext_resource type="Script" uid="uid://d0lomd1hwdhi" path="res://Resourcen/level_resource.gd" id="3_uaps6"]
+
+[resource]
+script = ExtResource("3_uaps6")
+level_top_conrner = Vector2i(-62, -3)
+level_button_corner = Vector2i(64, 69)
+start_goo = 75

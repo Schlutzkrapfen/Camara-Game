@@ -6,6 +6,8 @@ var curGameState: GameState = GameState.BUILDING
 @export_category("General")
 @export var cam: CameraController
 @export var tilemap: FlowField
+@export var main_tilemap: MainTileMap
+
 
 
 @export_category("Raiding") 
@@ -16,8 +18,10 @@ var curSettlement: Node2D
 200,200,200,200,200,200,1000,1000,1000,1000,1000,1000,]
 
 @export_category("Tutorial")
+@export var disable_shortcuts:bool = false
+@export var level_res:LevelResource 
 @export var tutorial_images: Array[Texture2D] = []
-
+var tutorial 
 var _tutorial_layer: CanvasLayer
 var _tutorial_picture: TextureRect
 var _tutorial_index: int = 0
@@ -54,6 +58,8 @@ func _ready() -> void:
 	btn_Raid.pressed.connect(func(): StartRaid())
 	btn_Tutorial.pressed.connect(func(): ShowTutorial())
 	label_cookie_counter.text = str(Global.curGoo)
+	for item in level_res.building.keys():
+		main_tilemap.spawn_at_place_and_building(item,level_res.building[item])
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("Goo_maker"):
