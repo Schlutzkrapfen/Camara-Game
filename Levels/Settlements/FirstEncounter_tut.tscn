@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://1jiiy6o5k3sd"]
+
+[ext_resource type="PackedScene" uid="uid://dlyg7svl3faxm" path="res://Levels/Enemies/Grunt.tscn" id="1_evk7y"]
+[ext_resource type="Texture2D" uid="uid://o1j4100412vu" path="res://assets/Sprites/Tutorial/Bad Guy.png" id="2_4bhnu"]
+
+[node name="TestSettlement" type="Node2D" unique_id=1731217481]
+
+[node name="Grunt" parent="." unique_id=233829948 instance=ExtResource("1_evk7y")]
+position = Vector2(616, -1439)
+
+[node name="Grunt2" parent="." unique_id=1383277508 instance=ExtResource("1_evk7y")]
+position = Vector2(-671, -1461)
+
+[node name="Grunt3" parent="." unique_id=360318503 instance=ExtResource("1_evk7y")]
+position = Vector2(151, 550)
+
+[node name="BadGuy" type="Sprite2D" parent="Grunt3" unique_id=2129584585]
+position = Vector2(350, -1184)
+texture = ExtResource("2_4bhnu")

@@ -24,7 +24,7 @@
 [ext_resource type="TileSet" uid="uid://dfd14baga48q4" path="res://Resourcen/Tilemap.tres" id="22_u7w7g"]
 [ext_resource type="PackedScene" uid="uid://12viga72ue0v" path="res://Levels/audiomanager.tscn" id="23_8auhq"]
 [ext_resource type="Script" uid="uid://do8dom7rcdpjx" path="res://script/globals/GameManager.gd" id="24_33ung"]
-[ext_resource type="PackedScene" uid="uid://b5dskihv6nlwm" path="res://Levels/Settlements/FirstEncounter.tscn" id="25_8akuo"]
+[ext_resource type="PackedScene" uid="uid://1jiiy6o5k3sd" path="res://Levels/Settlements/FirstEncounter_tut.tscn" id="25_8akuo"]
 [ext_resource type="Resource" uid="uid://ddnvtxogyvq56" path="res://Resourcen/tutorial2.tres" id="25_yt3tv"]
 [ext_resource type="Texture2D" uid="uid://chnfiiflilo6y" path="res://assets/Sprites/Tutorial/Page1.png" id="26_v6x73"]
 [ext_resource type="Texture2D" uid="uid://dv1cvv0chdhul" path="res://assets/Sprites/Tutorial/Page2.png" id="27_yogl4"]
@@ -176,6 +176,7 @@ scale = Vector2(4.02, 4.02)
 texture = ExtResource("2_8akuo")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1101754663]
+position = Vector2(548, 86)
 script = ExtResource("3_psiyx")
 locked = true
 edge_scrolling_enabled = false
@@ -239,6 +240,8 @@ visible = false
 
 [node name="RAID" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="10" unique_id=2077756194]
 visible = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=338445919]
 
 [connection signal="maschin_finished" from="MainTailMap" to="Level2" method="_tutorial_level"]
 [connection signal="is_okay_to_build" from="CheckIfBuild" to="MainTailMap" method="check_building"]

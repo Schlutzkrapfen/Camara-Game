@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://dm7rfndkmyk8g" path="res://Resourcen/goo_factory_tut.tres" id="3_xga8w"]
 [ext_resource type="Resource" uid="uid://relupug667cn" path="res://Resourcen/conaer_belt_tut.tres" id="4_bppw5"]
 [ext_resource type="Script" uid="uid://02teojrlf8xw" path="res://script/Creature.gd" id="5_dmsfh"]
-[ext_resource type="PackedScene" uid="uid://btntyicyivdry" path="res://Levels/Creature/leg_2.tscn" id="7_n74gw"]
+[ext_resource type="Resource" uid="uid://cwefkshq6k55c" path="res://Resourcen/conaer_belt.tres" id="7_2x2b6"]
 [ext_resource type="PackedScene" uid="uid://dsmrf3r26mbjx" path="res://Levels/main_scene_RobertTesting.tscn" id="8_2x2b6"]
 [ext_resource type="Script" uid="uid://4rxcymabsf8u" path="res://script/goo.gd" id="8_i8dgc"]
 [ext_resource type="PackedScene" uid="uid://te3wdjrwjvf3" path="res://Levels/Creature/torso.tscn" id="9_7p6r2"]
@@ -21,19 +21,6 @@ Vector2i(0, 1): 0
 can_not_deleted = true
 factory_type = 4
 
-[sub_resource type="Resource" id="Resource_n74gw"]
-script = ExtResource("1_n74gw")
-size = Vector2i(2, 1)
-tilemap_id = 8
-craft_time = 1.0
-input = Array[Script]([ExtResource("8_i8dgc")])
-output = Array[PackedScene]([ExtResource("7_n74gw")])
-output_tile = Dictionary[Vector2i, int]({
-Vector2i(1, 0): 0
-})
-buildcost = 3
-can_not_deleted = true
-
 [sub_resource type="Resource" id="Resource_gnba1"]
 script = ExtResource("1_n74gw")
 size = Vector2i(2, 1)
@@ -47,19 +34,32 @@ Vector2i(1, 0): 0
 buildcost = 3
 can_not_deleted = true
 
-[sub_resource type="Resource" id="Resource_kbjpp"]
+[sub_resource type="Resource" id="Resource_2x2b6"]
 script = ExtResource("1_n74gw")
 size = Vector2i(2, 2)
-tilemap_id = 9
+tilemap_id = 10
 craft_time = 1.0
-input = Array[Script]([ExtResource("5_dmsfh"), ExtResource("5_dmsfh")])
+input = Array[Script]([ExtResource("5_dmsfh"), ExtResource("8_i8dgc")])
 output_tile = Dictionary[Vector2i, int]({
 Vector2i(1, 1): 0
 })
 input_size = 2
 buildcost = 5
 can_not_deleted = true
-factory_type = 1
+factory_type = 2
+
+[sub_resource type="Resource" id="Resource_kbjpp"]
+script = ExtResource("1_n74gw")
+size = Vector2i(4, 3)
+tilemap_id = 11
+craft_time = 1.5
+input = Array[Script]([ExtResource("5_dmsfh")])
+output_tile = Dictionary[Vector2i, int]({
+Vector2i(3, 1): 0
+})
+buildcost = 10
+can_not_deleted = true
+factory_type = 3
 
 [resource]
 script = ExtResource("11_177q7")
@@ -67,14 +67,11 @@ next_level = ExtResource("8_2x2b6")
 building = Dictionary[Vector2i, ExtResource("1_n74gw")]({
 Vector2i(0, 23): ExtResource("3_xga8w"),
 Vector2i(3, 24): SubResource("Resource_oa26c"),
-Vector2i(4, 24): SubResource("Resource_n74gw"),
+Vector2i(4, 24): ExtResource("4_bppw5"),
 Vector2i(4, 25): SubResource("Resource_gnba1"),
+Vector2i(5, 24): ExtResource("7_2x2b6"),
 Vector2i(6, 24): ExtResource("4_bppw5"),
 Vector2i(6, 25): ExtResource("4_bppw5"),
-Vector2i(7, 24): ExtResource("4_bppw5"),
-Vector2i(7, 25): ExtResource("4_bppw5"),
-Vector2i(8, 24): ExtResource("4_bppw5"),
-Vector2i(8, 25): ExtResource("4_bppw5"),
-Vector2i(9, 24): SubResource("Resource_kbjpp"),
-Vector2i(11, 25): ExtResource("4_bppw5")
+Vector2i(7, 24): SubResource("Resource_2x2b6"),
+Vector2i(10, 30): SubResource("Resource_kbjpp")
 })

@@ -231,13 +231,10 @@ tutorial_images = Array[Texture2D]([ExtResource("26_44f6s"), ExtResource("26_ngb
 
 [node name="UI" parent="." unique_id=1117017474 instance=ExtResource("27_sxfsk")]
 
-[node name="TorsoFactory" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="4" unique_id=165883831]
+[node name="HeadFactory" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="3" unique_id=445236347]
 visible = false
 
 [node name="SpikeFactory" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="5" unique_id=1194546142]
-visible = false
-
-[node name="LegFactory" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="6" unique_id=494071228]
 visible = false
 
 [node name="Combiner" parent="UI/Margin/HBox" parent_id_path=PackedInt32Array(1117017474, 42983778) index="7" unique_id=1863150022]
