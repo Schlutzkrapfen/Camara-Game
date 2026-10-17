@@ -87,7 +87,7 @@ func _process(delta: float) -> void:
 	
 	
 	## Attack if possible
-	if curAttackCooldown <= 0 and  attackDamage > 0 :
+	if curAttackCooldown <= 0:
 		var someoneInRange: bool = false
 		for enemy in get_tree().get_nodes_in_group("enemies"):
 			if global_position.distance_squared_to(enemy.global_position) <= attackRange * attackRange:
@@ -282,6 +282,7 @@ func SwapCreature(new_creature: Creature) -> void:
 	new_creature.lives += lives
 	new_creature.hp += hp
 	new_creature.speed += speed
+	new_creature.attackDamage += attackDamage
 	new_creature.attackCooldown += attackCooldown
 	new_creature.attackRange += attackRange
 	if is_alive:
