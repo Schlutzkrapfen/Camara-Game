@@ -70,9 +70,9 @@ func _process(delta: float) -> void:
 	if _building and is_okay_to_build:
 		spawn()
 	if _deleting:
-		
+
 		delete()
-		
+
 	for key in current_builds: # or current_builds.items()
 		var factory:BuildData = current_builds[key]
 		if factory.resource_refrence.factory_type == Global.factory_type.No_builder:
@@ -114,7 +114,7 @@ func clear_factory(factory:BuildData):
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("build_delete"):
 		_deleting = true
-		
+
 	elif event.is_action_released("build_delete"):
 		_deleting = false
 
@@ -136,7 +136,7 @@ func alive(factory:BuildData)-> bool:
 		creature.is_alive = true
 		result = creature
 		break
-	
+
 	if output_one_item(factory,result):
 		if get_tree().get_node_count_in_group("enemies") >= 1:
 			flowfield.delete_item(result)
@@ -161,7 +161,7 @@ func upgrade_items(factory:BuildData)-> bool:
 	return false
 ## Stitches two stored Creature items together and sends the result out.
 func combine_items(factory:BuildData)-> bool:
-	
+
 	var two_creaturs:Array[Creature]
 	for item in factory.cur_items:
 		var typed_item := item as Creature
@@ -169,9 +169,9 @@ func combine_items(factory:BuildData)-> bool:
 			two_creaturs.append(typed_item)
 			if two_creaturs.size() == 2:
 				break
-	
+
 	var dic = two_creaturs[0].StitchBodyPart(two_creaturs[1])
-	
+
 	if output_one_item(factory,dic["host"]):
 		if dic["success"] == true:
 			two_creaturs[0].visible = true
@@ -183,7 +183,7 @@ func is_output_free(factory):
 	if not flowfield.is_cell_free(factory.output_position[factory.last_output]):
 		return false
 	return true
-	
+
 
 func output_one_item(factory,item)->bool:
 	factory.last_output = (factory.last_output +1)% len(factory.output_position)
@@ -276,7 +276,7 @@ func delete():
 			occupied_tiles.erase(factory_position)
 	Global.curGoo += build_data.resource_refrence.buildcost
 	audio_manager.play_delete()
-	
+
 
 ## Places the selected building at the mouse tile, registers its tiles, flowfield, and output cells.
 func spawn_at_place_and_building(positions,current_house):
@@ -285,15 +285,15 @@ func spawn_at_place_and_building(positions,current_house):
 	for x in current_house.size.x:
 		for y in current_house.size.y:
 			var local_tile =  Vector2i(x,y)
-			var tiles = tile + Global.get_rotation_out_of_size(x ,y)
+			var tiles = tile + Global.get_rotation_out_of_size(x ,y,Global.TileTransform.ROTATE_0)
 			if current_house.output_tile.has(local_tile):
-				flowfield.append_flowfield(tiles,Global.currentrotation)
-				output_postion.append(Vector2i(tiles.x+Global.ROTATE_DIRECTION[Global.currentrotation].x,tiles.y+Global.ROTATE_DIRECTION[Global.currentrotation].y))
+				flowfield.append_flowfield(tiles,Global.TileTransform.ROTATE_0)
+				output_postion.append(Vector2i(tiles.x+Global.ROTATE_DIRECTION[Global.TileTransform.ROTATE_0].x,tiles.y+Global.ROTATE_DIRECTION[Global.TileTransform.ROTATE_0].y))
 			else:
 				flowfield.append_flowfield(tiles,Global.TileTransform.None)
 			occupied_tiles[tiles] = tile
-			tilemap.set_cell(tiles,current_house.tilemap_id,current_house.position_tilemap+local_tile,Global.currentrotation)
-	var buildings:BuildData = BuildData.new(current_house,output_postion,Global.currentrotation)
+			tilemap.set_cell(tiles,current_house.tilemap_id,current_house.position_tilemap+local_tile,Global.TileTransform.ROTATE_0)
+	var buildings:BuildData = BuildData.new(current_house,output_postion,Global.TileTransform.ROTATE_0)
 	current_builds[tile] =buildings
 func spawn():
 	var mouse_position = get_global_mouse_position()
