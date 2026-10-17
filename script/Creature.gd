@@ -87,7 +87,7 @@ func _process(delta: float) -> void:
 	
 	
 	## Attack if possible
-	if curAttackCooldown <= 0 and  attackDamage > 0 :
+	if curAttackCooldown <= 0:
 		var someoneInRange: bool = false
 		for enemy in get_tree().get_nodes_in_group("enemies"):
 			if global_position.distance_squared_to(enemy.global_position) <= attackRange * attackRange:
@@ -282,9 +282,12 @@ func SwapCreature(new_creature: Creature) -> void:
 	new_creature.lives += lives
 	new_creature.hp += hp
 	new_creature.speed += speed
+	new_creature.attackDamage += attackDamage
 	new_creature.attackCooldown += attackCooldown
 	new_creature.attackRange += attackRange
-	print("%s new stats: L:%s | Hp:%s | Spd:%s | Atk:%s | Atk_Cd:%s | Atk_Rng:%s" % [new_creature.name, new_creature.lives, new_creature.hp, new_creature.speed, new_creature.attackDamage, new_creature.attackCooldown, new_creature.attackRange])
+	if is_alive:
+		new_creature.is_alive = true
+	print("%sAFTER SWAP new stats: L:%s | Hp:%s | Spd:%s | Atk:%s | Atk_Cd:%s | Atk_Rng:%s" % [new_creature.name, new_creature.lives, new_creature.hp, new_creature.speed, new_creature.attackDamage, new_creature.attackCooldown, new_creature.attackRange])
 	
 	# 2. Reattach child limbs attached to this creature by ConnectionPoint ID
 	var children_to_reattach: Array[Dictionary] = []
