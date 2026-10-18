@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cjcejf36f00c5" path="res://Levels/Enemies/Guard_WatchTower.tscn" id="3_iqknn"]
 
 [node name="TestSettlement" type="Node2D" unique_id=1731217481]
+position = Vector2(12, -1657)
 
 [node name="Outpost2" parent="." unique_id=1843378386 instance=ExtResource("1_tfkhk")]
 

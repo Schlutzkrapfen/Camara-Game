@@ -167,11 +167,13 @@ texture_repeat = 2
 texture = ExtResource("1_aijsb")
 region_enabled = true
 region_rect = Rect2(0, 0, 40000, 40000)
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=9532409]
 position = Vector2(-13.9, 3246.495)
 scale = Vector2(4.02, 4.02)
 texture = ExtResource("2_qcsq8")
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1101754663]
 script = ExtResource("3_pacoq")

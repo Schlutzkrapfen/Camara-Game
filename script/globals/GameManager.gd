@@ -15,6 +15,9 @@ var curGameState: GameState = GameState.BUILDING
 @export var settlements: Array[PackedScene] 
 var curSettlementIndex: int = 0
 var curSettlement: Node2D
+@export var raidYOffset: float = 100
+@export var raidText: String = "RAID"
+@export var raidTextEnd: String = "ABANDON RAID"
 @export var goo_win_amount:Array[int]  = [20,20,40,100,140,200,200,200,
 200,200,200,200,200,200,1000,1000,1000,1000,1000,1000,]
 
@@ -43,6 +46,7 @@ var _tutorial_was_paused: bool = false
 @onready var btn_Upgrader: TextureButton = $"../UI/Margin/HBox/Upgrader"
 @onready var btn_Aliver: TextureButton = $"../UI/Margin/HBox/Aliver"
 @onready var btn_Raid: TextureButton = $"../UI/Margin/HBox/RAID"
+@onready var btn_RaidText: Label = $"../UI/Margin/HBox/RAID/Label"
 @onready var btn_Tutorial: TextureButton = $"../UI/Margin2/Tutorial"
 @onready var btn_restart: TextureButton = $"../UI/MarginContainer2/Restart"
 @onready var label_cookie_counter: Label = $"../UI/MarginContainer/TextureRect/Label"
@@ -58,7 +62,7 @@ func _ready() -> void:
 	btn_Combiner.pressed.connect(func(): Global.current_house = 7)
 	btn_Upgrader.pressed.connect(func(): Global.current_house = 8)
 	btn_Aliver.pressed.connect(func(): Global.current_house = 9) 
-	btn_Raid.pressed.connect(func(): StartRaid())
+	btn_Raid.pressed.connect(_on_raid_button_pressed)
 	btn_Tutorial.pressed.connect(func(): ShowTutorial())
 	btn_restart.pressed.connect(func(): restart())
 	label_cookie_counter.text = str(Global.curGoo)
@@ -105,24 +109,42 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # --- Raids --------------------------------------------------------------------
 
-func StopRaid() -> void:
-	# curSettlementIndex += 1 evtl -> would even increase when the raid failed
-	cam.locked = true;
+var raid_id: int = 0  # bumped whenever a raid starts or stops, so stale check loops bail out
+var check_amount: float = 1
 
+func _on_raid_button_pressed() -> void:
+	if curGameState == GameState.RAIDING:
+		StopRaid(false)
+	else:
+		StartRaid()
 
-var check_amount:float = 1
-func check_if_finished() -> void:
-	while get_tree().get_node_count_in_group("enemies") >= 1:
+func StopRaid(WonRaid: bool) -> void:
+	raid_id += 1  # invalidates any running check_if_finished loop
+	curGameState = GameState.BUILDING
+	#cam.locked = true
+	btn_RaidText.text = raidText
+
+	if WonRaid:
+		Global.curGoo += goo_win_amount[curSettlementIndex]
+		label_cookie_counter.text = str(Global.curGoo)
+		curSettlementIndex += 1
+
+		if curSettlementIndex == settlements.size():
+			GameWon()
+	else:
+		for enemy in get_tree().get_nodes_in_group("enemies"):
+			enemy.queue_free()
+
+func check_if_finished(id: int) -> void:
+	while id == raid_id and get_tree().get_node_count_in_group("enemies") >= 1:
 		await get_tree().create_timer(check_amount).timeout
-	btn_Raid.disabled = false
-	Global.curGoo += goo_win_amount[curSettlementIndex]
-	label_cookie_counter.text = str(Global.curGoo)
-	if curSettlementIndex == settlements.size():
-		GameWon()
-	
+
+	# Only count as a win if this raid is still the active one
+	# (i.e. it wasn't abandoned or replaced while we were waiting).
+	if id == raid_id and curGameState == GameState.RAIDING:
+		StopRaid(true)
 
 func StartRaid() -> void:
-	btn_Raid.disabled = true
 	if settlements == null:
 		return
 	if settlements.size() == curSettlementIndex:
@@ -130,14 +152,18 @@ func StartRaid() -> void:
 		return
 	tilemap.remove_alive_items_flowfied()
 	curGameState = GameState.RAIDING
-	cam.locked = false;
-	var newSettlement := settlements[curSettlementIndex].instantiate()
+	#cam.locked = false
+	btn_RaidText.text = raidTextEnd
+	
+	var newSettlement := settlements[curSettlementIndex].instantiate() as Node2D
+	newSettlement.position.y += raidYOffset
 	self.add_child(newSettlement)
-	check_if_finished()
 	if curSettlement != null:
 		curSettlement.queue_free()
 	curSettlement = newSettlement
-	curSettlementIndex += 1
+
+	raid_id += 1
+	check_if_finished(raid_id)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_released("build_delete") or event.is_action_released("build_place"):

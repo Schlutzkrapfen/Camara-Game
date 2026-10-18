@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://bm7mbhlfu68eb" path="res://Levels/Settlements/LargeVillage.tscn" id="33_jgmq5"]
 [ext_resource type="PackedScene" uid="uid://cp1dcam88gwgc" path="res://Levels/Settlements/BossLevel.tscn" id="34_as7p5"]
 [ext_resource type="Resource" uid="uid://ds1h07h3kqhtq" path="res://Resourcen/main_level.tres" id="35_0s4sc"]
+[ext_resource type="PackedScene" uid="uid://ckpa0ih66ltdh" path="res://Levels/winscreen.tscn" id="35_mxtv1"]
 [ext_resource type="PackedScene" uid="uid://12viga72ue0v" path="res://Levels/audiomanager.tscn" id="38_o4py4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mne4e"]
@@ -179,12 +180,11 @@ texture = ExtResource("2_krsf2")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1101754663]
 script = ExtResource("1_q6pkb")
-locked = true
 edge_scrolling_enabled = false
 min_zoom = 0.0
 max_zoom = 0.7
 zoom_step = 1.15
-min_y = -14000.0
+min_y = -5000.0
 max_y = 7300.0
 min_x = -7600.0
 max_x = 7600.0
@@ -221,7 +221,8 @@ cam = NodePath("../Camera2D")
 tilemap = NodePath("../MainTailMap/FlowField")
 main_tilemap = NodePath("../MainTailMap")
 soundManager = NodePath("../Audiomanager")
-settlements = Array[PackedScene]([ExtResource("15_814nw"), ExtResource("25_krsf2"), ExtResource("26_o4py4"), ExtResource("27_0s4sc"), ExtResource("28_mxtv1"), ExtResource("29_yfkbv"), ExtResource("30_0i11v"), ExtResource("31_4ax0c"), ExtResource("32_g6w46"), ExtResource("33_jgmq5"), ExtResource("34_as7p5")])
+settlements = Array[PackedScene]([ExtResource("15_814nw"), ExtResource("25_krsf2"), ExtResource("26_o4py4"), ExtResource("27_0s4sc"), ExtResource("28_mxtv1"), ExtResource("29_yfkbv"), ExtResource("30_0i11v"), ExtResource("31_4ax0c"), ExtResource("32_g6w46"), ExtResource("33_jgmq5"), ExtResource("34_as7p5"), ExtResource("35_mxtv1")])
+raidYOffset = -1500.0
 level_res = ExtResource("35_0s4sc")
 tutorial_images = Array[Texture2D]([ExtResource("24_vv2xv"), ExtResource("25_hmfgy"), ExtResource("26_8pwl7")])
 metadata/_custom_type_script = "uid://do8dom7rcdpjx"

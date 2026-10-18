@@ -11,6 +11,7 @@ speed = 0.0
 attackDamage = 15
 attackCooldown = 5.0
 attackRange = 500.0
+isSpawner = true
 spawn = ExtResource("2_ustfx")
 minSpawnTime = 5.0
 maxSpawnTime = 8.0

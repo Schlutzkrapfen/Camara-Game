@@ -64,7 +64,7 @@ func _process(delta: float) -> void:
 		else:
 			## Move towards target
 			if speed > 0:
-				position += (target.position - self.position).normalized() * delta * speed
+				global_position += (target.global_position - global_position).normalized() * delta * speed
 
 
 func SearchForTarget() -> Node2D:
