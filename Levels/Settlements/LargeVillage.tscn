@@ -7,37 +7,37 @@
 [node name="TestSettlement" type="Node2D" unique_id=1731217481]
 
 [node name="GruntHut" parent="." unique_id=1843378386 instance=ExtResource("1_0gttx")]
-position = Vector2(993, 1285)
+position = Vector2(993, 147)
 
 [node name="GruntHut2" parent="." unique_id=2033059713 instance=ExtResource("1_0gttx")]
-position = Vector2(799, -357)
+position = Vector2(799, -1495)
 
 [node name="GruntHut3" parent="." unique_id=16035368 instance=ExtResource("1_0gttx")]
-position = Vector2(-1455, 305)
+position = Vector2(-1455, -833)
 
 [node name="GruntHut4" parent="." unique_id=1816310487 instance=ExtResource("1_0gttx")]
-position = Vector2(-1271, 1562)
+position = Vector2(-1271, 424)
 
 [node name="Outpost" parent="." unique_id=1425538073 instance=ExtResource("2_xesp4")]
-position = Vector2(-955, -445)
+position = Vector2(-955, -1583)
 
 [node name="Outpost2" parent="." unique_id=1138562725 instance=ExtResource("2_xesp4")]
-position = Vector2(1668, 586)
+position = Vector2(1668, -552)
 
 [node name="Outpost3" parent="." unique_id=1902144894 instance=ExtResource("2_xesp4")]
-position = Vector2(628, -1223)
+position = Vector2(628, -2361)
 
 [node name="WatchTower" parent="." unique_id=107985343 instance=ExtResource("3_4e6v3")]
-position = Vector2(-263, 1373)
+position = Vector2(-263, 235)
 
 [node name="WatchTower2" parent="." unique_id=573185039 instance=ExtResource("3_4e6v3")]
-position = Vector2(1362, -144)
+position = Vector2(1362, -1282)
 
 [node name="WatchTower3" parent="." unique_id=213678230 instance=ExtResource("3_4e6v3")]
-position = Vector2(354, 539)
+position = Vector2(354, -599)
 
 [node name="WatchTower4" parent="." unique_id=783712343 instance=ExtResource("3_4e6v3")]
-position = Vector2(-1217, -1357)
+position = Vector2(-1217, -2495)
 
 [node name="WatchTower5" parent="." unique_id=1709868062 instance=ExtResource("3_4e6v3")]
-position = Vector2(-2019, 767)
+position = Vector2(-2019, -371)

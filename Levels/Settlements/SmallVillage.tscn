@@ -7,19 +7,19 @@
 [node name="TestSettlement" type="Node2D" unique_id=1731217481]
 
 [node name="GruntHut" parent="." unique_id=1843378386 instance=ExtResource("1_yx4b7")]
-position = Vector2(235, 2043)
+position = Vector2(235, 771)
 
 [node name="GruntHut2" parent="." unique_id=2033059713 instance=ExtResource("1_yx4b7")]
-position = Vector2(799, -357)
+position = Vector2(799, -1629)
 
 [node name="GruntHut3" parent="." unique_id=16035368 instance=ExtResource("1_yx4b7")]
-position = Vector2(-1455, 305)
+position = Vector2(-1455, -967)
 
 [node name="Outpost" parent="." unique_id=1425538073 instance=ExtResource("2_prssc")]
-position = Vector2(-955, -445)
+position = Vector2(-955, -1717)
 
 [node name="Outpost2" parent="." unique_id=1138562725 instance=ExtResource("2_prssc")]
-position = Vector2(1668, 586)
+position = Vector2(1668, -686)
 
 [node name="WatchTower" parent="." unique_id=107985343 instance=ExtResource("3_prssc")]
-position = Vector2(-263, 1373)
+position = Vector2(-263, 101)

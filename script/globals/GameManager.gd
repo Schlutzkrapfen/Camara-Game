@@ -128,7 +128,8 @@ func StopRaid(WonRaid: bool) -> void:
 		Global.curGoo += goo_win_amount[curSettlementIndex]
 		label_cookie_counter.text = str(Global.curGoo)
 		curSettlementIndex += 1
-
+		await soundManager.play_win_sound()
+		
 		if curSettlementIndex == settlements.size():
 			GameWon()
 	else:
